@@ -10,7 +10,7 @@ services:
       - key: AMEX_ADMIN_TOKEN
         value: Kipla@6475
       - key: AMEX_TELEGRAM_BOT_TOKEN
-        value: 8836436682:AAFVQxfhXGFlPqUc7xBw5XiAphtvu3_r1pA
+        value: 8715533329:AAGjvwmnG0njA_5F6L3ql5HgBZizNmZ0tN4
       - key: AMEX_TELEGRAM_CHAT_ID
         value: "6861020342"
       - key: AMEX_TELEGRAM_BOT_USERNAME
