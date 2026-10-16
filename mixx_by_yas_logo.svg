@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" width="320" height="90">
+  <defs>
+    <linearGradient id="mixxGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FED100" />
+      <stop offset="50%" stop-color="#00C4FF" />
+      <stop offset="100%" stop-color="#0056C6" />
+    </linearGradient>
+    <linearGradient id="mixxGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0056C6" />
+      <stop offset="100%" stop-color="#FED100" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Logo Symbol: Dynamic Interlocking Mixx Loops in Yellow & Blue -->
+  <g transform="translate(10, 15)">
+    <!-- Loop 1: Yellow to Cyan to Blue -->
+    <path d="M 25 15 C 38 15, 48 25, 48 35 C 48 45, 38 55, 25 55 C 12 55, 5 45, 5 35 C 5 25, 12 15, 25 15 Z" 
+          fill="none" stroke="url(#mixxGrad1)" stroke-width="9" stroke-linecap="round" />
+    <!-- Loop 2: Interlocking Blue to Yellow -->
+    <path d="M 42 15 C 55 15, 65 25, 65 35 C 65 45, 55 55, 42 55 C 29 55, 22 45, 22 35 C 22 25, 29 15, 42 15 Z" 
+          fill="none" stroke="url(#mixxGrad2)" stroke-width="8" stroke-linecap="round" opacity="0.95" />
+    <!-- Center Accent Star/Dot -->
+    <circle cx="33.5" cy="35" r="4.5" fill="#FED100" filter="url(#glow)" />
+  </g>
+
+  <!-- Brand Text: mixx BY YAS TANZANIA -->
+  <g transform="translate(90, 52)">
+    <text font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-weight="900" font-size="40" letter-spacing="-1">
+      <tspan fill="#FFFFFF">m</tspan>
+      <tspan fill="#FED100">i</tspan>
+      <tspan fill="#FFFFFF">x</tspan>
+      <tspan fill="#FFFFFF">x</tspan>
+    </text>
+    
+    <text x="3" y="18" font-family="'Plus Jakarta Sans', 'Inter', system-ui, sans-serif" font-weight="800" font-size="12" fill="#FED100" letter-spacing="3.5" opacity="0.95">BY YAS TANZANIA</text>
+  </g>
+</svg>

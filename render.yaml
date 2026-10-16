@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: amex
+    env: python
+    buildCommand: ""
+    startCommand: "python server.py"
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: AMEX_ADMIN_TOKEN
+        value: Kipla@6475
+      - key: AMEX_TELEGRAM_BOT_TOKEN
+        value: 8836436682:AAFVQxfhXGFlPqUc7xBw5XiAphtvu3_r1pA
+      - key: AMEX_TELEGRAM_CHAT_ID
+        value: "6861020342"
+      - key: AMEX_TELEGRAM_BOT_USERNAME
+        value: ShackleAmexBot
+      - key: AMEX_SIGNING_KEY
+        value: amex_prod_secure_signing_key_9981827418938217

